@@ -1,3 +1,38 @@
-<p>
-  web works!
-</p>
+<div id="header" class="bg-white">
+  <div id="header-container" @bounceInDown>
+    <p-menubar styleClass="web-menubar py-5 px-5">
+      <ng-template pTemplate="start">
+        <img src="/assets/resources/images/kubbo_logo_sm.png" alt="hotel-logo"/>
+      </ng-template>
+      <ng-template pTemplate="end">
+        <p-button (click)="show()" label="Sign In" styleClass="p-button-text p-button-sm mx-1 uppercase"></p-button>
+        <p-button label="Join for Free" styleClass="p-button-success p-button-sm p-button-raised mx-1 uppercase"></p-button>
+      </ng-template>
+    </p-menubar>
+    <p-menubar styleClass="web-menubar px-5" [model]="mainMenuItems">
+    </p-menubar>
+  </div>
+</div>
+<p-card styleClass="border-noround login-landing">
+    <div @fadeIn class="sm:w-12 md:w-6 lg:w-3 text-xl text-white px-5" [innerHTML]="htmlTranslation"></div>
+    <p-button @fadeIn label="Join Now" styleClass="p-button-success p-button-lg p-button-raised p-button-rounded uppercase sm:w-12 md:w-6 lg:w-3 mx-5"></p-button>
+</p-card>
+<div class="grid grid-nogutter py-3 px-5">
+  <div class="col">
+    <p-card styleClass="mx-1" header="Recent Users">
+      INSERT RECENT USERS...
+    </p-card>
+  </div>
+  <div class="col">
+    <p-card styleClass="mx-1" header="Lastest News">
+      INSERT CAROUSEL...
+    </p-card>
+  </div>
+</div>
+<div class="grid grid-nogutter py-5 px-5">
+  <div class="col-12">
+    <p-card styleClass="text-sm">
+      © 2020-2022 XDR. <div class="font-bold uppercase inline">Kubbo</div> is NOT a registered trademark of Sulake Oy. All rights reserved.
+    </p-card>
+  </div>
+</div>

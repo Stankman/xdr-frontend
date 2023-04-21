@@ -1,0 +1,32 @@
+.p-button {
+    &:focus {
+        box-shadow: none!important;
+    }
+}
+
+.p-menuitem-link:focus {
+    box-shadow: none!important;
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon:focus {
+    box-shadow: none!important;
+}
+
+.p-card {
+    &.login-landing {
+        .p-card-body {
+            background: url(../images/hotel_landing_3.png) no-repeat 530px 0px, linear-gradient(180deg, #1c384e, #29609c);
+            min-height: 385px;
+            border-color: #dee2e6;
+            border-bottom-width: 1px;
+            border-top-width: 1px;
+        }
+    }
+}
+
+.p-menubar {
+    &.web-menubar {
+        border: none;
+        border-radius: 0;
+    }
+}
