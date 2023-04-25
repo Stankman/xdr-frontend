@@ -1,0 +1,5 @@
+<p-carousel [value]="[0,1,2]" styleClass="articles-carousel border-round overflow-hidden shadow-2" [autoplayInterval]="5000" [circular]="true" [showNavigators]="false">
+    <ng-template let-article pTemplate="item">
+        <xdr-article-slide></xdr-article-slide>
+    </ng-template>
+</p-carousel>

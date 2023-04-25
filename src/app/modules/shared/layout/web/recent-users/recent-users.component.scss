@@ -1,0 +1,23 @@
+.recent-users-list {
+    li {
+        transition: 500ms;
+
+        &:hover {
+            background-color: #ededed;
+            transition: 500ms;
+        }
+    
+        &:not(:first-child) {
+            border-top: 1px solid #ffffff;
+            box-shadow: 0px -1px 0px 0px #f0f0f0;
+        }
+
+        a {
+            text-decoration: none;
+
+            &:visited {
+                color: unset;
+            }
+        }
+    }
+}

@@ -8,11 +8,84 @@
     box-shadow: none!important;
 }
 
+.p-avatar.habbo-avatar {
+    &.p-avatar-circle {
+        background: radial-gradient(#2972ff, #002c5e);
+        border: 2px solid #608cff;
+        height: 5rem;
+        width: 5rem;
+    }
+
+    img {
+        width: auto!important;
+        height: auto!important;
+    }
+}
+
+.p-link {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.articles-carousel {
+    position: relative;
+    
+    .p-carousel-content {
+        ul.p-carousel-indicators {
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+
+            li.p-carousel-indicator {
+                button {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    transition: 0.2s;
+                
+                    &:hover {
+                        width: 15px;
+                        height: 15px;
+                        transition: 0.2s;
+                    }
+                }
+
+                &.p-highlight {
+                    button {
+                        background: #007bff;
+                        width: 15px;
+                        color: #ffffff;
+                        height: 15px;
+                        transition: 0.2s;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .p-dialog .p-dialog-header .p-dialog-header-icon:focus {
     box-shadow: none!important;
 }
 
 .p-card {
+    &.xdr-card {
+        .p-card-body {
+            padding: 0;
+
+            .p-card-title {
+                padding: 1.25rem;
+                padding-bottom: 0;
+            }
+
+            .p-card-content {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
     &.login-landing {
         .p-card-body {
             background: url(../images/hotel_landing_3.png) no-repeat 530px 0px, linear-gradient(180deg, #1c384e, #29609c);
@@ -26,7 +99,23 @@
 
 .p-menubar {
     &.web-menubar {
+        background-color: #ffffff;
         border: none;
         border-radius: 0;
     }
+}
+
+.flag {
+    background: url(../images/flags_responsive.png) no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+    width: 18px;
+}
+
+.flag-es {
+    background-position: 0 26.859504%;
+}
+
+.flag-en {
+    background-position: 0 93.38843%;
 }

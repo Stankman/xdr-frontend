@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-signin-dialog',
+  selector: 'xdr-signin-dialog',
   templateUrl: './signin-dialog.component.html',
   styleUrls: ['./signin-dialog.component.css']
 })

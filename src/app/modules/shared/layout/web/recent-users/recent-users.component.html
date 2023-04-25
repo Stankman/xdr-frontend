@@ -1,0 +1,11 @@
+<p-card styleClass="xdr-card recent-users min-h-full" header="Recent Users">
+    <ng-container>
+        <ul class="recent-users-list list-none p-0">
+            <li class="recent-users-item p-ripple cursor-pointer" *ngFor="let number of [0,1,2]">
+                <a pRipple>
+                    <xdr-list-member></xdr-list-member>
+                </a>
+            </li>
+        </ul>
+    </ng-container>
+</p-card>

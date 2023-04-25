@@ -1,0 +1,368 @@
+span.habbo-web-icon {
+    background: url('/assets/resources/images/habbo_assets_1.png');
+    display: block;
+
+    &.default {
+        height: 22px;
+        width: 22px;
+    }
+
+    &.online {
+        background-position: 151px 302px;
+        height: 34px;
+        width: 30px;
+    }
+
+    &.offline {
+        background-position: 60px 662px;
+        height: 28px;
+        width: 22px;
+    }
+
+    &.credits, &.credit, &.currency-credit {
+        background-position: 50px 402px;
+        height: 22px;
+        width: 21px;
+    }
+
+    &.duckets, &.ducket, &.currency-ducket {
+        background-position: 53px -154px;
+        height: 22px;
+        width: 21px;
+    }
+    
+    &.diamonds, &.diamond, &.currency-diamond {
+        background-position: 54px -210px;
+        height: 22px;
+        width: 20px;
+    }
+    
+    &.time {
+        background-position: 56px -324px;
+        height: 22px;
+        width: 22px;
+    }
+    
+    &.group {
+        background-position: 77px -217px;
+        height: 22px;
+        width: 22px;
+    }
+
+    &.group-2 {
+        background-position: 30px 112px;
+        height: 15px;
+        width: 15px;
+    }
+    
+    &.star {
+        background-position: 72px 402px;
+        height: 22px;
+        width: 22px;
+    }
+    
+    &.star2 {
+        background-position: 102px -80px;
+        height: 24px;
+        width: 26px;
+    }
+    
+    &.star3 {
+        background-position: 102px -103px;
+        height: 24px;
+        width: 26px;
+    }
+    
+    &.search {
+        background-position: 49px 462px;
+        height: 21px;
+        width: 20px;
+    }
+    
+    &.king {
+        background-position: 102px -247px;
+        height: 20px;
+        width: 22px;
+    }
+    
+    &.queen {
+        background-position: 40px -370px;
+        height: 17px;
+        width: 21px;
+    }
+    
+    &.lock {
+        background-position: 97px 79px;
+        height: 28px;
+        width: 25px;
+    }
+    
+    &.lock2 {
+        background-position: 97px 266px;
+        height: 28px;
+        width: 25px;
+    }
+    
+    &.username {
+        background-position: 101px -200px;
+        height: 22px;
+        width: 25px;
+    }
+    
+    &.thumb {
+        background-position: 101px -53px;
+        height: 28px;
+        width: 25px;
+    }
+    
+    &.user {
+        background-position: 103px -289px;
+        height: 28px;
+        width: 25px;
+    }
+
+    &.arrow-left {
+        background-position: 16px -135px;
+        height: 22px;
+        width: 20px;
+    }
+
+    &.builder {
+        background-position: 51px 152px;
+        height: 15px;
+        width: 22px;
+    }
+
+    &.shoes {
+        background-position: 150px 179px;
+        height: 23px;
+        width: 29px;
+    }
+
+    &.tile {
+        background-position: 54px 0px;
+        height: 23px;
+        width: 22px;
+    }
+    
+    &.furni {
+        background-position: 72px 330px;
+        height: 27px;
+        width: 22px;
+    }
+}
+
+span.habbo-web-icon-2 {
+    background: url('/assets/resources/images/habbo_assets_2.png');
+    display: block;
+
+    &.arrow-up {
+        background-position: 138px 21px;
+        height: 21px;
+        width: 25px;
+        -moz-transform: scaleY(-1);
+        -o-transform: scaleY(-1);
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
+    }
+    
+    &.arrow-down {
+        background-position: 138px 21px;
+        height: 21px;
+        width: 25px;
+    }
+
+    &.arrows {
+        background-position: -50px 65px;
+        height: 21px;
+        width: 22px;
+    }
+
+    &.key {
+        background-position: -179px 21px;
+        height: 21px;
+        width: 22px;
+    }
+
+    &.hide {
+        background-position: 92px 21px;
+        height: 16px;
+        width: 19px;
+    }
+
+    &.show {
+        background-position: 113px 21px;
+        height: 16px;
+        width: 19px;
+    }
+}
+
+span.habbo-web-icon-3 {
+    background: url('/assets/resources/images/habbo_assets_3.png');
+    display: block;
+
+    &.fullscreen {
+        background-position: -158px -165px;
+        width: 15px;
+        height: 14px;
+    }
+    
+    &.fullscreen-back {
+        background-position: -181px -113px;
+        width: 15px;
+        height: 14px;
+    }
+}
+
+span.habbo-web-icon-4 {
+    background: url('/assets/resources/images/habbo_assets_4.png');
+    display: block;
+
+    &.users {
+        background-position: 0px 601px;
+        width: 20px;
+        height: 20px;
+    }
+
+    &.time {
+        background-position: 0px 674px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    &.close {
+        background-position: 0px 377px;
+        width: 20px;
+        height: 15px;
+    }
+}
+
+span.habbo-web-icon-5 {
+    background: url('/assets/resources/images/habbo_assets_5.png');
+    display: block;
+
+    &.arrow {
+        background-position: -499px -405px;
+        width: 16px;
+        height: 22px;
+    }
+}
+
+span.habbo-web-icon-6 {
+    background: url('/assets/resources/images/habbo_assets_6.png');
+    display: block;
+
+    &.like {
+        background-position: 16px -517px;
+        width: 16px;
+        height: 10px;
+    }
+
+    &.dislike {
+        background-position: 16px -530px;
+        width: 16px;
+        height: 10px;
+    }
+}
+
+img.image-pixelated {
+    image-rendering: pixelated;
+}
+
+img.mannequin-medium, .mannequin.medium {
+    max-width: 64px;
+    min-width: 64px;
+    width: 64px;
+    z-index: 1;
+}
+
+img.mannequin-large, .mannequin.large {
+    max-width: 128px;
+    min-width: 128px;
+    width: 128px;
+    z-index: 1;
+}
+
+.habbo-mannequin-container {
+    overflow: hidden;
+    position: relative;
+
+    img {
+        z-index: 1;
+    }
+
+    &:after {
+        background: url('/assets/resources/images/habbo_assets_1.png');
+        background-repeat: no-repeat;
+        content: '';
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+    }
+
+    &.avatar {
+        align-items: center;
+        display: flex;
+        height: 130px;
+        justify-content: center;
+        width: 135px;
+
+        &:after {
+            background-position: 0px -161px;
+        }
+    }
+    
+    &.avatar2 {
+        align-items: center;
+        display: flex;
+        height: 125px;
+        justify-content: center;
+        width: 150px;
+
+        &:after {
+            background-position: 0px -15px;
+        }
+    }
+    
+    &.head {
+        align-items: center;
+        display: flex;
+        height: 66px;
+        justify-content: center;
+        width: 62px;
+
+        &:after {
+            background-position: -146px -148px;
+        }
+    }
+}
+
+.habbo-mannequin-plates {
+    align-items: center;
+    background: url('/assets/resources/images/habbo_plate.png');
+    background-position: 100% 0%;
+    background-repeat: no-repeat;
+    display: flex;
+    height: 115px;
+    justify-content: center;
+    overflow: hidden;
+    width: 125px;
+
+    &.online {
+        img {
+            opacity: 1;
+        }
+    }
+
+    img {
+        cursor: pointer;
+        opacity: 0.85;
+        transition: 0.3s;
+
+        &:hover {
+            opacity: 1;
+            transition: 0.3s;
+        }
+    }
+}
