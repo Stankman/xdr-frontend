@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { QuicklinkStrategy } from 'ngx-quicklink';
-import { AppComponent } from './app.component';
+import { WebComponent } from './modules/web/web.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: WebComponent,
     loadChildren: () => import('./modules/web/web.module').then((m) => m.WebModule)
   }
 ];

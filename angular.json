@@ -57,7 +57,10 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeflex/primeflex.scss",
               "src/assets/resources/styles/xdr-icons.scss",
-              "src/assets/resources/styles/common.scss"
+              "src/assets/resources/styles/common.scss",
+              "src/assets/resources/styles/root.scss",
+              "src/assets/resources/styles/theme-dark.scss",
+              "src/assets/resources/styles/theme-light.scss"
             ],
             "scripts": []
           },

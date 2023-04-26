@@ -1,6 +1,120 @@
-.p-button {
+.p-component {
+    font-family: var(--font-family);
+}
+
+.p-button.habbo-button {
+    color: #ffffff;
+    box-shadow: 0 3px 0 1px rgb(0 0 0 / 30%);
+    background-color: #00813e;
+    border-color: #8eda55;
+    border-width: 2px;
+    transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    border-radius: var(--border-radius);
+    border-style: solid;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #00ab54;
+        border-color: #b9f373;
+    }
+
+    &:active {
+        background-color: #006743;
+        border-color: #5abb37;
+        box-shadow: 0 1px 0 1px rgb(0 0 0 / 30%);
+        transform: translate(0,2px);
+    }
+
     &:focus {
         box-shadow: none!important;
+        outline: 0 none;
+        outline-offset: 0;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+    }
+
+    &.success {
+        background-color: #00813e;
+        border-color: #8eda55;
+
+        &:enabled:hover {
+            background-color: #00ab54;
+            border-color: #b9f373;
+        }
+
+        &:enabled:active {
+            background-color: #006743;
+            border-color: #5abb37;
+        }
+    }
+
+    &.primary {
+        background-color: #0f7dbc;
+        border-color: #2a9cde;
+
+        &:enabled:hover, &:hover {
+            background-color: #2a9cde;
+            border-color: #53bdf9;
+
+            &.pointer {
+                &.p-button-lg:after {
+                    background-color: #2a9cde;
+                    border-color: #53bdf9;
+                }
+            }
+        }
+
+        &:enabled:active {
+            background-color: #084d74;
+            border-color: #1e7b9e;
+
+            &.pointer {
+                &.p-button-lg:after {
+                    background-color: #084d74;
+                    border-color: #1e7b9e;
+                }
+            }
+        }
+
+        &.pointer {
+            overflow: visible;
+
+            &.p-button-lg:after {
+                content: "";
+                width: 40px;
+                height: 40px;
+                background-image: -ms-linear-gradient(135deg, #ebebeb 0%, #fefefe 100%);
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: -22px;
+                border: 2px solid #2a9cde;
+                background: #0f7dbc;
+                border-left: none;
+                border-bottom: none;
+                border-radius: 2px;
+                transform: rotate(47deg) skew(5deg);
+                transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+            }
+        }
+    }
+
+    &.p-button-text {
+        background-color: transparent;
+        color: var(--web-text-normal);
+        border-color: transparent;
+        box-shadow: none;
+
+        &:enabled:hover, &:enabled:active {
+            background: transparent;
+            color: var(--web-text-normal);
+            border-color: transparent;
+            transform: translate(0);
+        }
     }
 }
 

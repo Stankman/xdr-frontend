@@ -1,1 +1,17 @@
-<p>login works!</p>
+<p-card styleClass="border-noround login-landing">
+    <div id="login-landing-content" class="px-8">
+      <div @fadeIn class="sm:w-12 md:w-6 lg:w-3 text-xl text-white" [innerHTML]="htmlTranslation"></div>
+    <p-button @fadeIn label="Join Now" styleClass="habbo-button p-button-success p-button-lg p-button-raised p-button-rounded uppercase sm:w-12 md:w-6 lg:w-3"></p-button>
+    </div>
+</p-card>
+<div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
+  <div class="sm:col-12 lg:col-3 p-2">
+    <xdr-recent-users></xdr-recent-users>
+  </div>
+  <div class="sm:col-12 lg:col-6 p-2">
+    <xdr-articles-carousel></xdr-articles-carousel>
+  </div>
+  <div class="sm:col-12 lg:col-3 p-2">
+    <xdr-recent-users></xdr-recent-users>
+  </div>
+</div>

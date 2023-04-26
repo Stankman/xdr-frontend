@@ -31,8 +31,6 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.show();
-
     this.mainMenuItems = [
       {
         label: 'Play now!',
