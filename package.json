@@ -23,6 +23,7 @@
     "ng-animate": "^2.0.1",
     "ngx-quicklink": "^0.4.1",
     "primeflex": "^3.3.0",
+    "primeicons": "^6.0.1",
     "primeng": "^15.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

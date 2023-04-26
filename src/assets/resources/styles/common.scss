@@ -69,9 +69,22 @@
     box-shadow: none!important;
 }
 
+.p-dialog {
+    &.login-dialog {
+        .p-dialog-header {
+            padding-bottom: 0;
+        }
+    }
+}
+
 .p-card {
     &.xdr-card {
+        .p-card-header { 
+            background-color: transparent;
+        }
+
         .p-card-body {
+            background-color: transparent;
             padding: 0;
 
             .p-card-title {

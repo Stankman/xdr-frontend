@@ -31,6 +31,8 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.show();
+
     this.mainMenuItems = [
       {
         label: 'Play now!',
@@ -56,9 +58,9 @@ export class HeaderComponent implements OnInit {
 
   show() {
     this.ref = this.dialogService.open(SignInDialogComponent, {
-      header: 'Sign In',
       dismissableMask: true,
-      width: '50%'
+      styleClass: 'login-dialog overflow-hidden max-w-30rem sm:w-30rem md:w-30rem sm:border-noround md:border-round',
+      height: '80%'
     });
   }
 }

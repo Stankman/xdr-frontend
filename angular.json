@@ -54,6 +54,7 @@
             "styles": [
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
               "node_modules/primeflex/primeflex.scss",
               "src/assets/resources/styles/xdr-icons.scss",
               "src/assets/resources/styles/common.scss"
