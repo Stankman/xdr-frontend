@@ -4,6 +4,7 @@ import { WebComponent } from './web.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { WebRoutingModule } from './web-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { HallOfFameComponent } from './modules/hall-of-fame/hall-of-fame.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     WebRoutingModule
   ],
-  declarations: [WebComponent]
+  declarations: [WebComponent, HallOfFameComponent]
 })
 export class WebModule { }

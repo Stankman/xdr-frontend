@@ -31,6 +31,10 @@ const routes : Routes = [
         loadChildren: () => import('./modules/team/team.module').then((m) => m.TeamModule)
     },
     {
+        path: 'hall-of-fame',
+        loadChildren: () => import('./modules/hall-of-fame/hall-of-fame.module').then((m) => m.HallOfFameModule)
+    },
+    {
         path: 'shop',
         loadChildren: () => import('./modules/shop/shop.module').then((m) => m.ShopModule)
     }

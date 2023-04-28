@@ -41,12 +41,16 @@ export class HeaderComponent implements OnInit {
         routerLink: 'community'
       },
       {
+        label: 'News',
+        routerLink: 'articles'
+      },
+      {
         label: 'Our Team',
         routerLink: 'team'
       },
       {
-        label: 'News',
-        routerLink: 'articles'
+        label: 'Hall Of Fame',
+        routerLink: 'hall-of-fame'
       },
       {
         label: 'Store',
