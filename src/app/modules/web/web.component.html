@@ -1,5 +1,11 @@
-<div id="header-container" class="bg-white">
-  <xdr-header></xdr-header>
+<div id="web-container" class="flex flex-column h-screen">
+  <div id="header-container" class="bg-white">
+    <xdr-header></xdr-header>
+  </div>
+  <div id="body-container" class="flex-auto">
+    <router-outlet></router-outlet>
+  </div>
+  <div id="footer-container" class="mt-auto">
+    <xdr-footer></xdr-footer>
+  </div>
 </div>
-<router-outlet></router-outlet>
-<xdr-footer></xdr-footer>

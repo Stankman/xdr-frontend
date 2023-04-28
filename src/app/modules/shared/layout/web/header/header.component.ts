@@ -33,23 +33,24 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.mainMenuItems = [
       {
-        label: 'Play now!',
-        styleClass: 'lg:hidden'
+        label: 'Stankman',
+        visible: false
       },
       {
-        label: 'Home'
+        label: 'Community',
+        routerLink: 'community'
       },
       {
-        label: 'Community'
+        label: 'Our Team',
+        routerLink: 'team'
       },
       {
-        label: 'Our Team'
+        label: 'News',
+        routerLink: 'articles'
       },
       {
-        label: 'News'
-      },
-      {
-        label: 'Store'
+        label: 'Store',
+        routerLink: 'shop'
       }
     ];
   }

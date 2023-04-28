@@ -21,7 +21,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
+import { ScrollerModule } from 'primeng/scroller';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
+import { ArticlePreviewComponent } from './layout/web/article-preview/article-preview.component';
+import { EmptyBlockComponent } from './layout/web/empty-block/empty-block.component';
 
 @NgModule({
   imports: [
@@ -40,19 +43,24 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     MenubarModule,
     PasswordModule,
     RippleModule,
+    ScrollerModule,
     VirtualScrollerModule
   ],
   declarations: [
     ArticlesCarouselComponent,
+    ArticlePreviewComponent,
     ArticleSlideComponent,
+    EmptyBlockComponent,
     FooterComponent,
     HeaderComponent,
     ListMemberComponent,
     RecentUsersComponent,
-    SignInDialogComponent
+    SignInDialogComponent,
   ],
   exports: [
     ArticlesCarouselComponent,
+    ArticlePreviewComponent,
+    EmptyBlockComponent,
     FooterComponent,
     HeaderComponent,
     RecentUsersComponent,
@@ -66,7 +74,9 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     DynamicDialogModule,
     InputTextModule,
     MenubarModule,
-    RippleModule
+    RippleModule,
+    ScrollerModule,
+    VirtualScrollerModule
   ]
 })
 export class SharedModule { }

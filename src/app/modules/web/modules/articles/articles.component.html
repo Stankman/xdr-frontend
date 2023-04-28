@@ -1,1 +1,21 @@
-<p>articles works!</p>
+<div class="grid grid-nogutter py-2 px-8">
+    <div class="col text-right">
+        <input pInputText placeholder="Search Article..." type="text" />
+    </div>
+</div>
+<div class="grid grid-nogutter py-2 px-8 h-full">
+    <div class="col p-2">
+        <ng-container *ngIf="articles.length > 0 else noArticles">
+            <p-scroller styleClass="articles-scroller" [items]="[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" [itemSize]="25" [delay]="250" [appendOnly]="true">
+                <ng-template pTemplate="item" let-item> 
+                    <div class="col-12 lg:col-3">
+                        <xdr-article-preview></xdr-article-preview>
+                    </div>
+                </ng-template>
+            </p-scroller>
+        </ng-container>
+        <ng-template #noArticles>
+            <xdr-empty-block></xdr-empty-block>
+        </ng-template>
+    </div>
+</div>

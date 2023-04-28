@@ -1,4 +1,4 @@
-.p-component {
+body, .p-component {
     font-family: var(--font-family);
 }
 
@@ -229,6 +229,17 @@
         background-color: #ffffff;
         border: none;
         border-radius: 0;
+    }
+}
+
+.p-scroller {
+    &.articles-scroller {
+        height: 100%;
+
+        .p-scroller-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
 }
 
