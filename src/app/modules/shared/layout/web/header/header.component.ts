@@ -3,7 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { DynamicDialogRef, DialogService } from 'primeng/dynamicdialog';
 import { SignInDialogComponent } from '../signin-dialog/signin-dialog.component';
 import { trigger, transition, useAnimation } from '@angular/animations';
-import { bounceInDown } from 'ng-animate';
+import { bounceInDown, bounceOutUp } from 'ng-animate';
 
 @Component({
   selector: 'xdr-header',
@@ -13,7 +13,12 @@ import { bounceInDown } from 'ng-animate';
     DialogService
   ],
   animations: [
-    trigger('bounceInDown', [transition('* => *', useAnimation(bounceInDown, {
+    trigger('bounceInDown', [transition(':enter', useAnimation(bounceInDown, {
+      params: {
+        timing: 2
+      }
+    }))]),
+    trigger('bounceOutUp',[transition(':leave', useAnimation(bounceOutUp, {
       params: {
         timing: 2
       }

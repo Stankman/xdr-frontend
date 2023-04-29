@@ -1,1 +1,23 @@
-<p>team works!</p>
+<div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
+    <div class="col-12 lg:col-9 p-2">
+        <p-tabView>
+            <p-tabPanel header="Staff">
+                <div class="grid">
+                    <div class="col">
+                        <ng-container *ngIf="category.children?.length > 0 else noChildren">
+                            <ng-container *ngFor="let role of category.children">
+                                <xdr-rank-card></xdr-rank-card>
+                            </ng-container>
+                        </ng-container>
+                        <ng-template #noChildren>
+                            <xdr-empty-block></xdr-empty-block>
+                        </ng-template>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+    <div class="col-12 lg:col-3 p-2">
+        <xdr-info-block></xdr-info-block>
+    </div>
+  </div>

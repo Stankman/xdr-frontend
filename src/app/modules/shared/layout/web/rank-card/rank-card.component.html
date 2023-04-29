@@ -1,0 +1,18 @@
+
+<p-card styleClass="shadow-2 my-3">
+    <ng-template pTemplate="header">
+        <div class="text-2xl text-center font-bold">
+            {{ rank.rank_name }}
+        </div>
+    </ng-template>
+    <ng-container *ngIf="rank.avatars.length > 0 else noUsers">
+        <div class="grid">
+            <div class="col-12 lg:col-4" *ngFor="let user of rank.avatars">
+                <xdr-rank-member></xdr-rank-member>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noUsers>
+        <xdr-empty-block></xdr-empty-block>
+    </ng-template>
+</p-card>

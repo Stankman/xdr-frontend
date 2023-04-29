@@ -10,6 +10,7 @@ import { registerLocaleData } from "@angular/common";
 import localeENUS from '@angular/common/locales/en';
 import localeESES from '@angular/common/locales/es';
 import { QuicklinkModule } from "ngx-quicklink";
+import { DateFnsModule } from "ngx-date-fns";
 
 registerLocaleData(localeENUS);
 registerLocaleData(localeESES);
@@ -25,6 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    DateFnsModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -1,6 +1,6 @@
 export class Badge {
-    code: string;
-    name: string;
-    description: string;
-    image: File;
+    code!: string;
+    name!: string;
+    description!: string;
+    image!: File;
 }

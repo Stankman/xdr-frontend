@@ -1,0 +1,25 @@
+<div class="staff-content border-round shadow-2 overflow-hidden">
+    <div class="grid">
+        <div class="col">
+            <div class="rank-member-header flex align-items-end">
+                <span [ngClass]="status ? 'online' : 'offline'" class="habbo-web-icon"></span>                                     
+                <div [ngClass]="status ? 'online' : 'offline'" class="member-title text-xl text-white font-bold mx-1">
+                    {{ member.username }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col p-0">
+            <div [ngClass]="{ 'online' : status }" class="staff-plate habbo-mannequin-plates">
+                <img [src]="figure" alt="username">
+            </div>
+        </div>
+        <div class="col p-2">
+            <div class="information h-full flex flex-column justify-content-around">
+                <div class="motto text-white text-sm my-2 p-text-truncate"><i class="pi pi-minus text-xs"></i> {{ member.motto }}</div>
+                <div class="last_connection text-right text-xs text-white font-light opacity-90">{{ member.last_login }}</div>
+            </div>
+        </div>
+    </div>
+</div>

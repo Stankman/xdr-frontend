@@ -1,4 +1,4 @@
 export class Rcon {
-    command: string;
+    command!: string;
     params?: any;
 }

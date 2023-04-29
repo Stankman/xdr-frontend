@@ -4,7 +4,7 @@ import { LookGestures } from "./look-gestures.model";
 import { LookSizes } from "./look-sizes.model";
 
 export class LookConfig {
-    look: string;
+    look!: string;
     action?: LookActions = LookActions.DEFAULT;
     size?: LookSizes = LookSizes.DEFAULT;
     direction?: LookDirections = LookDirections.SOUTH_EAST;

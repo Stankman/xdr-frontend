@@ -1,5 +1,6 @@
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { bounceInDown, fadeIn } from 'ng-animate';
 
 @Component({
@@ -8,9 +9,15 @@ import { bounceInDown, fadeIn } from 'ng-animate';
   styleUrls: ['./web.component.scss']
 })
 export class WebComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(
+    public router : Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  public isRegistration() : boolean {
+    return this.router.url.startsWith('/registration');
   }
 }

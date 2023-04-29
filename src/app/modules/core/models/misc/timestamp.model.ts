@@ -1,5 +1,5 @@
 export class Timestamp {
-    data: string;
-    timezone_type: number;
-    timezone: string;
+    data!: string;
+    timezone_type!: number;
+    timezone!: string;
 }

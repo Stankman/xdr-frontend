@@ -1,11 +1,11 @@
-<div id="header-container" @bounceInDown>
+<div id="header-container" @bounceInDown @bounceOutUp>
   <p-menubar styleClass="web-menubar px-8">
     <ng-template pTemplate="start">
       <a pRipple routerLink=""><img src="/assets/resources/images/kubbo_logo_sm.png" alt="hotel-logo"/></a>
     </ng-template>
     <ng-template pTemplate="end">
       <p-button (click)="show()" label="Sign In" styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase"></p-button>
-      <p-button label="Join for Free" styleClass="habbo-button p-button-success p-button-sm p-button-raised mx-1 uppercase"></p-button>
+      <p-button routerLink="/registration" label="Join for Free" styleClass="habbo-button p-button-success p-button-sm p-button-raised mx-1 uppercase"></p-button>
     </ng-template>
   </p-menubar>
   <p-menubar styleClass="web-menubar px-8" [model]="mainMenuItems">
