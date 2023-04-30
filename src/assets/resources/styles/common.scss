@@ -261,11 +261,25 @@ p, label {
 }
 
 .p-dialog {
+    .p-dialog-header {
+        background: var(--web-card-background);
+        color: var(--web-card-color);
+    }
+
+    .p-dialog-content {
+        background: var(--web-card-background);
+        color: var(--web-card-color);
+    }
+
     &.login-dialog {
         .p-dialog-header {
             padding-bottom: 0;
         }
     }
+}
+
+.p-divider.p-divider-horizontal:before {
+    border-top: var(--web-card-divider);
 }
 
 .p-card {
