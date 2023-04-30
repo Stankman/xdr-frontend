@@ -14,12 +14,12 @@ import { RankCardComponent } from './layout/web/rank-card/rank-card.component';
 import { RankMemberComponent } from './layout/web/rank-member/rank-member.component';
 import { RecentUsersComponent } from './layout/web/recent-users/recent-users.component';
 import { SignInDialogComponent } from "./layout/web/signin-dialog/signin-dialog.component";
-import { SimpleHeaderComponent } from './layout/web/simple-header/simple-header.component';
 
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
+import { CheckboxModule } from 'primeng/checkbox';
 import { DividerModule } from 'primeng/divider';
 import { DropdownModule } from 'primeng/dropdown';
 import { DynamicDialogModule } from "primeng/dynamicdialog";
@@ -29,18 +29,22 @@ import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { ScrollerModule } from 'primeng/scroller';
 import { TabViewModule } from 'primeng/tabview';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forChild(),
 
     AvatarModule,
     ButtonModule,
     CardModule,
     CarouselModule,
+    CheckboxModule,
     DividerModule,
     DropdownModule,
     DynamicDialogModule,
@@ -50,6 +54,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     RippleModule,
     ScrollerModule,
     TabViewModule,
+    ToggleButtonModule,
     VirtualScrollerModule
   ],
   declarations: [
@@ -64,8 +69,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     RankCardComponent,
     RankMemberComponent,
     RecentUsersComponent,
-    SignInDialogComponent,
-    SimpleHeaderComponent
+    SignInDialogComponent
   ],
   exports: [
     ArticlesCarouselComponent,
@@ -77,16 +81,17 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     RankCardComponent,
     RecentUsersComponent,
     SignInDialogComponent,
-    SimpleHeaderComponent,
 
     AvatarModule,
     ButtonModule,
     CardModule,
     CarouselModule,
+    CheckboxModule,
     DropdownModule,
     DynamicDialogModule,
     InputTextModule,
     MenubarModule,
+    PasswordModule,
     RippleModule,
     ScrollerModule,
     TabViewModule,

@@ -1,11 +1,6 @@
 <div id="web-container" class="flex flex-column h-screen">
   <div id="header-container" class="bg-white">
-    <ng-container *ngIf="!isRegistration() else registrationHeader">
       <xdr-header></xdr-header>
-    </ng-container>
-    <ng-template #registrationHeader>
-      <xdr-simple-header></xdr-simple-header>
-    </ng-template>
   </div>
   <div id="body-container" class="flex-auto">
     <router-outlet></router-outlet>

@@ -48,7 +48,9 @@ export const environment = {
       //Adsense
       adClient: 'ca-pub-9330463230786581',
   
-      maintenance: false
+      maintenance: false,
+
+      theme: 'dark'
     }
   };
   

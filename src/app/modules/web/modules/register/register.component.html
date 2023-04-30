@@ -1,42 +1,36 @@
-<div class="grid grid-nogutter">
-  <div class="col">
-    
+<p-card styleClass="border-noround register-landing mb-2">
+  <div class="grid px-7">
+    <div class="col">
+      <div class="text-6xl font-bold text-white">Join for free!</div>
+    </div>
   </div>
-</div>
-<div class="grid grid-nogutter px-8">
-  <div class="col">
+</p-card>
+<div class="grid grid-nogutter py-2 px-8">
+  <div class="col-12 lg:col-4">
     <form id="registerForm" name="registerForm">
-      <div class="formgrid grid flex-column lg:flex-row">
-          <div class="field col">
-              <span class="p-input-icon-left p-float-label w-19rem lg:w-19rem">
-                  <i class="pi pi-user"></i>
-                  <input class="w-full" name="username" id="username" formControlName="username" autocomplete="username" pInputText />
-                  <label for="float-input" [translate]="'REGISTER.FORM.INPUT.USERNAME.LABEL'"></label>
-              </span>
-          </div>
-          <div class="field col pt-2 lg:pt-0">
-              <span class="p-input-icon-left p-float-label w-19rem lg:w-19rem">
-                  <i class="pi pi-send"></i>
-                  <input class="w-full" type="email" name="mail" id="mail" autocomplete="off" formControlName="mail" pInputText />
-                  <label for="float-input" [translate]="'REGISTER.FORM.INPUT.MAIL.LABEL'"></label>
-              </span>
-          </div>
+      <div class="field flex flex-column gap-2 p-2">
+        <label class="font-bold" htmlFor="username">E-mail</label>
+        <span class="p-input-icon-left">
+          <i class="pi pi-send"></i>
+          <input type="text" class="w-full" pInputText />
+        </span>
       </div>
-      <div class="formgrid grid flex-column lg:flex-row">
-          <div class="field col pt-2">
-              <span class="p-input-icon-left p-float-label w-19rem lg:w-19rem">
-                  <i class="pi pi-lock"></i>
-                  <input class="w-full" type="password" name="password" id="password" autocomplete="new-password" formControlName="password" pInputText />
-                  <label for="float-input" [translate]="'REGISTER.FORM.INPUT.PASSWORD.LABEL'"></label>
-              </span>
-          </div>
-          <div class="field col pt-2">
-              <span class="p-input-icon-left p-float-label w-19rem lg:w-19rem">
-                  <i class="pi pi-lock"></i>
-                  <input class="w-full" type="password" name="passwordConfirm" id="passwordConfirm" autocomplete="new-password" formControlName="passwordConfirm" pInputText />
-                  <label for="float-input" [translate]="'REGISTER.FORM.INPUT.PASSWORD.LABEL2'"></label>
-              </span>
-          </div>
+      <div class="bg-gray-300 p-2 border-round">
+        <div class="field flex flex-column gap-2">
+          <label class="font-bold" htmlFor="username">Password</label>
+          <p-password [feedback]="false" [toggleMask]="true" styleClass="w-full" inputStyleClass="w-full"></p-password>
+        </div>
+        <div class="field flex flex-column gap-2">
+          <label class="font-bold" htmlFor="username">Repeat Password</label>
+          <p-password [feedback]="false" [toggleMask]="true" styleClass="w-full" inputStyleClass="w-full"></p-password>
+        </div>
+      </div>
+      <div class="field flex align-items-center gap-1 p-2">
+        <p-checkbox name="group1" value="New York" inputId="ny"></p-checkbox>
+        <label class="font-bold" class="m-0" for="ny">I accept the Terms of Service, Privacy Policy and Cookie Policy.</label>
+      </div>
+      <div class="field">
+        <p-button label="Done! Let's make an avatar!" styleClass="habbo-button primary uppercase"></p-button>
       </div>
     </form>
   </div>

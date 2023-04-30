@@ -4,10 +4,23 @@
       <a pRipple routerLink=""><img src="/assets/resources/images/kubbo_logo_sm.png" alt="hotel-logo"/></a>
     </ng-template>
     <ng-template pTemplate="end">
-      <p-button (click)="show()" label="Sign In" styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase"></p-button>
-      <p-button routerLink="/registration" label="Join for Free" styleClass="habbo-button p-button-success p-button-sm p-button-raised mx-1 uppercase"></p-button>
+      <p-button (click)="show()" [label]="'HEADER.SIGNIN.LABEL' | translate" styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase"></p-button>
+      <p-button routerLink="/registration" [label]="'HEADER.SIGNUP.LABEL' | translate" styleClass="habbo-button p-button-success p-button-sm p-button-raised mx-1 uppercase"></p-button>
     </ng-template>
   </p-menubar>
   <p-menubar styleClass="web-menubar px-8" [model]="mainMenuItems">
+    <ng-template pTemplate="end">
+      <div class="flex align-items-center">
+        <p-toggleButton styleClass="theme-button mx-1" [(ngModel)]="isDark" (onChange)="onThemeChange($event)" offIcon="pi pi-sun" onIcon="pi pi-moon"></p-toggleButton>
+      <p-dropdown styleClass="mx-1" [options]="['es', 'en']" dropdownIcon="">
+        <ng-template pTemplate="selectedItem">
+          <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-en'"/>
+        </ng-template>
+        <ng-template let-language pTemplate="item">
+          <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + language.toLowerCase()"/>
+        </ng-template>
+      </p-dropdown>
+      </div>
+    </ng-template>
   </p-menubar>
 </div>
