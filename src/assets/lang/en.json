@@ -1,0 +1,596 @@
+{   
+  "META": {
+    "DESCRIPTION": "Join millions in the planet&apos;s most popular virtual world for teens. Create your avatar, meet new friends, role play, and build amazing spaces."
+  },
+
+  "GUEST": {
+    "WELCOME": {
+      "TITLE": "Ready to play?",
+      "DESCRIPTION": "<p>Creating an account will enable all of our available web & server feautures!</p> <p>Comment, create content, and have the most fun with everyone.</p>",
+      "JOIN": "Join now, it's free"
+    }
+  }, 
+  
+  "LOGIN": {
+    "TITLE": "Virtual World, Avatar Chat, and Pixel Art",
+    "FORM": {
+      "TITLE": "Sign In",
+      "INPUT": {
+        "USERNAME": {
+          "LABEL": "Username",
+          "PLACEHOLDER": ""
+        },
+        "PASSWORD": {
+          "LABEL": "Password",
+          "PLACEHOLDER": ""
+        },
+        "EMPTY": "This field is required"
+      },
+      "FORGOT": "Forgot password?",
+      "NO_ACCOUNT": "New here?",
+      "BUTTONS": {
+        "LOGIN": "Connect",
+        "REGISTER": "Create an account"
+      }
+    }
+  },
+  
+  "REGISTER": {
+    "TITLE": "Registration",
+    "DESCRIPTION": "Join the fun by registering today!",
+    "FORM": {
+      "TITLE": "Sign Up",
+      "INPUT": {
+        "USERNAME": {
+          "LABEL": "Username",
+          "PLACEHOLDER": "",
+          "ERRORS": {
+            "EMPTY": "Please enter a username!"
+          }
+        },
+        "MAIL": {
+          "LABEL": "E-Mail",
+          "PLACEHOLDER": "",
+          "ERRORS": {
+            "EMPTY": "Please enter your email address",
+            "PATTERN": "That is not a valid email!"
+          }
+        },
+        "PASSWORD": {
+          "LABEL": "Password",
+          "LABEL2": "Confirm Password",
+          "PLACEHOLDER": "",
+          "ERRORS": {
+            "EMPTY": "Please enter a password",
+            "NOT_SAME": "The two passwords do not match!"
+          }
+        },
+        "LOOKS": {
+          "BOYS": {
+            "LABEL": "Male Looks"
+          },
+          "GIRLS": {
+            "LABEL": "Female Looks"
+          }
+        }
+      },
+      "ALREADY_ACCOUNT": "Already have an account?",
+      "BUTTONS": {
+        "REGISTER": "Let's do this!",
+        "ALREADY": "Go Back"
+      }
+    }
+  },
+    
+  "ME": {
+    "TITLE": "Home",
+    "WELCOME": "Welcome back",
+    "HERO": {
+      "WELCOME": "Welcome back, <strong>{{ username }}</strong>!",
+      "LOGIN": "<span class=\"habbo-web-icon4 time inline-block mr-1\"></span> Your last visit was on {{ date }} at {{ time }}.",
+      "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>",
+      "PLAY": "Play {{ hotelName }}!",
+      "COUNTER": "Join <strong>{{ online }}</strong> other player(s)"
+    },
+  
+    "SLIDER": {
+      "ARTICLES": {
+        "TITLE": "No Results Found!",
+        "DESCRIPTION": "Oops! We couldn't find any articles!",
+        "READ_MORE": "Read More..."
+      }
+    },
+  
+    "FRIENDS": {
+      "TITLE": "My Friends",
+      "MANNEQUIN": {
+        "NAME": "No Friends(s) Found",
+        "MOTTO": "No Friend(s) were Found"
+      },
+      "SEE_ALL": "See All",
+      "NOT_FOUND": "{{ username }} could not be found!"
+    }
+  },
+
+  "DUPLICATE": {
+    "TITLE": "Another session has been initiated",
+    "CONTENT": "Please reconnect your session to keep playing.",
+    "RECONNECT": "Reconnect"
+  },
+
+  "SIDEBAR": {
+    "INFORMATION": {
+      "TITLE": ""
+    },
+    "PREFERENCES": {
+      "TITLE": "Preferences"
+    },
+    "SETTINGS": {
+      "TITLE": "Settings"
+    }
+  },
+    
+  "COMMUNITY": {
+    "TITLE": "Community"
+  },
+
+  "SETTINGS": {
+    "HEY": "Hey {{username}}!",
+    "CAPTION": "Do you want to change your account settings?",
+    "GOTO": "Go to settings",
+    "GENERAL": {
+      "TITLE": "Change your Profile",
+      "CAPTION": "We're working over here."
+    },
+    "PASSWORD": {
+      "TITLE": "Change Your Password",
+      "OLD": "Current Password",
+      "NEW": "New Password",
+      "NEW_CAPTION": "Use at least 6 characters. Include at least one letter and at least one number or special character.",
+      "CONFIRM": "Confirm New Password",
+      "SUCCESS": "Password changed successfully.",
+      "ERROR": {
+        "WRONG": "Given password does not match the current password.",
+        "SAME": "Given password should be a different password than the current."
+      }
+    },
+    "EMAIL": {
+      "TITLE": "Change E-mail",
+      "NEW": "New E-mail",
+      "NEW_CAPTION": "You'll need to use this email address in case of an emergency in the future. Please use a valid address.",
+      "PASSWORD": "Current Password",
+      "SUCCESS": "E-mail changed successfully.",
+      "ERROR": {
+        "SAME": "Given E-Mail should be different to current E-Mail.",
+        "ALREADY_EXISTS": "User with given E-Mail already exists."
+      }
+    }
+  },
+  
+  "TEAM": {
+    "TITLE": "Staff",
+    "EMPTY_CATEGORY": "No ranks available in this category",
+    "EMPTY_USERS": "No staff available with this rank",
+    "OUR_TEAM": "Our Team",
+    "WHAT_IS": {
+      "TITLE": "Who are the Habbo Staff?",
+      "BODY": "Staff are carefully selected, vetted and fully trained members of {{ hotelName }} Staff Team. They can send warnings to misbehaving users, kick them out of rooms or even ban them from {{ hotelName }} Hotel."
+    }
+  },
+  
+  "SHOP": {
+    "TITLE": "Bobba Shop",
+    "EMPTY_OFFERS": "No Offers available at the moment"
+  },
+  
+  "CLIENT": {
+    "DISCONNECTED": {
+      "TITLE": "Oh, Bollocks!",
+      "DESCRIPTION": "You've disconnected!",
+      "BUTTON": "Reconnect"
+    },
+  
+    "FLASH": {
+      "TITLE": "Oh Bollocks!",
+      "DESCRIPTION": "Click <a href=\"https://get.adobe.com/en/flashplayer\" target=\"_blank\">here</a> and then on \"Activate Flash\" as soon as you are prompted to do so . See you soon!"
+    },
+  
+    "ACTIVE": {
+      "DESCRIPTION": "You're already checked in!",
+      "BUTTON": "Force login"
+    }
+  },
+  
+  "ARTICLES": {
+    "TITLE": "News",
+    "SEARCH_PLACEHOLDER": "Search...",
+    "ARTICLE": {
+    },
+    "CAROUSEL": {
+      "TITLE": "Recent News",
+      "READ_MORE": "Read More...",
+      "EMPTY": "Oops! There are no articles to show..."
+    },
+    "PINNED": {
+      "TITLE": "Pinned News",
+      "LIKES": "{{ likes }} Likes",
+      "EMPTY": "Oops! There are no pinned articles to show..."
+    },
+    "NO_RESULTS": "Oops! There are no articles to show..."
+  },
+  
+  "FRIENDS": {
+    "TITLE": "My Friends",
+    "SEE_ALL": "See All",
+    "EMPTY": "Oops! No friends found"
+  },
+  
+  "UOTH": {
+    "TITLE": "User of the hotel"
+  },
+  
+  "LEADERBOARDS": {
+    "TITLE": "Leaderboards"
+  },
+
+  "GUILDS": {
+    "TITLE": "Top Groups",
+    "MEMBERS": "Members",
+    "MANNEQUIN": {
+      "NAME": "No Guild Found",
+      "DESCRIPTION": "---"
+    }
+  },
+
+  "ROOMS": {
+    "TITLE": "Most Active Rooms"
+  },
+  
+  "HEADER": {
+    "SIGNIN": {
+        "LABEL": "Sign In"
+    },
+    "SIGNUP": {
+        "LABEL": "Join For Free"
+    },
+    "UPPER_MENU": {
+      "HELP": "Help",
+      "ACP": "ACP",
+      "LOGOUT": "Logout"
+    },
+    "MENU": {
+      "HOME": "Home",
+      "COMMUNITY": "Community",
+      "NEWS": "News",
+      "TEAM": "Team",
+      "SHOP": "Shop",
+      "SAFETY": "Safety",
+      "HELP": "Help",
+      "ACP": "ACP",
+      "LOGOUT": "Logout"
+    },
+    "PLAY_NOW": "Play Now",
+    "ONLINE": "{{ onlineCount }} online"
+  },
+    
+  "FOOTER": {
+    "DESCRIPTION": "Join millions in the planet's most popular virtual world for teens. Create your avatar, meet new friends, role play, and build amazing spaces.",
+    "QUICKLINKS": "Quick Links",
+    "COMMUNITY": "Community",
+    "LASTEST_NEWS": "Lastest News",
+    "OUR_TEAM": "Our Team",
+    "INFORMATION": "Information",
+    "WHATIS": "What is {{ hotelName }}?",
+    "TOS": "Terms of Service",
+    "PRIVACY": "Privacy Policy",
+    "COOKIE": "Cookie Policy",
+    "POWERED": "Powered By",
+    "COPYRIGHT": "© 2020-2022 AuroraCMS. <div class=\"font-bold uppercase inline\">{{ hotelName }}</div> is NOT a registered trademark of Sulake Oy. All rights reserved."
+  },
+
+  "PAPERS": {
+    "TITLE": "General Information about {{ hotelName }}",
+    "TOS": {
+      "TITLE": "Terms of Service"
+    },
+    "PRIVACY": {
+      "TITLE": "Privacy Policy"
+    },
+    "COOKIE": {
+      "TITLE": "Cookie Policy"
+    }
+  },
+    
+  "ADBLOCK_DIALOG": {
+    "TITLE": "Adblock Detected",
+    "CONTENT": "Please disable adblock in order to play {{ hotelName }} Hotel"
+  },
+
+  "NOT_FOUND": {
+    "TITLE": "Error 404",
+    "DESCRIPTION": "Page not Found",
+    "BUTTON": "Go Back"
+  },
+  
+  "ACP": {
+    "SIDE_MENU": {
+    },
+
+    "DASHBOARD": {
+      "TITLE": "Dashboard"
+    },
+    
+    "ARTICLES": {
+      "TITLE": "Articles",
+      "DIALOG": {
+        "MANAGE": "Manage Article",
+        "CREATE": "Create New Article",
+        "DELETE": "Delete Article"
+      },
+      "LABELS": {
+        "TITLE": "Title",
+        "AUTHOR": "Author",
+        "COMMENTS": "Comments",
+        "CONTENT": "Content",
+        "DESCRIPTION": "Description",
+        "IMAGE_URL": "Image Url",
+        "THUMBNAIL_URL": "Thumbnail Url",
+        "MARK_AS_PINNED": "Mark as pinned",
+        "MARK_AS_HIDDEN": "Mark as hidden",
+        "PINNED": "Pinned",
+        "HIDDEN": "Hidden"
+      },
+      "SUCCESS": {
+        "CREATED": "Article created successfully.",
+        "EDITED": "Article edited successfully.",
+        "DELETED": "Article deleted successfully."
+      },
+      "ERROR": {
+        "CREATE": "Couldn't create this article.",
+        "EDIT": "Couldn't edit this article."
+      }
+    },
+    
+    "BADGES": {
+      "TITLE": "Badges",
+      "LABELS": {
+        "CODE": "Badge Code",
+        "NAME": "Name",
+        "DESCRIPTION": "Description",
+        "IMAGE": "Image"
+      },
+      "ERROR": {
+        "FOLDER": "Badge Folder is not writable or does not exists.",
+        "CODE": "Badge Code is already registered."
+      }
+    },
+    
+    "WEB_CONFIGURATION": {
+      "TITLE": "Web Configuration"
+    },
+    
+    "ROLES": {
+      "TITLE": "Roles",
+      "DIALOG": "Manage Role",
+      "LABELS": {
+        "NAME": "Name",
+        "DESCRIPTION": "Description",
+        "IS_CATEGORY": "Is Category?",
+        "STATUS": "Status"
+      },
+      "SUCCESS": {
+        "EDITED": "Role edited successfully.",
+        "TOGGLE": "Permission \"{{ permission_id }}\" toggled on role \"{{ role_id }}\" succesfully."
+      }
+    },
+    
+    "RANKS": {
+      "TITLE": "Ranks",
+      "DIALOG": "Manage Rank",
+      "LABELS": {
+        "RANK_NAME": "Rank Name",
+        "BADGE": "Badge",
+        "PREFIX": "Prefix",
+        "PREFIX_COLOR": "Prefix Color",
+        "1": "1: Always",
+        "2": "2: Only if owner or has room rights",
+        "NOTE": "Not all commands/permissions have the '2 Option', may lead to errors."
+      },
+      "SUCCESS": {
+        "CREATED": "Rank created successfully.",
+        "EDITED": "Rank edited successfully."
+      },
+      "ERROR": {
+        "CREATE": "Couldn't create this rank.",
+        "EDIT": "Couldn't edit this rank."
+      }
+    },
+    
+    "NITRO_TEXTS": {
+      "TITLE": "Nitro Texts",
+      "LABELS": {
+      },
+      "SUCCESS": {
+        "UPDATED": "Nitro Texts updated successfully."
+      }
+    },
+      
+    "USERS": {
+      "TITLE": "Users",
+      "DIALOG": "Manage User",
+      "LABELS": {
+        "USERNAME": "Username",
+        "RANK": "Rank"
+      },
+      "SUCCESS": {
+        "RANK": "{{ username }}'s rank has been updated."
+      }
+    },
+    
+    "SHOP": {
+      "TITLE": "Shop",
+      "DIALOG": "Manage Offer",
+      "LABELS": {
+        "TITLE": "Title",
+        "DESCRIPTION": "Description",
+        "PRICE": "Price",
+        "IMAGE_URL": "Image Url",
+        "DATA": "Data"
+      },
+      "SUCCESS": {
+        "CREATED": "Offer created successfully.",
+        "EDITED": "Offer edited successfully."
+      },
+      "ERROR": {
+        "CREATE": "Couldn't create this offer.",
+        "EDIT": "Couldn't edit this offer."
+      }
+    }
+  },
+
+  "OVERLAY": {
+    "ALERT": {
+      "HOTEL": {
+        "HEADER": "Hotel Alert",
+        "CONTENT": "{{ message }}"
+      },
+      "EVENT": {
+        "HEADER":"New Event!",
+        "CONTENT": "<div class=\"text-2xl\">Hey <div class=\"username inline text-pink-500 font-bold\">{{ extraData }}</div></div>{{ username }} has invited you to assist to one of our BIG events, c'mon you may obtain several gifts.<br />{{ message }}"
+      },
+      "ROOM_FORWARD": "Go to room <i class=\"pi pi-angle-double-right\">"
+    },
+    "BUILDER": {
+      "HEADER": "Builder Tool",
+      "FROZEN": "Freeze yourself while building",
+      "HEIGHT": "Set a height",
+      "STACK": "Set a stack",
+      "FLOOR": "Open Floor",
+      "RELOAD": "Reload",
+      "AUTOFLOOR": {
+        "LABEL": "Autofloor",
+        "DESC": "Hide no-furni tiles"
+      },
+      "MAXFLOOR": {
+        "LABEL": "Maxfloor",
+        "DESC": "Max-tile room"
+      }
+    }
+  },
+  
+  "MANNEQUIN": {
+    "NAME": "No {{ hotelUser }} found",
+    "MOTTO": "---"
+  },
+  
+  "CURRENCY": {
+    "CREDIT": "Credit",
+    "DUCKET": "Ducket",
+    "DIAMOND": "Diamond",
+    "SHELL": "Shells",
+    "PEANUT": "Peanut",
+    "STAR": "Star",
+    "CLOUD": "Cloud"
+  },
+
+  "GENERIC": {
+    "ACTIONS": "Actions",
+    "ADD_NEW": "Add New",
+    "CANCEL": "Cancel",
+    "CREATED_AT": "Created At",
+    "CONFIRM": "Are you sure you want to continue?",
+    "CONTINUE": "Yes, continue",
+    "DELETE": "Delete",
+    "DISABLED": "Disabled",
+    "EDIT": "Edit",
+    "ENABLED": "Enabled",
+    "FOUNDED_AT": "Founded",
+    "ID": "Id",
+    "LAST_CONNECTION": "Last Connection",
+    "NO_RECORDS": "No records found",
+    "NO_PERMISSIONS": "You don't have permissions to do this.",
+    "ONLY_WITH_RIGHTS": "Only with rights",
+    "SAVE": "Guardar",
+    "SEARCH": "Search",
+    "UPDATED_AT": "Updated At"
+  },
+  
+  "SUCCESS": {
+    "LOGIN": "You signed in successfully!",
+    "REGISTER": "Let's have some fun!",
+    "LOGOUT": "See you again soon!",
+    "KEY_VALUE": "\"{{ key }}\" changed to \"{{ value }}\" succesfully"
+  },
+    
+  "ERROR": {
+    "UNKNOWN": "An unknown error has occured.",
+    "LOGIN": "Invalid Credentials. Try Again.",
+    "REGISTERED": "Username or E-Mail is already taken.",
+    "MAX_LENGTH_USERNAME": "Username must be maximum 12 characters.",
+    "MIN_LENGTH_USERNAME": "Username must be minimum 3 characters.",
+    "PATTERN_USERNAME": "Invalid username.",
+    "INVALID_EMAIL": "Please enter a valid email.",
+    "MIN_LENGTH_PASSWORD": "Password must be minimum 6 characters.",
+    "MISMATCH_PASSWORD": "Passwords do not match.",
+    "MAX_ACCOUNTS": "You've reached the limit of accounts per IP.",
+    "MAX_COMMENTS": "You've reached the limit of comments in this article.",
+    "REGISTER": "Your account could not be created.",
+    "UNAUTHENTICATED": "You must sign in to access this page.",
+    "SETTING_NOT_FOUND": "Ares setting not found.",
+    "EXPIRED": "Your session has expired. Sign in again.",
+    "LOGOUT": "An error has ocurred while logging out.",
+    "INPUT": {
+      "REQUIRED": "Please fill out all required fields correctly.",
+      "RECAPTCHA": "Oops! Are you a robot?"
+    },
+    "DUPLICATED_TITLE": "Article with given title already exists. Please choose another title."
+  },
+
+  "PRIME_NG": {
+    "startsWith": "Starts with",
+    "contains": "Contains",
+    "notContains": "Not contains",
+    "endsWith": "Ends with",
+    "equals": "Equals",
+    "notEquals": "Not equals",
+    "noFilter": "No Filter",
+    "lt": "Less than",
+    "lte": "Less than or equal to",
+    "gt": "Greater than",
+    "gte": "Greater than or equal to",
+    "is": "Is",
+    "isNot": "Is not",
+    "before": "Before",
+    "after": "After",
+    "dateIs": "Date is",
+    "dateIsNot": "Date is not",
+    "dateBefore": "Date is before",
+    "dateAfter": "Date is after",
+    "clear": "Clear",
+    "apply": "Apply",
+    "matchAll": "Match All",
+    "matchAny": "Match Any",
+    "addRule": "Add Rule",
+    "removeRule": "Remove Rule",
+    "accept": "Yes",
+    "reject": "No",
+    "choose": "Choose",
+    "upload": "Upload",
+    "cancel": "Cancel",
+    "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "dayNamesMin": ["Su","Mo","Tu","We","Th","Fr","Sa"],
+    "monthNames": ["January","February","March","April","May","June","July","August","September","October","November","December"],
+    "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "dateFormat": "mm/dd/yy",
+    "firstDayOfWeek": 0,
+    "today": "Today",
+    "weekHeader": "Wk",
+    "weak": "Weak",
+    "medium": "Medium",
+    "strong": "Strong",
+    "passwordPrompt": "Enter a password",
+    "emptyMessage": "No results found",
+    "emptyFilterMessage": "No results found"
+  }
+}

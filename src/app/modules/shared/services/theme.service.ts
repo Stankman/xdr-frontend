@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -36,6 +36,10 @@ export class ThemeService {
 
     public getThemeName() : string {
         return this.themeName;
+    }
+
+    public getThemeSubject() : BehaviorSubject<boolean> {
+        return this.theme;
     }
 
     private updateBody() {

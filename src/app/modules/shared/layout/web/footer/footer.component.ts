@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../../../services/theme.service';
 
 @Component({
   selector: 'xdr-footer',
@@ -7,16 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  public countries : string[] = []
+  public themeName : string = 'light';
 
-  public selectedCountry : string = 'es';
-
-  constructor() { }
+  constructor(
+    public themeService : ThemeService
+  ) { }
 
   ngOnInit() {
-    this.countries = [
-      'en', 'es'
-    ]
+    this.themeService.getThemeSubject().subscribe((value : boolean) => {
+      this.themeName = this.themeService.getThemeName();
+    })
   }
 
 }
