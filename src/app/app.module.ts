@@ -1,5 +1,5 @@
-import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from "@angular/common/http";
+import { LOCALE_ID, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader, TranslateService } from "@ngx-translate/core";
@@ -13,6 +13,8 @@ import { QuicklinkModule } from "ngx-quicklink";
 import { DateFnsModule } from "ngx-date-fns";
 import { environment } from "src/environments/environment";
 import { LanguageService } from "./modules/shared/services/language.service";
+import { SharedModule } from "./modules/shared/shared.module";
+import { ServerErrorInterceptor } from "./interceptors/server-error.interceptor";
 
 registerLocaleData(localeENUS);
 registerLocaleData(localeESES);
@@ -38,9 +40,17 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     QuicklinkModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true },
+    {
+      provide: LOCALE_ID,
+      useFactory: (languageService) => languageService.getCurrentCulture(),
+      deps: [LanguageService],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

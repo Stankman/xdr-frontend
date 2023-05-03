@@ -1,9 +1,9 @@
 <div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
     <div class="col-12 lg:col-9 p-2">
-        <p-tabView>
+        <p-tabView styleClass="team-tabview">
             <p-tabPanel header="Staff">
                 <div class="grid">
-                    <div class="col">
+                    <div class="col p-2">
                         <ng-container *ngIf="category.children?.length > 0 else noChildren">
                             <ng-container *ngFor="let role of category.children">
                                 <xdr-rank-card></xdr-rank-card>

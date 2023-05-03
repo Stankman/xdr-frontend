@@ -29,9 +29,11 @@ import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { ScrollerModule } from 'primeng/scroller';
 import { TabViewModule } from 'primeng/tabview';
+import { ToastModule } from 'primeng/toast';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 import { TranslateModule } from "@ngx-translate/core";
+import { MessageService } from "primeng/api";
 
 @NgModule({
   imports: [
@@ -54,6 +56,7 @@ import { TranslateModule } from "@ngx-translate/core";
     RippleModule,
     ScrollerModule,
     TabViewModule,
+    ToastModule,
     ToggleButtonModule,
     VirtualScrollerModule
   ],
@@ -95,7 +98,11 @@ import { TranslateModule } from "@ngx-translate/core";
     RippleModule,
     ScrollerModule,
     TabViewModule,
+    ToastModule,
     VirtualScrollerModule
+  ],
+  providers: [
+    MessageService
   ]
 })
 export class SharedModule { }

@@ -314,6 +314,10 @@ p, label {
             border-color: #dee2e6;
             border-bottom-width: 1px;
             border-top-width: 1px;
+            
+            p {
+                color: #ffffff;
+            }
         }
     }
 
@@ -349,6 +353,72 @@ p, label {
     }
 }
 
+.p-inputtext {
+    background: var(--web-input-background);
+    border-color: var(--web-input-border-color);
+
+    &:enabled:hover {
+        border-color: var(--web-input-border-color-hover);
+    }
+
+    &:enabled:focus {
+        box-shadow: 0 0 0 0.2rem var(--web-input-shadow-color-focus);
+        border-color: var(--web-input-border-color-focus);
+    }
+}
+
+.p-tabview {
+    &.team-tabview {
+        .p-tabview-nav {
+            border: none;
+            background: var(--web-card-background);
+            border-radius: var(--border-radius);
+    
+            li {
+                .p-tabview-nav-link {
+                    background: transparent;
+                    border: none;
+                    color: var(--web-text-normal);
+                    transition: 0.3s;
+    
+                    &:not(.p-disabled):focus {
+                        box-shadow: none;
+                    }
+                }
+    
+                &.p-highlight {
+                    .p-tabview-nav-link {
+                        background: transparent;
+                        color: #0159bd;
+                        transition: 0.3s;
+                        cursor: default;
+                    }
+                }
+    
+                &.p-disabled {
+                    .p-tabview-nav-link {
+                        opacity: 0.2;
+                    }
+                }
+    
+                &:not(.p-highlight):not(.p-disabled):hover {
+                    .p-tabview-nav-link {
+                        background: transparent;
+                        color: #5f6974;
+                        transition: 0.3s;
+                    }
+                }
+            }
+        }
+    
+        .p-tabview-panels {
+            background: transparent;
+            color: var(--web-text-normal);
+            padding: 0;
+        }
+    }
+}
+
 .p-scroller {
     &.articles-scroller {
         height: 100%;
@@ -365,12 +435,12 @@ p, label {
     background-size: 100%;
     vertical-align: middle;
     width: 18px;
-}
 
-.flag-es {
-    background-position: 0 26.859504%;
-}
-
-.flag-en {
-    background-position: 0 93.38843%;
+    &.flag-es {
+        background-position: 0 26.859504%;
+    }
+    
+    &.flag-en {
+        background-position: 0 93.38843%;
+    }
 }

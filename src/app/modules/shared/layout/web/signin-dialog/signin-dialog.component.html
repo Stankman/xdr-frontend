@@ -2,33 +2,33 @@
   <ng-template pTemplate="header">
     <div class="text-5xl font-bold pb-2">Sign In</div>
   </ng-template>
-  <form action="">
+  <form [formGroup]="form" (submit)="onSubmit()">
     <div class="formgrid grid">
       <div class="field col flex flex-column">
-        <label htmlFor="username">Username</label>
-        <input id="username" type="text" pInputText  />
+        <label htmlFor="identification" [translate]="'LOGIN.FORM.INPUT.IDENTIFICATION.LABEL'"></label>
+        <input id="identification" name="identification" formControlName="identification" type="text" pInputText  />
       </div>
     </div>
     <div class="formgrid grid">
         <div class="field col flex flex-column">
-            <label htmlFor="password">Password</label>
-            <p-password id="password" inputStyleClass="w-full" styleClass="w-full" [feedback]="false" [toggleMask]="true"></p-password>
-            <small id="password-help" class="text-right font-bold text-blue-500 cursor-pointer"><a (click)="show()">Forgot password?</a></small>
+            <label htmlFor="password" [translate]="'LOGIN.FORM.INPUT.PASSWORD.LABEL'"></label>
+            <p-password id="password" inputStyleClass="w-full" styleClass="w-full" name="password" autocomplete="current-password" formControlName="password" [feedback]="false" [toggleMask]="true"></p-password>
+            <small id="password-help" class="text-right font-bold text-blue-500 cursor-pointer"><a (click)="openPasswordDialog()">Forgot password?</a></small>
           </div>
     </div>
     <div class="formgrid grid">
       <div class="field col">
-        <p-button styleClass="habbo-button" label="Connect"></p-button>
+        <p-button type="submit" styleClass="habbo-button" [label]="'LOGIN.FORM.BUTTONS.LOGIN' | translate"></p-button>
       </div>
       <div class="field col text-right">
-        <p-button icon="pi pi-facebook" styleClass="habbo-button p-button-secondary p-button-rounded p-button-text"></p-button>
+        <p-button icon="pi pi-facebook" styleClass="habbo-button p-button-secondary p-button-rounded p-button-text" ></p-button>
       </div>
     </div>
   </form>
   <p-divider></p-divider>
   <div id="signup-container">
-    <div class="text-sm">Don't have an account yet?</div>
-    <a class="font-bold text-lg cursor-pointer">Create an account</a>
+    <div class="text-sm" [translate]="'LOGIN.FORM.NO_ACCOUNT'"></div>
+    <a class="font-bold text-lg cursor-pointer" [translate]="'LOGIN.FORM.BUTTONS.REGISTER'"></a>
   </div>
 </p-card>
 <div class="custom-shape-divider-bottom-1682453872 z-0">

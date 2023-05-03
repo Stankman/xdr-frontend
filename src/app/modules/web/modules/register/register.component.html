@@ -9,25 +9,25 @@
   <div class="col-12 lg:col-4">
     <form id="registerForm" name="registerForm">
       <div class="field flex flex-column gap-2 p-2">
-        <label class="font-bold" htmlFor="username">E-mail</label>
+        <label class="text-lg" htmlFor="username">E-mail</label>
         <span class="p-input-icon-left">
           <i class="pi pi-send"></i>
           <input type="text" class="w-full" pInputText />
         </span>
       </div>
-      <div class="surface-card p-2 border-round">
+      <div class="surface-card p-2 border-round shadow-1">
         <div class="field flex flex-column gap-2">
-          <label class="font-bold" htmlFor="username">Password</label>
+          <label class="text-lg" htmlFor="username">Password</label>
           <p-password [feedback]="false" [toggleMask]="true" styleClass="w-full" inputStyleClass="w-full"></p-password>
         </div>
         <div class="field flex flex-column gap-2">
-          <label class="font-bold" htmlFor="username">Repeat Password</label>
+          <label class="text-lg" htmlFor="username">Repeat Password</label>
           <p-password [feedback]="false" [toggleMask]="true" styleClass="w-full" inputStyleClass="w-full"></p-password>
         </div>
       </div>
       <div class="field flex align-items-center gap-1 p-2">
         <p-checkbox name="group1" value="New York" inputId="ny"></p-checkbox>
-        <label class="font-bold" class="m-0" for="ny">I accept the Terms of Service, Privacy Policy and Cookie Policy.</label>
+        <label class="text-lg" class="m-0" for="ny">I accept the Terms of Service, Privacy Policy and Cookie Policy.</label>
       </div>
       <div class="field">
         <p-button label="Done! Let's make an avatar!" styleClass="habbo-button primary uppercase"></p-button>

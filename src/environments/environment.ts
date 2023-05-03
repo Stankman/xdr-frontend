@@ -7,7 +7,7 @@ export const environment = {
       version: '1.8.0',
   
       // API
-      endpoint: 'http://localhost',
+      endpoint: 'http://localhost:9000',
   
       //WebSockets
       socketUrl: 'ws://localhost:2053',

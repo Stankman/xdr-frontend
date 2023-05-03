@@ -16,8 +16,8 @@
     "FORM": {
       "TITLE": "Sign In",
       "INPUT": {
-        "USERNAME": {
-          "LABEL": "Username",
+        "IDENTIFICATION": {
+          "LABEL": "E-mail",
           "PLACEHOLDER": ""
         },
         "PASSWORD": {
@@ -27,7 +27,7 @@
         "EMPTY": "This field is required"
       },
       "FORGOT": "Forgot password?",
-      "NO_ACCOUNT": "New here?",
+      "NO_ACCOUNT": "Don't have an account yet?",
       "BUTTONS": {
         "LOGIN": "Connect",
         "REGISTER": "Create an account"
