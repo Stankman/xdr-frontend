@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="field flex align-items-center gap-1 p-2">
-        <p-checkbox id="tos" name="tos" formControlName="tos" [value]="true" inputId="tos"></p-checkbox>
+        <p-checkbox id="tos" name="tos" formControlName="tos" [binary]="true" [value]="true" inputId="tos"></p-checkbox>
         <label class="text-lg" class="m-0" for="tos" [translate]="'REGISTER.FORM.INPUT.TOS.LABEL'"></label>
       </div>
       <div class="field text-lg" [translate]="'REGISTER.FORM.WELCOME'" [translateParams]="{ hotelName: 'Kubbo'}"></div>
