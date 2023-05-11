@@ -2,10 +2,10 @@
   <div class="grid grid-nogutter justify-content-between px-8">
     <div class="col-12 md:col-4 text-center lg:text-left">
       <img src="/assets/resources/images/kubbo_logo.png" alt="hotel-logo">
-      <p class="text-center md:text-left text-sm">Join millions in the planet's most popular virtual world for teens. Create your avatar, meet new friends, role play, and build amazing spaces.</p>
+      <p class="text-center md:text-left text-sm" [translate]="'FOOTER.DESCRIPTION'"></p>
     </div>
     <div class="col-4 md:col-3 sm:text-center lg:text-left">
-      <div class="font-bold text-lg mb-2">Quicklinks</div>
+      <div class="font-bold text-lg mb-2" [translate]="'FOOTER.QUICKLINKS'"></div>
       <ul class="list-none m-0 p-0">
           <li><a class="no-underline">Community</a></li>
           <li><a class="no-underline" >News</a></li>
@@ -13,7 +13,7 @@
       </ul>
     </div>
     <div class="col-4 md:col-3 sm:text-center lg:text-left">
-      <div class="font-bold text-lg mb-2">Information</div>
+      <div class="font-bold text-lg mb-2" [translate]="'FOOTER.INFORMATION'"></div>
       <ul class="list-none m-0 p-0">
           <li><a class="no-underline cursor-pointer" >What's Kubbo?</a></li>
           <li><a class="no-underline cursor-pointer">Terms of Service</a></li>
@@ -22,7 +22,7 @@
       </ul>
     </div>
     <div class="col-4 md:col-2 text-right">
-      <div class="font-bold text-lg mb-2">Powered By</div>
+      <div class="font-bold text-lg mb-2" [translate]="'FOOTER.POWERED'"></div>
       <ul class="flex justify-content-end list-none m-0 p-0">
           <li class="mx-2">
               <a target="_blank"><img src="/assets/resources/images/xdr_icon_logo_32.png" alt="xdr-logo"></a>
@@ -37,8 +37,7 @@
   </div>
   <div class="grid grid-nogutter">
     <div class="col">
-      <p class="text-center text-xs">
-        © 2023 XDR Frontend. KUBBO is NOT a registered trademark of Sulake Oy. All rights reserved.
+      <p class="text-center text-xs" [innerHTML]="'FOOTER.COPYRIGHT' | translate: { hotelName: 'Kubbo' }">
       </p>
     </div>
   </div>

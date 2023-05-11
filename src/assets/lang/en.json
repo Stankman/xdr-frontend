@@ -39,7 +39,7 @@
     "TITLE": "Registration",
     "DESCRIPTION": "Join the fun by registering today!",
     "FORM": {
-      "TITLE": "Sign Up",
+      "TITLE": "Join for free!",
       "INPUT": {
         "USERNAME": {
           "LABEL": "Username",
@@ -48,9 +48,10 @@
             "EMPTY": "Please enter a username!"
           }
         },
-        "MAIL": {
+        "EMAIL": {
           "LABEL": "E-Mail",
           "PLACEHOLDER": "",
+          "HELP": "You'll need to use this email address to log in to {{ hotelName }} in the future. Please use a valid address.",
           "ERRORS": {
             "EMPTY": "Please enter your email address",
             "PATTERN": "That is not a valid email!"
@@ -58,26 +59,22 @@
         },
         "PASSWORD": {
           "LABEL": "Password",
-          "LABEL2": "Confirm Password",
+          "CONFIRM": "Repeat Password",
           "PLACEHOLDER": "",
+          "HELP": "Use at least 6 characters. Include at least one letter and at least one number or special character.",
           "ERRORS": {
             "EMPTY": "Please enter a password",
             "NOT_SAME": "The two passwords do not match!"
           }
         },
-        "LOOKS": {
-          "BOYS": {
-            "LABEL": "Male Looks"
-          },
-          "GIRLS": {
-            "LABEL": "Female Looks"
-          }
+        "TOS": {
+          "LABEL": "I accept the Terms of Service, Privacy Policy and Cookie Policy."
         }
       },
-      "ALREADY_ACCOUNT": "Already have an account?",
+      "WELCOME": "Welcome to {{ hotelName }}! Have fun and stay safe!",
+      "INGAME_PURCHASES": "Includes optional in-game purchases.",
       "BUTTONS": {
-        "REGISTER": "Let's do this!",
-        "ALREADY": "Go Back"
+        "REGISTER": "Done! Let's make an avatar!"
       }
     }
   },
@@ -285,7 +282,7 @@
     "PRIVACY": "Privacy Policy",
     "COOKIE": "Cookie Policy",
     "POWERED": "Powered By",
-    "COPYRIGHT": "© 2020-2022 AuroraCMS. <div class=\"font-bold uppercase inline\">{{ hotelName }}</div> is NOT a registered trademark of Sulake Oy. All rights reserved."
+    "COPYRIGHT": "© 2020-2023 XdrCMS. <div class=\"font-bold uppercase inline\">{{ hotelName }}</div> is NOT a registered trademark of Sulake Oy. All rights reserved."
   },
 
   "PAPERS": {

@@ -29,6 +29,21 @@ export class AuthService {
     }
 
     /**
+     * Creates and authenticates a user
+     *
+     * @param email
+     * @param password
+     * @return Observable<string>
+    */
+    public signUp(email : string, password : string) : Observable<string> {
+        return this.apiService
+            .post('auth/signup',{ email, password })
+            .pipe(
+                map((response : Api) => (this.token = response.data.access_token))
+            );
+    }
+
+    /**
      * Returns token from local storage
      *
      * @return string
