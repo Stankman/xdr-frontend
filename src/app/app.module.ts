@@ -15,6 +15,8 @@ import { environment } from "src/environments/environment";
 import { LanguageService } from "./modules/shared/services/language.service";
 import { SharedModule } from "./modules/shared/shared.module";
 import { ServerErrorInterceptor } from "./interceptors/server-error.interceptor";
+import { JwtInterceptor } from "./interceptors/jwt.interceptor";
+import { MessageService } from "primeng/api";
 
 registerLocaleData(localeENUS);
 registerLocaleData(localeESES);
@@ -44,6 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule
   ],
   providers: [
+    MessageService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true },
     {
       provide: LOCALE_ID,

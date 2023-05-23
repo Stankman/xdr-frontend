@@ -1,18 +1,23 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { authenticatedAccess } from "src/app/guards/authenticated.guard";
+import { unauthenticatedAccess } from "src/app/guards/unauthenticated.guard";
 
 const routes : Routes = [
     {
         path: '',
-        loadChildren: () => import('./modules/login/login.module').then((m) => m.LoginModule)
+        loadChildren: () => import('./modules/login/login.module').then((m) => m.LoginModule),
+        canActivate: [authenticatedAccess]
     },
     {
         path: 'registration',
-        loadChildren: () => import('./modules/register/register.module').then((m) => m.RegisterModule)
+        loadChildren: () => import('./modules/register/register.module').then((m) => m.RegisterModule),
+        canActivate: [authenticatedAccess]
     },
     {
         path: 'me',
-        loadChildren: () => import('./modules/home/home.module').then((m) => m.HomeModule)
+        loadChildren: () => import('./modules/home/home.module').then((m) => m.HomeModule),
+        canActivate: [unauthenticatedAccess]
     },
     {
         path: 'community',
@@ -28,7 +33,8 @@ const routes : Routes = [
     },
     {
         path: 'team',
-        loadChildren: () => import('./modules/team/team.module').then((m) => m.TeamModule)
+        loadChildren: () => import('./modules/team/team.module').then((m) => m.TeamModule),
+        canActivate: [unauthenticatedAccess]
     },
     {
         path: 'hall-of-fame',
@@ -36,7 +42,8 @@ const routes : Routes = [
     },
     {
         path: 'shop',
-        loadChildren: () => import('./modules/shop/shop.module').then((m) => m.ShopModule)
+        loadChildren: () => import('./modules/shop/shop.module').then((m) => m.ShopModule),
+        canActivate: [unauthenticatedAccess]
     }
 ];
 

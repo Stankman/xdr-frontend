@@ -14,6 +14,7 @@ import { RankCardComponent } from './layout/web/rank-card/rank-card.component';
 import { RankMemberComponent } from './layout/web/rank-member/rank-member.component';
 import { RecentUsersComponent } from './layout/web/recent-users/recent-users.component';
 import { SignInDialogComponent } from "./layout/web/signin-dialog/signin-dialog.component";
+import { SummaryComponent } from './layout/web/summary/summary.component';
 
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
@@ -33,7 +34,6 @@ import { ToastModule } from 'primeng/toast';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 import { TranslateModule } from "@ngx-translate/core";
-import { MessageService } from "primeng/api";
 
 @NgModule({
   imports: [
@@ -72,7 +72,8 @@ import { MessageService } from "primeng/api";
     RankCardComponent,
     RankMemberComponent,
     RecentUsersComponent,
-    SignInDialogComponent
+    SignInDialogComponent,
+    SummaryComponent
   ],
   exports: [
     ArticlesCarouselComponent,
@@ -84,6 +85,7 @@ import { MessageService } from "primeng/api";
     RankCardComponent,
     RecentUsersComponent,
     SignInDialogComponent,
+    SummaryComponent,
 
     AvatarModule,
     ButtonModule,
@@ -100,9 +102,6 @@ import { MessageService } from "primeng/api";
     TabViewModule,
     ToastModule,
     VirtualScrollerModule
-  ],
-  providers: [
-    MessageService
   ]
 })
 export class SharedModule { }

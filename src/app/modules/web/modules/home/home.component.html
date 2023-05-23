@@ -1,1 +1,7 @@
-<p-button (click)="alert()" label="Test"></p-button>
+<div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
+    <div class="col-12 p-2">
+        <ng-container *ngIf="account">
+            Welcome {{ account.email }}
+        </ng-container>
+    </div>
+</div>

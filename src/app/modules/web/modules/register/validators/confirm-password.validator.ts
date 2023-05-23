@@ -18,7 +18,7 @@ export function matchValidator(matchTo : string, reverse? : boolean) : Validator
             }
         }
         
-        return { matching: true };
+        return { notMatching: true };
     }
 
     return validator;

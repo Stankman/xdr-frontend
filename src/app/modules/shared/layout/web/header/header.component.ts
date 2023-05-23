@@ -5,7 +5,11 @@ import { SignInDialogComponent } from '../signin-dialog/signin-dialog.component'
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { bounceInDown, bounceOutUp } from 'ng-animate';
 import { ThemeService } from '../../../services/theme.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { AccountService } from '../../../services/account.service';
+import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
+import { Account } from 'src/app/modules/core/models/account/account.model';
 
 @Component({
   selector: 'xdr-header',
@@ -35,18 +39,44 @@ export class HeaderComponent implements OnInit {
 
   public isDark : boolean = false;
 
+  public isLogged : boolean = false;
+
+  public toggle : boolean = false;
+
   constructor(
-    public dialogService : DialogService,
-    public themeService : ThemeService
+    private readonly dialogService : DialogService,
+    private readonly themeService : ThemeService,
+    private readonly accountService : AccountService,
+    private readonly authService : AuthService,
+    private readonly router : Router
   ) { }
+
+    public toggleButton() {
+      this.toggle = !this.toggle;
+    }
 
   ngOnInit() {
     this.isDark = this.themeService.getTheme();
 
+    this.accountService.accountObservable.subscribe({
+      next: (account : Account) => {
+        if(account) {
+          this.isLogged = true;
+        } else {
+          this.isLogged = false;
+        }
+
+        this.updateMenuItems();
+      }
+    });
+  }
+
+  private updateMenuItems() {
     this.mainMenuItems = [
       {
-        label: 'Stankman',
-        visible: false
+        label: 'USERNAME',
+        routerLink: 'me',
+        visible: this.isLogged
       },
       {
         label: 'Community',
@@ -58,7 +88,8 @@ export class HeaderComponent implements OnInit {
       },
       {
         label: 'Our Team',
-        routerLink: 'team'
+        routerLink: 'team',
+        visible: this.isLogged
       },
       {
         label: 'Hall Of Fame',
@@ -66,16 +97,28 @@ export class HeaderComponent implements OnInit {
       },
       {
         label: 'Store',
-        routerLink: 'shop'
+        routerLink: 'shop',
+        visible: this.isLogged
       }
     ];
   }
 
-  show() {
+  public show() {
     this.ref = this.dialogService.open(SignInDialogComponent, {
       dismissableMask: true,
       styleClass: 'login-dialog overflow-hidden max-w-30rem sm:w-30rem md:w-30rem sm:border-noround md:border-round',
       height: '80%'
+    });
+
+    this.ref.onClose.subscribe();
+  }
+
+  public signOut() {
+    let signOutSubscription : Subscription = this.authService.signOut().subscribe({
+      next: () => {
+        this.router.navigateByUrl('/');
+      },
+      complete: () => signOutSubscription.unsubscribe()
     });
   }
 

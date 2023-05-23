@@ -13,6 +13,7 @@
   
   "LOGIN": {
     "TITLE": "Virtual World, Avatar Chat, and Pixel Art",
+    "MESSAGE": "<p><b>Create your Avatar.</b><br /><b>Today.</b><br />Welcome to the biggest retro community on the net. Join now and have fun with 1 million players.<br /><br />Begin you journey.</p>",
     "FORM": {
       "TITLE": "Sign In",
       "INPUT": {
@@ -49,7 +50,7 @@
           }
         },
         "EMAIL": {
-          "LABEL": "E-Mail",
+          "LABEL": "E-mail",
           "PLACEHOLDER": "",
           "HELP": "You'll need to use this email address to log in to {{ hotelName }} in the future. Please use a valid address.",
           "ERRORS": {
@@ -253,7 +254,7 @@
     "UPPER_MENU": {
       "HELP": "Help",
       "ACP": "ACP",
-      "LOGOUT": "Logout"
+      "LOGOUT": "Sign out"
     },
     "MENU": {
       "HOME": "Home",
@@ -532,7 +533,10 @@
     "MAX_ACCOUNTS": "You've reached the limit of accounts per IP.",
     "MAX_COMMENTS": "You've reached the limit of comments in this article.",
     "REGISTER": "Your account could not be created.",
-    "UNAUTHENTICATED": "You must sign in to access this page.",
+    "UNAUTHENTICATED": {
+      "SUMMARY": "Access Denied",
+      "DETAIL": "You must sign in to access this page."
+    },
     "SETTING_NOT_FOUND": "Ares setting not found.",
     "EXPIRED": "Your session has expired. Sign in again.",
     "LOGOUT": "An error has ocurred while logging out.",

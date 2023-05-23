@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { ApiService } from "./api.service";
 import { Observable, map } from "rxjs";
 import { Api } from "../../core/models/api/api.model";
+import { AccountService } from "./account.service";
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,8 @@ import { Api } from "../../core/models/api/api.model";
 export class AuthService {
     
     constructor(
-        private apiService : ApiService
+        private apiService : ApiService,
+        private accountService : AccountService
     ) {}
 
     /**
@@ -24,7 +26,7 @@ export class AuthService {
         return this.apiService
             .post('auth/signin',{ identification, password })
             .pipe(
-                map((response : Api) => (this.token = response.data.access_token))
+                map((response : Api) => (this.accountService.token = response.data.access_token))
             );
     }
 
@@ -39,29 +41,23 @@ export class AuthService {
         return this.apiService
             .post('auth/signup',{ email, password })
             .pipe(
-                map((response : Api) => (this.token = response.data.access_token))
+                map((response : Api) => (this.accountService.token = response.data.access_token))
             );
     }
 
     /**
-     * Returns token from local storage
-     *
-     * @return string
+     * Signs out user
+     * 
+     * @return Observable<any> 
     */
-    public get token(): string {
-        return localStorage.getItem('xdr-token');
-    }
-
-    /**
-     * Set local storage token
-     *
-     * @param value
-    */
-    public set token(value: string) {
-        localStorage.setItem('xdr-token', value);
-    }
-
-    public isAuthenticated() : boolean {
-        return !!this.token;
+    public signOut() : Observable<any> {
+        return this.apiService.post('auth/signout', {}).pipe(
+            map(() => {
+                localStorage.removeItem('xdr-account');
+                localStorage.removeItem('xdr-token');
+                this.accountService.account = null;
+                return;
+            })
+        );
     }
 }

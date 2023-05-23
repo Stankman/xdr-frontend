@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { SharedModule } from '../../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -12,6 +13,7 @@ import { SharedModule } from '../../../shared/shared.module';
   ],
   imports: [
     CommonModule,
+    TranslateModule.forChild(),
     LoginRoutingModule,
     SharedModule
   ]

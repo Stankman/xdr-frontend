@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { Account } from 'src/app/modules/core/models/account/account.model';
+import { AccountService } from 'src/app/modules/shared/services/account.service';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +10,17 @@ import { MessageService } from 'primeng/api';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private readonly messageService : MessageService) { }
+  public account : Account;
+
+  constructor(
+    private readonly accountService : AccountService
+  ) { }
 
   ngOnInit() {
-  }
-
-  alert() {
-    this.messageService.add({
-      detail: 'Hola'
-    });
+    this.accountService.accountObservable.subscribe({
+      next: (account : Account) => {
+        this.account = account;
+      }
+    })
   }
 }

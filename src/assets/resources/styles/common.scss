@@ -181,6 +181,7 @@ body, p, label {
             .p-dropdown-items .p-dropdown-item {
                 &:not(.p-highlight) {
                     background: var(--web-header-dropdown-item-background);
+                    text-align: center;
                     
                     &:hover {
                         background: var(--web-header-dropdown-item-background-hover);
@@ -189,6 +190,7 @@ body, p, label {
     
                 &.p-highlight {
                     background: var(--web-header-dropdown-item-selected-background);
+                    text-align: center;
                 }
             }
         }

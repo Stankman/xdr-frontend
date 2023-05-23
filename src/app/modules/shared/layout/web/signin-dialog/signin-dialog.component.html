@@ -2,7 +2,7 @@
   <ng-template pTemplate="header">
     <div class="text-5xl font-bold pb-2">Sign In</div>
   </ng-template>
-  <form [formGroup]="form" (submit)="onSubmit()">
+  <form [formGroup]="formGroup" (submit)="onSubmit()">
     <div class="formgrid grid">
       <div class="field col flex flex-column">
         <label htmlFor="identification" [translate]="'LOGIN.FORM.INPUT.IDENTIFICATION.LABEL'"></label>

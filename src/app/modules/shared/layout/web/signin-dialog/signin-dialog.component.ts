@@ -6,6 +6,8 @@ import { AccountService } from '../../../services/account.service';
 import { MessageService } from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
 import { ApiError } from 'src/app/modules/core/models/api/api-error.model';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'xdr-signin-dialog',
@@ -16,53 +18,62 @@ import { ApiError } from 'src/app/modules/core/models/api/api-error.model';
   ]
 })
 export class SignInDialogComponent implements OnInit {
-
-  public ref: DynamicDialogRef = new DynamicDialogRef;
-
-  public form : FormGroup;
+  public formGroup : FormGroup;
 
   constructor(
-    private dialogService : DialogService,
-    private formBuilder : FormBuilder,
-    private translateService : TranslateService,
-    private authService : AuthService,
-    private accountService : AccountService,
-    private messageService : MessageService
+    private readonly ref: DynamicDialogRef,
+    private readonly formBuilder : FormBuilder,
+    private readonly translateService : TranslateService,
+    private readonly authService : AuthService,
+    private readonly accountService : AccountService,
+    private readonly router : Router,
+    private readonly messageService : MessageService
   ) { }
 
   ngOnInit() : void {
-    this.form = this.formBuilder.group({
+    this.formGroup = this.formBuilder.group({
       identification: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
   onSubmit() : void {
-    if(this.form.invalid) {
-      this.form.controls['identification'].markAsDirty();
-      this.form.controls['password'].markAsDirty();
+    if(this.formGroup.invalid) {
+      this.form['identification'].markAsDirty();
+      this.form['password'].markAsDirty();
       this.messageService.add({severity:'error', summary: 'Oops!', detail: this.translateService.instant('ERROR.INPUT.REQUIRED')});
       return;
     }
 
-    const subscription = this.authService.signIn(
-      this.form.controls['identification'].value,
-      this.form.controls['password'].value
+    const subscription : Subscription = this.authService.signIn(
+      this.form['identification'].value,
+      this.form['password'].value
     ).subscribe({
       next: (JWT : string) => {
-        this.messageService.add({severity:'success', summary: 'Welcome Back!', detail: this.translateService.instant('SUCCESS.LOGIN')});
+        const userSubscription : Subscription = this.accountService.getAccountByJWT(JWT).subscribe({
+          next: (res) => {
+            this.router.navigateByUrl('/me');
+            this.messageService.add({severity:'success', summary: 'Welcome Back!', detail: this.translateService.instant('SUCCESS.LOGIN')});
+            this.ref.close();
+          }
+        });
       },
       error: (exception : ApiError) => {
-          this.form.controls['identification'].markAsPristine();
-          this.form.controls['password'].markAsPristine();
+          this.form['identification'].markAsPristine();
+          this.form['password'].markAsPristine();
           this.messageService.add({severity:'error', summary: 'Oops!', detail: this.translateService.instant('ERROR.LOGIN')});
           return;
-      }
-    })
+      },
+      complete: () => subscription.unsubscribe()
+    });
   }
 
   openPasswordDialog() {
     
+  }
+
+  public get form() {
+    return this.formGroup.controls;
   }
 
 }
