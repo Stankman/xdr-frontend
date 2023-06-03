@@ -22,7 +22,7 @@
             <ul class="wallet m-0 p-0 list-none">
                 <li class="wallet-item flex align-items-center p-2 border-round">
                     <span class="habbo-web-icon credit mr-1"></span>
-                    0 {{ 'CURRENCY.CREDIT' | translate }}
+                    {{ account.active_avatar.credits }} {{ 'CURRENCY.CREDIT' | translate }}
                 </li>
                 <li class="wallet-item flex align-items-center p-2 border-round">
                     <span class="habbo-web-icon ducket mr-1"></span>
@@ -46,7 +46,7 @@
             <div class="col-12">
                 <div class="flex align-items-end">
                     <span class="habbo-web-icon-4 time mr-1"></span>
-                    <p class="m-0 text-sm">{{ 'ME.HERO.LAST_VISIT' | translate: { 'last_login': '2 hours ago'} }}</p>
+                    <p class="m-0 text-sm">{{ 'ME.HERO.LAST_VISIT' | translate: { 'last_login': account.active_avatar.last_login } }}</p>
                 </div>
             </div>
         </div>
