@@ -32,15 +32,11 @@ import { Account } from 'src/app/modules/core/models/account/account.model';
   ]
 })
 export class HeaderComponent implements OnInit {
-
+  public account : Account;
   public ref: DynamicDialogRef = new DynamicDialogRef;
-
   public mainMenuItems : MenuItem[] = [];
-
   public isDark : boolean = false;
-
   public isLogged : boolean = false;
-
   public toggle : boolean = false;
 
   constructor(
@@ -57,6 +53,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isDark = this.themeService.getTheme();
+    this.account = this.accountService.account;
 
     this.accountService.accountObservable.subscribe({
       next: (account : Account) => {
@@ -74,7 +71,7 @@ export class HeaderComponent implements OnInit {
   private updateMenuItems() {
     this.mainMenuItems = [
       {
-        label: 'USERNAME',
+        label: this.account.active_avatar.username,
         routerLink: 'me',
         visible: this.isLogged
       },

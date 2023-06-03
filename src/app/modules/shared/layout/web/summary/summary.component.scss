@@ -1,0 +1,6 @@
+ul.wallet {
+
+    li.wallet-item:nth-child(odd) {
+        background: var(--surface-card-secondary);
+    }
+}

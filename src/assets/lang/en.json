@@ -84,13 +84,16 @@
     "TITLE": "Home",
     "WELCOME": "Welcome back",
     "HERO": {
-      "WELCOME": "Welcome back, <strong>{{ username }}</strong>!",
-      "LOGIN": "<span class=\"habbo-web-icon4 time inline-block mr-1\"></span> Your last visit was on {{ date }} at {{ time }}.",
+      "WELCOME": "Hey, <strong>{{ username }}</strong>!",
+      "LAST_VISIT": "Your last visit was {{ last_login }}.",
       "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>",
       "PLAY": "Play {{ hotelName }}!",
-      "COUNTER": "Join <strong>{{ online }}</strong> other player(s)"
+      "COUNTER": "Join <strong>{{ online }}</strong> other player(s)",
+      "VIP": {
+        "EXPIRE": "Expires in {{ remaining }}",
+        "JOIN": "Join VIP now"
+      }
     },
-  
     "SLIDER": {
       "ARTICLES": {
         "TITLE": "No Results Found!",
@@ -98,7 +101,6 @@
         "READ_MORE": "Read More..."
       }
     },
-  
     "FRIENDS": {
       "TITLE": "My Friends",
       "MANNEQUIN": {

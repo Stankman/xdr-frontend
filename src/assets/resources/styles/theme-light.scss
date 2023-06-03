@@ -1,6 +1,7 @@
 body.light {
     --surface-section: #ffffff;
     --surface-card: #ffffff;
+    --surface-card-secondary: #e7e7e7;
 
     --web-input-color: #495057;
     --web-input-background: #ffffff;
@@ -27,10 +28,13 @@ body.light {
     --web-header-dropdown-item-background-hover: #e9ecef;
     --web-header-dropdown-item-selected-background: #EFF6FF;
 
+    --web-hero-bg-gradient: linear-gradient(to bottom, #ff5f84, #8de0f3);
+
     --web-card-background: #ffffff;
     --web-card-color: #495057;
     --web-card-background-hover: #ededed;
     --web-card-list-border: 1px solid #ffffff;
     --web-card-list-shadow: 0px -1px 0px 0px #f0f0f0;
-    --web-card-divider: 1px #dee2e6;;
+    --web-card-divider-border: #ebebeb;
+    --web-card-divider-shadow: #ffffff;
 }

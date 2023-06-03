@@ -1,3 +1,5 @@
+import { Avatar } from "../avatar/avatar.model";
+
 export class Account {
     id: number;
     email: string;
@@ -6,4 +8,5 @@ export class Account {
     created_at: Date;
     updated_at?: Date;
     roles? : any;
+    active_avatar: Avatar;
 }

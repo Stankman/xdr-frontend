@@ -1,7 +1,22 @@
 <div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
-    <div class="col-12 p-2">
-        <ng-container *ngIf="account">
-            Welcome {{ account.email }}
-        </ng-container>
+    <div class="col-12 lg:col-3 p-2 flex flex-column row-gap-3">
+        <xdr-summary></xdr-summary>
+        <p-card header="Active Rooms">
+            Coming soon!
+        </p-card>
+        <p-card header="Best Groups">
+            Coming soon!
+        </p-card>
+    </div>
+    <div class="col-12 lg:col-6 p-2 flex flex-column row-gap-3">
+        <xdr-articles-carousel></xdr-articles-carousel>
+        <p-card header="Pinned Articles">
+            Coming soon!
+        </p-card>
+    </div>
+    <div class="col-12 lg:col-3 p-2 flex flex-column row-gap-3">
+        <p-card header="Events">
+            Coming soon!
+        </p-card>
     </div>
 </div>

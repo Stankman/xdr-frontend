@@ -1,6 +1,7 @@
 body.dark {
     --surface-section: #151618;
     --surface-card: #151618;
+    --surface-card-secondary: #121214;
 
     --web-input-color: #ffffff;
     --web-input-background: #0d0d0d;
@@ -27,10 +28,13 @@ body.dark {
     --web-header-dropdown-item-background-hover: #191a1d;
     --web-header-dropdown-item-selected-background: #1b1c1f;
 
+    --web-hero-bg-gradient: linear-gradient(to bottom, #1d6893, #00060a);
+
     --web-card-background: #151618;
     --web-card-color: #ffffff;
     --web-card-background-hover: #1c1d20;
     --web-card-list-border: 1px solid #191b1e;
     --web-card-list-shadow: 0px -1px 0px 0px #16181a;
-    --web-card-divider: 1px #111112;
+    --web-card-divider-border: #111214;
+    --web-card-divider-shadow: #18191a;
 }

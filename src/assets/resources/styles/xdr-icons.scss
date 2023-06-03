@@ -150,6 +150,18 @@ span.habbo-web-icon {
         height: 27px;
         width: 22px;
     }
+
+    &.club, &.hc {
+        background-position: 51px 337px;
+        height: 22px;
+        width: 21px;
+    }
+}
+
+.p-button-icon.flashy-arrow {
+    background-image: url('/assets/resources/images/flashy_arrow.gif');
+    height: 9px;
+    width: 17px;
 }
 
 span.habbo-web-icon-2 {
@@ -217,6 +229,7 @@ span.habbo-web-icon-3 {
 span.habbo-web-icon-4 {
     background: url('/assets/resources/images/habbo_assets_4.png');
     display: block;
+    position: relative;
 
     &.users {
         background-position: 0px 601px;
@@ -225,6 +238,12 @@ span.habbo-web-icon-4 {
     }
 
     &.time {
+        background-position: 0px 674px;
+        width: 20px;
+        height: 20px;
+    }
+
+    &.gift {
         background-position: 0px 674px;
         width: 20px;
         height: 20px;
@@ -265,6 +284,17 @@ span.habbo-web-icon-6 {
     }
 }
 
+span.habbo-web-icon-7 {
+    background: url('/assets/resources/images/habbo_assets_7.png') no-repeat;
+    display: block;
+
+    &.vip {
+        background-position: 2px -1119px;
+        width: 21px;
+        height: 22px;
+    }
+}
+
 img.image-pixelated {
     image-rendering: pixelated;
 }
@@ -288,11 +318,11 @@ img.mannequin-large, .mannequin.large {
 }
 
 .habbo-mannequin-container {
-    overflow: hidden;
     position: relative;
 
     img {
         z-index: 1;
+        width: auto!important;
     }
 
     &:after {
@@ -340,6 +370,35 @@ img.mannequin-large, .mannequin.large {
             background-position: -146px -148px;
         }
     }
+
+    &.head-large {
+        align-items: center;
+        display: flex;
+        height: 95px;
+        justify-content: center;
+        width: 95px;
+
+        &:after {
+            background: url('/assets/resources/images/habbo_assets_2.png');
+            background-position: 0 0;
+        }
+    }
+
+    .avatar-container {
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        height: 145px;
+        margin-top: -62px;
+        margin-left: 0px;
+        width: 106px;
+        border-radius: 50%;
+
+        img {
+            transform: translateX(-15px);
+            width: auto!important;
+        }
+    }
 }
 
 .habbo-mannequin-plates {
@@ -348,11 +407,17 @@ img.mannequin-large, .mannequin.large {
     background-position: 100% 0%;
     background-repeat: no-repeat;
     display: flex;
-    height: 115px;
-    justify-content: center;
+    height: 160px;
     overflow: hidden;
-    width: 125px;
+    width: 159px;
 
+    img {
+        z-index: 1;
+        width: auto!important;
+    }
+}
+
+.habbo-image-status {
     &.online {
         img {
             opacity: 1;
