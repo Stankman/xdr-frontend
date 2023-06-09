@@ -23,6 +23,7 @@
     "date-fns": "^2.29.3",
     "ng-animate": "^2.0.1",
     "ngx-date-fns": "^10.0.1",
+    "ngx-paypal": "^11.0.0",
     "ngx-quicklink": "^0.4.1",
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",

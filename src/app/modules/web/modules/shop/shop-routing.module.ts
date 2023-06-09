@@ -1,11 +1,15 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { ShopComponent } from "./shop.component";
+import { OffersResolver } from "src/app/modules/shared/resolvers/offers.resolver";
 
 const routes: Routes = [
   {
     path: '',
-    component: ShopComponent
+    component: ShopComponent,
+    resolve: {
+      offers: OffersResolver
+    }
   }
 ];
   

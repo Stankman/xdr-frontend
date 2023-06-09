@@ -1,7 +1,5 @@
-import { trigger, transition, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { bounceInDown, fadeIn } from 'ng-animate';
 
 @Component({
   selector: 'xdr-web',

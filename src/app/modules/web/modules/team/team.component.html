@@ -1,5 +1,5 @@
 <div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
-    <div class="col-12 lg:col-9 p-2">
+    <div class="col-12 lg:col-8 p-2">
         <p-tabView styleClass="team-tabview">
             <p-tabPanel header="Staff">
                 <div class="grid">
@@ -17,7 +17,7 @@
             </p-tabPanel>
         </p-tabView>
     </div>
-    <div class="col-12 lg:col-3 p-2">
-        <xdr-info-block></xdr-info-block>
+    <div class="col-12 lg:col-4 p-2">
+        <xdr-info-block [title]="'TEAM.WHAT_IS.TITLE' | translate: { hotelName: 'Kubbo' }" [body]="'TEAM.WHAT_IS.BODY' | translate: { hotelName: 'Kubbo' }"></xdr-info-block>
     </div>
   </div>

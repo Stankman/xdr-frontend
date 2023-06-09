@@ -342,6 +342,33 @@ body, p, label {
             border-top-width: 1px;
         }
     }
+
+    &.shop-offer {
+        cursor: pointer;
+
+        .p-card-footer {
+            padding: 5px 0px;
+            background: var(--web-card-alternate-background);
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+
+        .p-card-body {
+            padding: 0;
+            
+            .p-card-content {
+                padding-bottom: 0;
+            }
+        }
+
+        &:hover {
+            background-color: var(--web-card-background-hover);
+
+            .p-card-footer {
+                background: var(--web-card-alternate-background-hover);
+            }
+        }
+    }
 }
 
 .p-menubar {

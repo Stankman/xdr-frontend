@@ -8,5 +8,5 @@ export class Account {
     created_at: Date;
     updated_at?: Date;
     roles? : any;
-    active_avatar: Avatar;
+    active_avatar?: Avatar;
 }

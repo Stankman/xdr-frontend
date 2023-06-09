@@ -1,1 +1,18 @@
-<p>shop works!</p>
+<div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
+    <div class="col-12 lg:col-8 p-2 flex flex-column row-gap-3">
+        <ng-container>
+            <div class="grid grid-nogutter">
+                <ng-container>
+                    <div class="col-12 lg:col-6" *ngFor="let offer of dataSource.items">
+                        <xdr-shop-offer [offer]="offer"></xdr-shop-offer>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+        <ng-template #noOffers>
+        </ng-template>
+    </div>
+    <div class="col-12 lg:col-4 p-2 flex flex-column row-gap-3">
+        <xdr-info-block [title]="'SHOP.INFO.TITLE' | translate" [body]="'SHOP.INFO.BODY' | translate"></xdr-info-block>
+    </div>
+</div>

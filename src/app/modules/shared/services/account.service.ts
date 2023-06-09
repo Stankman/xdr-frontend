@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, map } from "rxjs";
 import { ApiService } from "./api.service";
 import { Account } from "../../core/models/account/account.model";
+import { Api } from "../../core/models/api/api.model";
 
 @Injectable({
     providedIn: 'root'
@@ -24,7 +25,7 @@ export class AccountService {
     */
     public getAccountByJWT(token : string) : Observable<Account> {
         return this.apiService.get('account', { headers: { Authorization: `Bearer ${token}` } }).pipe(
-            map((res) => {
+            map((res : Api) => {
                 if(!this.token) {
                     this.token = token;
                 }
@@ -43,7 +44,7 @@ export class AccountService {
     private setXDRAccount() : void {
         let xdrAccount : Account = this.account;
 
-        delete xdrAccount.roles;
+        // delete xdrAccount.roles; I added this to manipulate data if necessary
 
         localStorage.setItem('xdr-account', JSON.stringify(xdrAccount));
     }

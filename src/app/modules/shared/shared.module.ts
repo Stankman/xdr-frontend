@@ -34,6 +34,11 @@ import { ToastModule } from 'primeng/toast';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 import { TranslateModule } from "@ngx-translate/core";
+import { ShopOfferComponent } from './layout/web/shop-offer/shop-offer.component';
+import { PurseComponent } from './layout/web/purse/purse.component';
+import { VoucherComponent } from './layout/web/voucher/voucher.component';
+import { ShopOfferDetailsComponent } from './layout/web/shop-offer-details/shop-offer-details.component';
+import { NgxPayPalModule } from "ngx-paypal";
 
 @NgModule({
   imports: [
@@ -41,6 +46,7 @@ import { TranslateModule } from "@ngx-translate/core";
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forChild(),
+    NgxPayPalModule,
 
     AvatarModule,
     ButtonModule,
@@ -69,23 +75,33 @@ import { TranslateModule } from "@ngx-translate/core";
     HeaderComponent,
     InfoBlockComponent,
     ListMemberComponent,
+    PurseComponent,
     RankCardComponent,
     RankMemberComponent,
     RecentUsersComponent,
     SignInDialogComponent,
-    SummaryComponent
+    ShopOfferComponent,
+    SummaryComponent,
+    VoucherComponent,
+    ShopOfferDetailsComponent
   ],
   exports: [
     ArticlesCarouselComponent,
     ArticlePreviewComponent,
+    ArticleSlideComponent,
     EmptyBlockComponent,
     FooterComponent,
     HeaderComponent,
     InfoBlockComponent,
+    ListMemberComponent,
+    PurseComponent,
     RankCardComponent,
+    RankMemberComponent,
     RecentUsersComponent,
     SignInDialogComponent,
+    ShopOfferComponent,
     SummaryComponent,
+    VoucherComponent,
 
     AvatarModule,
     ButtonModule,

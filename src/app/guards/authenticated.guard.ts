@@ -10,9 +10,7 @@ import { AccountService } from "../modules/shared/services/account.service";
 export class AuthenticatedGuard {
     constructor(
         private readonly router : Router,
-        private readonly accountService : AccountService,
-        private readonly messageService : MessageService,
-        private readonly translateService : TranslateService
+        private readonly accountService : AccountService
     ) {}
 
     public canActivate() : boolean {

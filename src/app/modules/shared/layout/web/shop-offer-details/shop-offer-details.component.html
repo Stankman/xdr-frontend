@@ -1,0 +1,10 @@
+<div class="grid">
+    <div class="col-12 lg:col-4 text-center">
+        <img [src]="offer.image" [alt]="offer.title">
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+    </div>
+    <div class="col-12 lg:col-8">
+        <div class="text-3xl font-bold">{{ offer.title }}</div>
+        <div class="text-sm" [innerHTML]="offer.description"></div>
+    </div>
+</div>

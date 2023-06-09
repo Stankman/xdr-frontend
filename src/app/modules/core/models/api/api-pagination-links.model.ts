@@ -1,5 +1,6 @@
 export class ApiPaginationLinks {
-    url: string;
-    label: string;
-    active: boolean;
-  }
+  first: string;
+  last: string;
+  next: string;
+  previous: string;
+}

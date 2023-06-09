@@ -43,10 +43,14 @@ export const environment = {
       siteKey: '6LcdYgsdAAAAADgKEU6Fwn4uDgXj40zOXHKiCS2r',
   
       //PayPal
-      clientId: 'ARdkmL_-AOCos7Vx1Ivw3CP427-sDDmCLPBCha2okrN8eAADB_CiFU6akC0B-ZZ5QCI3QTjPeSPqWykY',
+      PayPal: {
+        clientId: 'AWhjgh55sRVWJc_KNRA1P_2QEUww0iJq6YV4TJbhssX24T9mQTdVPdkXytH9ueIG7JjgcXvnhbtogkiq'
+      },
   
       //Adsense
-      adClient: 'ca-pub-9330463230786581',
+      AdSense: {
+        clientId: 'ca-pub-9330463230786581'
+      },
   
       maintenance: false,
 

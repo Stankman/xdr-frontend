@@ -12,13 +12,13 @@
                 </div>
             </div>
             <div class="col-12 text-center mt-1">
-                <p-button styleClass="habbo-button p-button-lg p-button-success" icon="flashy-arrow" [label]="'ME.HERO.PLAY' | translate: { 'hotelName': 'Kubbo' }"></p-button>
+                <p-button styleClass="habbo-button p-button-lg p-button-success" icon="flashy-arrow" [label]="'ME.HERO.PLAY' | translate: { hotelName: 'Kubbo' }"></p-button>
             </div>
         </div>
     </ng-template>
     <div class="grid">
         <div class="col-12">
-            <div class="text-2xl font-bold py-2">My Wallet</div>
+            <div class="text-2xl font-bold py-2" [translate]="'ME.HERO.PURSE'"></div>
             <ul class="wallet m-0 p-0 list-none">
                 <li class="wallet-item flex align-items-center p-2 border-round">
                     <span class="habbo-web-icon credit mr-1"></span>

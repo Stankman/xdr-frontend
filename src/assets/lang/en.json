@@ -89,6 +89,7 @@
       "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>",
       "PLAY": "Play {{ hotelName }}!",
       "COUNTER": "Join <strong>{{ online }}</strong> other player(s)",
+      "PURSE": "My Purse",
       "VIP": {
         "EXPIRE": "Expires in {{ remaining }}",
         "JOIN": "Join VIP now"
@@ -173,14 +174,18 @@
     "EMPTY_USERS": "No staff available with this rank",
     "OUR_TEAM": "Our Team",
     "WHAT_IS": {
-      "TITLE": "Who are the Habbo Staff?",
+      "TITLE": "Who are the {{ hotelName }} Staff?",
       "BODY": "Staff are carefully selected, vetted and fully trained members of {{ hotelName }} Staff Team. They can send warnings to misbehaving users, kick them out of rooms or even ban them from {{ hotelName }} Hotel."
     }
   },
   
   "SHOP": {
     "TITLE": "Bobba Shop",
-    "EMPTY_OFFERS": "No Offers available at the moment"
+    "EMPTY_OFFERS": "No Offers available at the moment",
+    "INFO": {
+      "TITLE": "Info & help",
+      "BODY": "All legitimate ways to buy credits are shown either here or in the in-game."
+    }
   },
   
   "CLIENT": {

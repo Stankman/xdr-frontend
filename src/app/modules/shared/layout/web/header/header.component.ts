@@ -63,15 +63,15 @@ export class HeaderComponent implements OnInit {
           this.isLogged = false;
         }
 
-        this.updateMenuItems();
+        this.updateMenuItems(account);
       }
     });
   }
 
-  private updateMenuItems() {
+  private updateMenuItems(account : Account) {
     this.mainMenuItems = [
       {
-        label: this.account.active_avatar.username,
+        label: account?.active_avatar.username,
         routerLink: 'me',
         visible: this.isLogged
       },
@@ -119,7 +119,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  onThemeChange(event) {
+  public onThemeChange(event) {
     this.themeService.setTheme(event.checked);
   }
 }
