@@ -15,8 +15,8 @@ import { fadeIn } from 'ng-animate';
   ]
 })
 export class LoginComponent implements OnInit {
-  
-  constructor() {}
+  constructor(
+  ) {}
 
   ngOnInit(): void {
   }

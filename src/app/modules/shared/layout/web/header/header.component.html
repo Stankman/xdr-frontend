@@ -5,6 +5,7 @@
     </ng-template>
     <ng-template pTemplate="end">
       <ng-container *ngIf="isLogged else guestButtons">
+        <p-button styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase" [label]="'HEADER.UPPER_MENU.ACP' | translate"></p-button>
         <p-button (onClick)="signOut()" styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase" [label]="'HEADER.UPPER_MENU.LOGOUT' | translate"></p-button>
       </ng-container>
       <ng-template #guestButtons>

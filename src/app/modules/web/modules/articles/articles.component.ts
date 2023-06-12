@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ArticlePagination } from 'src/app/modules/core/models/article/article-pagination.model';
 
 @Component({
   selector: 'xdr-articles',
@@ -7,9 +9,13 @@ import { Component } from '@angular/core';
 })
 export class ArticlesComponent {
 
-  public articles : any[] = [];
+  public dataSource : ArticlePagination;
+
+  constructor(
+    private readonly route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-      
+    this.dataSource = this.route.snapshot.data['articles'];
   }
 }

@@ -1,4 +1,4 @@
-import { User } from "../user/user.model";
+import { Avatar } from "primeng/avatar";
 
 export class Article {
     id: number;
@@ -9,7 +9,7 @@ export class Article {
     image: string;
     thumbnail: string;
     comments?: number;
-    user?: User;
+    avatar?: Avatar;
     likes?: number;
     dislikes?: number;
     created_at?: string;

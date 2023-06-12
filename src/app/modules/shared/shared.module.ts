@@ -15,6 +15,10 @@ import { RankMemberComponent } from './layout/web/rank-member/rank-member.compon
 import { RecentUsersComponent } from './layout/web/recent-users/recent-users.component';
 import { SignInDialogComponent } from "./layout/web/signin-dialog/signin-dialog.component";
 import { SummaryComponent } from './layout/web/summary/summary.component';
+import { ShopOfferComponent } from './layout/web/shop-offer/shop-offer.component';
+import { PurseComponent } from './layout/web/purse/purse.component';
+import { VoucherComponent } from './layout/web/voucher/voucher.component';
+import { ShopOfferDetailsComponent } from './layout/web/shop-offer-details/shop-offer-details.component';
 
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
@@ -29,15 +33,13 @@ import { MenubarModule } from 'primeng/menubar';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { ScrollerModule } from 'primeng/scroller';
+import { SkeletonModule } from 'primeng/skeleton';
 import { TabViewModule } from 'primeng/tabview';
 import { ToastModule } from 'primeng/toast';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 import { TranslateModule } from "@ngx-translate/core";
-import { ShopOfferComponent } from './layout/web/shop-offer/shop-offer.component';
-import { PurseComponent } from './layout/web/purse/purse.component';
-import { VoucherComponent } from './layout/web/voucher/voucher.component';
-import { ShopOfferDetailsComponent } from './layout/web/shop-offer-details/shop-offer-details.component';
+
 import { NgxPayPalModule } from "ngx-paypal";
 
 @NgModule({
@@ -61,6 +63,7 @@ import { NgxPayPalModule } from "ngx-paypal";
     PasswordModule,
     RippleModule,
     ScrollerModule,
+    SkeletonModule,
     TabViewModule,
     ToastModule,
     ToggleButtonModule,
@@ -115,6 +118,7 @@ import { NgxPayPalModule } from "ngx-paypal";
     PasswordModule,
     RippleModule,
     ScrollerModule,
+    SkeletonModule,
     TabViewModule,
     ToastModule,
     VirtualScrollerModule

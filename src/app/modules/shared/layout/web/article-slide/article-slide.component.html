@@ -1,8 +1,8 @@
-<div class="article-item bg-cover relative flex flex-column justify-content-around" [ngStyle]="{ 'background-image': 'url(https://images.habbo.com/web_images/habbo-web-articles/lpromo_24042023.png)' }">
+<div class="article-item bg-cover relative flex flex-column justify-content-around" [ngStyle]="{ 'background-image': 'url(' + article.image + ')' }">
     <span class="absolute w-full h-full bg-black-alpha-40"></span>
     <div class="article-item-content p-3 w-6">
-        <a ngClass="article-title uppercase font-bold text-2xl no-underline">
-            XDR Frontend hello
+        <a routerLink="/article/1-hola" ngClass="article-title uppercase font-bold text-2xl no-underline">
+            {{ article.title }}
         </a>
         <div class="article-information">
             <div class="article-created-at text-xs flex align-items-center">
@@ -11,10 +11,10 @@
             </div>
         </div>
         <div class="article-summary text-sm">
-            I'm working on this frontend!
+            {{ article.description }}
         </div>
     </div>
     <div class="article-item-controls p-3 text-right">
-        <p-button label="Read More.." styleClass="habbo-button p-button-primary p-button-raised uppercase"></p-button>
+        <p-button routerLink="/article/1-hola" label="Read More.." styleClass="habbo-button p-button-primary p-button-raised uppercase"></p-button>
     </div>
 </div>

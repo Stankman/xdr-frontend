@@ -1,5 +1,10 @@
-<p-carousel [value]="[0,1,2]" styleClass="articles-carousel border-round overflow-hidden shadow-2" [autoplayInterval]="5000" [circular]="true" [showNavigators]="false">
-    <ng-template let-article pTemplate="item">
-        <xdr-article-slide></xdr-article-slide>
-    </ng-template>
-</p-carousel>
+<ng-container *ngIf="!loading else skeleton">
+    <p-carousel [value]="dataSource.items" styleClass="articles-carousel border-round overflow-hidden shadow-2" [autoplayInterval]="dataSource.items.length > 1 ? 5000 : 0" [circular]="true" [showNavigators]="false">
+        <ng-template let-article pTemplate="item">
+            <xdr-article-slide [article]="article"></xdr-article-slide>
+        </ng-template>
+    </p-carousel>
+</ng-container>
+<ng-template #skeleton>
+    <p-skeleton styleClass="h-19rem border-round overflow-hidden shadow-2"></p-skeleton>
+</ng-template>
