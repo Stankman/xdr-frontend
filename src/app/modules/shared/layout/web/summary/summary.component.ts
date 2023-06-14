@@ -33,6 +33,8 @@ import { LookSizes } from 'src/app/modules/core/models/look/look-sizes.model';
 export class SummaryComponent implements OnInit {
   public account : Account;
   
+  public lastLogin: Date;
+
   constructor(
     private readonly accountService : AccountService,
     private readonly lookService : LookService,
@@ -40,9 +42,10 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.account = this.accountService.account;
+    this.lastLogin = new Date(this.account.activeAvatar.lastLogin * 1000);
   }
 
-    /**
+  /**
    * Returns a full path image for the look
    *
    * @param look
@@ -51,7 +54,7 @@ export class SummaryComponent implements OnInit {
   */
   public get look() {
     return this.lookService.get({
-      look: this.account.active_avatar.look,
+      look: this.account.activeAvatar.look,
       size: LookSizes.LARGE 
     });
   }

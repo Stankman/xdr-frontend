@@ -28,6 +28,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { DividerModule } from 'primeng/divider';
 import { DropdownModule } from 'primeng/dropdown';
 import { DynamicDialogModule } from "primeng/dynamicdialog";
+import { EditorModule } from 'primeng/editor';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { PasswordModule } from 'primeng/password';
@@ -41,10 +42,12 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
 import { TranslateModule } from "@ngx-translate/core";
 
 import { NgxPayPalModule } from "ngx-paypal";
+import { DateFnsModule } from "ngx-date-fns";
 
 @NgModule({
   imports: [
     CommonModule,
+    DateFnsModule,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forChild(),
@@ -58,6 +61,7 @@ import { NgxPayPalModule } from "ngx-paypal";
     DividerModule,
     DropdownModule,
     DynamicDialogModule,
+    EditorModule,
     InputTextModule,
     MenubarModule,
     PasswordModule,
@@ -113,6 +117,7 @@ import { NgxPayPalModule } from "ngx-paypal";
     CheckboxModule,
     DropdownModule,
     DynamicDialogModule,
+    EditorModule,
     InputTextModule,
     MenubarModule,
     PasswordModule,

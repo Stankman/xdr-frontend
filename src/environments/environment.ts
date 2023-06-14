@@ -30,7 +30,7 @@ export const environment = {
       },
   
       // Language
-      defaultLang: 'en',
+      defaultLang: 'es',
   
       //Formats
       dateFormat: 'dd.MM.yyyy',

@@ -1,1 +1,22 @@
-<p>article works!</p>
+<div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
+    <div class="col-12 lg:col-8">
+        <div class="article-item bg-cover relative flex flex-column mb-4" [ngStyle]="{ 'background-image': 'url(' + article.image + ')' }">
+            <span class="absolute w-full h-full bg-black-alpha-40"></span>
+            <div class="article-item-content p-3 w-6">
+                <div ngClass="article-title font-bold uppercase text-4xl no-underline">
+                    {{ article.title }}
+                </div>
+                <div class="article-information">
+                    <div class="article-created-at text-xs flex align-items-center">
+                        <span class="habbo-web-icon time mr-1"></span>
+                        2 hours ago - Stankman
+                    </div>
+                </div>
+                <div class="article-summary text-normal">
+                    {{ article.description }}
+                </div>
+            </div>
+        </div>
+        <div class="article-body" [innerHTML]="article.content"></div>
+    </div>
+</div>

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { DateFnsConfigurationService } from 'ngx-date-fns';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { es, enUS } from 'date-fns/locale';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,10 @@ export class LanguageService {
   private currentLangSubject: BehaviorSubject<string>;
   public currentLanguage : Observable<string>;
 
-  constructor(private translateService : TranslateService)
+  constructor(
+    private readonly translateService: TranslateService,
+    private readonly dateFnsConfigService: DateFnsConfigurationService
+  )
   {
     if(!localStorage.getItem("xdr-lang"))
     {
@@ -25,6 +30,7 @@ export class LanguageService {
     this.currentLangSubject.next(lang);
     this.translateService.use(lang);
     localStorage.setItem('xdr-lang', lang);
+    this.updateDateFns();
   }
 
   get language(): string {
@@ -38,6 +44,16 @@ export class LanguageService {
       default:
       case 'en':
         return 'en-US';
+    }
+  }
+
+  public updateDateFns() : void {
+    switch(this.language) {
+      case 'es':
+        return this.dateFnsConfigService.setLocale(es);
+      case 'en':
+      default:
+        return this.dateFnsConfigService.setLocale(enUS);
     }
   }
 }

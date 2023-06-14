@@ -16,7 +16,7 @@ export class Avatar {
     ip_current?: string;
     ip_register?: string;
     last_online!: number;
-    last_login!: number;
+    lastLogin!: number;
     created_at!: Date;
     updated_at?: Timestamp;
     leaderboardPoint?: number;

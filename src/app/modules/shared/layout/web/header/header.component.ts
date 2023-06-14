@@ -5,11 +5,13 @@ import { SignInDialogComponent } from '../signin-dialog/signin-dialog.component'
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { bounceInDown, bounceOutUp } from 'ng-animate';
 import { ThemeService } from '../../../services/theme.service';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AccountService } from '../../../services/account.service';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/modules/core/models/account/account.model';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'xdr-header',
@@ -36,6 +38,7 @@ export class HeaderComponent implements OnInit {
   public ref: DynamicDialogRef = new DynamicDialogRef;
   public mainMenuItems : MenuItem[] = [];
   public isDark : boolean = false;
+  public currentLanguage : string = 'en';
   public isLogged : boolean = false;
   public toggle : boolean = false;
 
@@ -43,16 +46,15 @@ export class HeaderComponent implements OnInit {
     private readonly dialogService : DialogService,
     private readonly themeService : ThemeService,
     private readonly accountService : AccountService,
+    private readonly translateService : TranslateService,
+    private readonly languageService: LanguageService,
     private readonly authService : AuthService,
     private readonly router : Router
   ) { }
 
-    public toggleButton() {
-      this.toggle = !this.toggle;
-    }
-
   ngOnInit() {
     this.isDark = this.themeService.getTheme();
+    this.currentLanguage = this.languageService.language;
     this.account = this.accountService.account;
 
     this.accountService.accountObservable.subscribe({
@@ -71,29 +73,29 @@ export class HeaderComponent implements OnInit {
   private updateMenuItems(account : Account) {
     this.mainMenuItems = [
       {
-        label: account?.active_avatar.username,
+        label: account?.activeAvatar.username,
         routerLink: 'me',
         visible: this.isLogged
       },
       {
-        label: 'Community',
+        label: this.translateService.instant('HEADER.MENU.COMMUNITY'),
         routerLink: 'community'
       },
       {
-        label: 'News',
+        label: this.translateService.instant('HEADER.MENU.NEWS'),
         routerLink: 'articles'
       },
       {
-        label: 'Our Team',
+        label: this.translateService.instant('HEADER.MENU.TEAM'),
         routerLink: 'team',
         visible: this.isLogged
       },
       {
-        label: 'Hall Of Fame',
+        label: this.translateService.instant('HEADER.MENU.HOF'),
         routerLink: 'hall-of-fame'
       },
       {
-        label: 'Store',
+        label: this.translateService.instant('HEADER.MENU.SHOP'),
         routerLink: 'shop',
         visible: this.isLogged
       }
@@ -121,5 +123,10 @@ export class HeaderComponent implements OnInit {
 
   public onThemeChange(event) {
     this.themeService.setTheme(event.checked);
+  }
+
+  public onLocaleChange(event) {
+    this.languageService.language = event.value;
+    this.updateMenuItems(this.account);
   }
 }

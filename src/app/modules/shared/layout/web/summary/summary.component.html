@@ -2,12 +2,12 @@
     <ng-template pTemplate="header">
         <div class="grid grid-nogutter p-4" [@hero]>
             <div class="col-12">
-                <div id="hero-title" class="text-3xl" [innerHTML]="'ME.HERO.WELCOME' | translate: {'username': account.active_avatar.username }"></div>
+                <div id="hero-title" class="text-3xl" [innerHTML]="'ME.HERO.WELCOME' | translate: {'username': account.activeAvatar.username }"></div>
             </div>
             <div class="col-12 flex mt-6 flex-column align-items-center justify-content-center">
                 <div id="hero-avatar" class="habbo-mannequin-container head-large">
                     <div class="avatar-container">
-                        <img [src]="look" [alt]="account.active_avatar.username">
+                        <img [src]="look" [alt]="account.activeAvatar.username">
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
             <ul class="wallet m-0 p-0 list-none">
                 <li class="wallet-item flex align-items-center p-2 border-round">
                     <span class="habbo-web-icon credit mr-1"></span>
-                    {{ account.active_avatar.credits }} {{ 'CURRENCY.CREDIT' | translate }}
+                    {{ account.activeAvatar.credits }} {{ 'CURRENCY.CREDIT' | translate }}
                 </li>
                 <li class="wallet-item flex align-items-center p-2 border-round">
                     <span class="habbo-web-icon ducket mr-1"></span>
@@ -46,7 +46,7 @@
             <div class="col-12">
                 <div class="flex align-items-end">
                     <span class="habbo-web-icon-4 time mr-1"></span>
-                    <p class="m-0 text-sm">{{ 'ME.HERO.LAST_VISIT' | translate: { 'last_login': account.active_avatar.last_login } }}</p>
+                    <p class="m-0 text-sm">{{ 'ME.HERO.LAST_VISIT' | translate: { 'last_login': lastLogin | dfnsFormatDistanceToNow: { addSuffix: true } } }}</p>
                 </div>
             </div>
         </div>

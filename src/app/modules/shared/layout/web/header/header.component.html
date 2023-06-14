@@ -5,7 +5,7 @@
     </ng-template>
     <ng-template pTemplate="end">
       <ng-container *ngIf="isLogged else guestButtons">
-        <p-button styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase" [label]="'HEADER.UPPER_MENU.ACP' | translate"></p-button>
+        <!-- <p-button styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase" [label]="'HEADER.UPPER_MENU.ACP' | translate"></p-button> -->
         <p-button (onClick)="signOut()" styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase" [label]="'HEADER.UPPER_MENU.LOGOUT' | translate"></p-button>
       </ng-container>
       <ng-template #guestButtons>
@@ -19,9 +19,9 @@
 
       <div class="flex align-items-center">
         <p-toggleButton styleClass="theme-button mx-1" [(ngModel)]="isDark" (onChange)="onThemeChange($event)" [offIcon]="'pi pi-sun'" [onIcon]="'pi pi-moon'"></p-toggleButton>
-        <p-dropdown styleClass="language-dropdown mx-1" [options]="['es', 'en']" dropdownIcon="">
+        <p-dropdown styleClass="language-dropdown mx-1" [(ngModel)]="currentLanguage" (onChange)="onLocaleChange($event)" [options]="['es', 'en']" dropdownIcon="">
           <ng-template pTemplate="selectedItem">
-            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-en'"/>
+            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + currentLanguage.toLowerCase()"/>
           </ng-template>
           <ng-template let-language pTemplate="item">
             <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + language.toLowerCase()"/>

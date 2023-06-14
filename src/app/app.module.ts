@@ -10,7 +10,7 @@ import { registerLocaleData } from "@angular/common";
 import localeENUS from '@angular/common/locales/en';
 import localeESES from '@angular/common/locales/es';
 import { QuicklinkModule } from "ngx-quicklink";
-import { DateFnsModule } from "ngx-date-fns";
+import { DateFnsConfigurationService, DateFnsModule } from "ngx-date-fns";
 import { environment } from "src/environments/environment";
 import { LanguageService } from "./modules/shared/services/language.service";
 import { SharedModule } from "./modules/shared/shared.module";
@@ -53,14 +53,15 @@ export function HttpLoaderFactory(http: HttpClient) {
       provide: LOCALE_ID,
       useFactory: (languageService) => languageService.getCurrentCulture(),
       deps: [LanguageService],
-    }
+    },
+    DateFnsConfigurationService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(
-    private translateService: TranslateService, 
-    private languageService: LanguageService
+    private readonly translateService: TranslateService, 
+    private readonly languageService: LanguageService
   ) {
     this.translateService.addLangs(['es', 'en']);
 
@@ -69,6 +70,7 @@ export class AppModule {
     if (this.translateService.getLangs().indexOf(this.languageService.language) === -1)
     {
       this.languageService.language = environment.app.defaultLang;
+      this.languageService.updateDateFns();
     }
 
     this.translateService.use(this.languageService.language);

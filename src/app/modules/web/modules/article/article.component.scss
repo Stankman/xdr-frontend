@@ -1,0 +1,21 @@
+.article-item {
+    background-position: right;
+    height: 300px;
+    overflow: hidden;
+
+    .article-item-content {
+        position: relative;
+        
+        .article-title {
+            color:#e1e1e1;
+        }
+
+        .article-information {
+            color: rgb(255 255 255 / 50%);
+        }
+
+        .article-summary {
+            color:#bdbdbd;
+        }
+    }
+}
