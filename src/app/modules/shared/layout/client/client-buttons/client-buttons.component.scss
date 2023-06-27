@@ -1,0 +1,53 @@
+.client-buttons {
+    position: absolute;
+    margin: 10px;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    transition: 0.5s;
+    z-index: 10000;
+
+    &:hover {
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+    .client-button {
+        background-color: #ffb900;
+        border-color: #ffea00;
+        border-style: solid;
+        border-width: 2px;
+        padding: 5px 10px;
+        cursor: pointer;
+        margin-right: 3px;
+
+        .client-button-text {
+            overflow: hidden;
+            transition: 0.3s;
+            width: 0;
+        }
+
+        &:hover {
+            background-color: #ffd400;
+            border-color: #fffd70;
+
+            .client-button-text {
+                transition: 0.3s;
+                width: 35px;
+                margin-left: 3px;
+            }
+        }
+    }
+    
+
+    :first-child.client-button {
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
+    :last-child.client-button {
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        margin: 0;
+    }
+}

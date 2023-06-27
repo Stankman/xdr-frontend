@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HallOfFameRoutingModule } from './hall-of-fame-routing.module';
+import { HallOfFameComponent } from './hall-of-fame.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HallOfFameComponent
+  ],
   imports: [
     CommonModule,
     HallOfFameRoutingModule

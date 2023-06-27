@@ -65,6 +65,8 @@ export class HeaderComponent implements OnInit {
           this.isLogged = false;
         }
 
+        this.account = account;
+
         this.updateMenuItems(account);
       }
     });

@@ -4,6 +4,7 @@ import { QuicklinkStrategy } from 'ngx-quicklink';
 import { WebComponent } from './modules/web/web.component';
 import { AcpComponent } from './modules/acp/acp.component';
 import { unauthenticatedAccess, unauthenticatedChildAccess } from './guards/unauthenticated.guard';
+import { ClientComponent } from './modules/client/client.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,16 @@ const routes: Routes = [
     loadChildren: () => import('./modules/acp/acp.module').then((m) => m.AcpModule),
     canActivate: [unauthenticatedAccess],
     canActivateChild: [unauthenticatedChildAccess]
+  },
+  {
+    path: 'client',
+    loadChildren: () => import('./modules/client/client.module').then((m) => m.ClientModule),
+    canActivate: [unauthenticatedAccess],
+    canActivateChild: [unauthenticatedChildAccess]
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found'
   }
 ];
 

@@ -43,6 +43,8 @@ import { TranslateModule } from "@ngx-translate/core";
 
 import { NgxPayPalModule } from "ngx-paypal";
 import { DateFnsModule } from "ngx-date-fns";
+import { ClientButtonsComponent } from './layout/client/client-buttons/client-buttons.component';
+import { ClientNitroComponent } from './layout/client/client-nitro/client-nitro.component';
 
 @NgModule({
   imports: [
@@ -77,6 +79,8 @@ import { DateFnsModule } from "ngx-date-fns";
     ArticlesCarouselComponent,
     ArticlePreviewComponent,
     ArticleSlideComponent,
+    ClientButtonsComponent,
+    ClientNitroComponent,
     EmptyBlockComponent,
     FooterComponent,
     HeaderComponent,
@@ -96,6 +100,8 @@ import { DateFnsModule } from "ngx-date-fns";
     ArticlesCarouselComponent,
     ArticlePreviewComponent,
     ArticleSlideComponent,
+    ClientButtonsComponent,
+    ClientNitroComponent,
     EmptyBlockComponent,
     FooterComponent,
     HeaderComponent,

@@ -36,7 +36,7 @@ export class ApiService {
      * @param loader
      * @return Observable<API>
     */
-    public get(url: string,options: {} = {}, loader: boolean = true): Observable<Api | ApiPagination> {
+    public get(url: string, options: {} = {}, loader: boolean = true): Observable<Api | ApiPagination> {
         this.isLoadable(url, loader);
         return this.http.get<Api>(this.url(url),options);
     }

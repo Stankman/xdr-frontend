@@ -10,6 +10,13 @@ body, p, label {
     color: var(--web-text-normal)
 }
 
+iframe {
+    border: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
 .p-button {
     &.p-togglebutton.theme-button {
         &.p-highlight, &:not(.p-highlight) {

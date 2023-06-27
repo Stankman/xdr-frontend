@@ -44,6 +44,10 @@ const routes : Routes = [
         path: 'shop',
         loadChildren: () => import('./modules/shop/shop.module').then((m) => m.ShopModule),
         canActivate: [unauthenticatedAccess]
+    },
+    {
+        path: 'not-found',
+        loadChildren: () => import('./modules/not-found/not-found.module').then((m) => m.NotFoundModule)
     }
 ];
 

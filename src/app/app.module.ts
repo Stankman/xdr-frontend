@@ -17,6 +17,7 @@ import { SharedModule } from "./modules/shared/shared.module";
 import { ServerErrorInterceptor } from "./interceptors/server-error.interceptor";
 import { JwtInterceptor } from "./interceptors/jwt.interceptor";
 import { MessageService } from "primeng/api";
+import { ClientModule } from "./modules/client/client.module";
 
 registerLocaleData(localeENUS);
 registerLocaleData(localeESES);
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     QuicklinkModule,
     AppRoutingModule,
+    ClientModule,
     SharedModule
   ],
   providers: [
