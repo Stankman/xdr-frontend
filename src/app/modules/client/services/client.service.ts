@@ -25,7 +25,10 @@ export class ClientService {
     public ticket() : Observable<string> {
         return this.apiService.get('account/ticket')
         .pipe(
-            map((response : Api) => response.data.ticket)
+            map((response : Api) => {
+                this.sso = response.data;
+                return this.sso;
+            })
         );
     }
 

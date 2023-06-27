@@ -1,3 +1,5 @@
-<xdr-client [ngClass]="isClient() ? 'visibility-visible' : 'visibility-hidden'"></xdr-client>
+<ng-container *ngIf="isLogged">
+    <xdr-client [hidden]="!isClient()"></xdr-client>
+</ng-container>
 <router-outlet *ngIf="!isClient()"></router-outlet>
 <p-toast></p-toast>

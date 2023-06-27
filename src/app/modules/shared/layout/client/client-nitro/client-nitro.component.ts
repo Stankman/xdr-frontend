@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/modules/client/services/client.service';
 import { client } from 'src/environments/environment';
 
@@ -7,7 +7,7 @@ import { client } from 'src/environments/environment';
   templateUrl: './client-nitro.component.html',
   styleUrls: ['./client-nitro.component.scss']
 })
-export class ClientNitroComponent implements OnInit, OnDestroy {
+export class ClientNitroComponent implements OnInit {
   private nitroLoading : boolean;
   private nitroLoaded : boolean;
   private iframe : HTMLIFrameElement;
@@ -31,7 +31,7 @@ export class ClientNitroComponent implements OnInit, OnDestroy {
       
             this.clientService.ticket().subscribe({
               next: (sso : string) => {
-                this.initNitro(sso);    
+                this.initNitro();    
               }
             });
           }
@@ -40,24 +40,20 @@ export class ClientNitroComponent implements OnInit, OnDestroy {
     });
   }
 
-  private initNitro(sso : string): void {
-    this.initIFrame(sso);
+  private initNitro(): void {
+    this.initIFrame();
 
     this.nitroLoaded = true;
     this.nitroLoading = false;
   }
 
-  private initIFrame(sso : string): void {
+  private initIFrame(): void {
     if(!this.iframe) {
       this.iframe = document.createElement('iframe');
-      this.iframe.src = `${ client.nitro.source }?sso=${sso}`;
+      this.iframe.src = `${ client.nitro.source }?sso=${this.clientService.sso}`;
       this.iframe.height = '100%';
       this.iframe.width = '100%';
       this.elementRef.nativeElement.appendChild(this.iframe);
     }
-  }
-
-  ngOnDestroy(): void {
-    console.log("This is closed");
   }
 }

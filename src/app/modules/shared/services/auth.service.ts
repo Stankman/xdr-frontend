@@ -3,6 +3,7 @@ import { ApiService } from "./api.service";
 import { Observable, map } from "rxjs";
 import { Api } from "../../core/models/api/api.model";
 import { AccountService } from "./account.service";
+import { ClientService } from "../../client/services/client.service";
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,8 @@ export class AuthService {
     
     constructor(
         private apiService : ApiService,
-        private accountService : AccountService
+        private accountService : AccountService,
+        private clientService : ClientService
     ) {}
 
     /**
@@ -56,6 +58,8 @@ export class AuthService {
                 localStorage.removeItem('xdr-account');
                 localStorage.removeItem('xdr-token');
                 this.accountService.account = null;
+                this.clientService.clientOpened = false;
+                this.clientService.sso = null;
                 return;
             })
         );
