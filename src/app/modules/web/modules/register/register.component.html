@@ -1,43 +1,91 @@
-<p-card styleClass="border-noround register-landing mb-2">
-  <div class="grid px-7">
-    <div class="col">
-      <div class="text-6xl font-bold text-white" [translate]="'REGISTER.FORM.TITLE'"></div>
+<div class="registration-page web-container">
+  <section class="registration-intro entrance-bounce" aria-labelledby="registration-title">
+    <span class="registration-eyebrow">{{ 'LOGIN.LANDING.EYEBROW' | translate: { hotelName } }}</span>
+    <h1 id="registration-title">{{ 'REGISTER.FORM.TITLE' | translate }}</h1>
+    <p>{{ 'REGISTER.DESCRIPTION' | translate }}</p>
+    <img class="registration-art" src="/assets/resources/images/bg_reception.out.png" alt="" aria-hidden="true">
+    <div class="registration-art-space" aria-hidden="true"></div>
+    <div class="registration-perks">
+      <div><i class="pi pi-user" aria-hidden="true"></i><span>{{ 'LOGIN.LANDING.AVATAR_TITLE' | translate }}</span></div>
+      <div><i class="pi pi-comments" aria-hidden="true"></i><span>{{ 'LOGIN.LANDING.FRIENDS_TITLE' | translate }}</span></div>
+      <div><i class="pi pi-home" aria-hidden="true"></i><span>{{ 'LOGIN.LANDING.ROOMS_TITLE' | translate }}</span></div>
     </div>
-  </div>
-</p-card>
-<div class="grid grid-nogutter py-2 px-8">
-  <div class="col-12 lg:col-4">
-    <form id="registerForm" name="registerForm" [formGroup]="formGroup" (submit)="onSubmit()">
-      <div class="field flex flex-column gap-2 p-2">
-        <label class="text-lg" [translate]="'REGISTER.FORM.INPUT.EMAIL.LABEL'"></label>
-        <span class="p-input-icon-left">
-          <i class="pi pi-send"></i>
-          <input id="email" name="email" formControlName="email" type="text" class="w-full" pInputText />
-        </span>
-        <small id="email-help" [translate]="'REGISTER.FORM.INPUT.EMAIL.HELP'" [translateParams]="{ hotelName: 'Kubbo'}"></small>
-      </div>
-      <div class="surface-card p-2 border-round shadow-1">
-        <div class="field flex flex-column gap-2">
-          <label class="text-lg" [translate]="'REGISTER.FORM.INPUT.PASSWORD.LABEL'"></label>
-          <p-password id="password" name="password" formControlName="password" [feedback]="false" [toggleMask]="true" styleClass="w-full" inputStyleClass="w-full"></p-password>
-          <small id="password-help" [translate]="'REGISTER.FORM.INPUT.PASSWORD.HELP'"></small>
-        </div>
-        <div class="field flex flex-column gap-2">
-          <label class="text-lg" [translate]="'REGISTER.FORM.INPUT.PASSWORD.CONFIRM'"></label>
-          <p-password id="passwordConfirm" name="passwordConfirm" formControlName="passwordConfirm" autocomplete="new-password" [feedback]="false" [toggleMask]="true" styleClass="w-full" inputStyleClass="w-full"></p-password>
+    <p class="registration-welcome">{{ 'REGISTER.FORM.WELCOME' | translate: { hotelName } }}</p>
+  </section>
+  <section class="registration-card entrance-bounce entrance-delay-1" aria-labelledby="registration-form-title">
+    @if (registeredEmail) {
+      <div class="registration-verify" role="status" aria-live="polite">
+        <span class="registration-icon"><i class="pi pi-envelope" aria-hidden="true"></i></span>
+        <h2 id="registration-form-title">{{ 'REGISTER.VERIFY.TITLE' | translate }}</h2>
+        <p>{{ 'REGISTER.VERIFY.SENT' | translate }}</p>
+        <p class="registration-verify-email">{{ registeredEmail }}</p>
+        <p>{{ 'REGISTER.VERIFY.NEXT' | translate }}</p>
+        <small>{{ 'REGISTER.VERIFY.NOT_RECEIVED' | translate }}</small>
+        <div class="registration-verify-actions">
+          <p-button type="button" [loading]="resending" [disabled]="resending" [label]="'REGISTER.VERIFY.RESEND' | translate" styleClass="habbo-button primary w-full" (onClick)="resendVerification()"></p-button>
+          <p-button type="button" [label]="'REGISTER.VERIFY.CHANGE_EMAIL' | translate" [text]="true" styleClass="w-full" (onClick)="startOver()"></p-button>
         </div>
       </div>
-      <div class="field flex align-items-center gap-1 p-2">
-        <p-checkbox id="tos" name="tos" formControlName="tos" [binary]="true" [value]="true" inputId="tos"></p-checkbox>
-        <label class="text-lg" class="m-0" for="tos" [translate]="'REGISTER.FORM.INPUT.TOS.LABEL'"></label>
+    } @else {
+    <div class="registration-heading">
+      <span class="registration-icon"><i class="pi pi-id-card" aria-hidden="true"></i></span>
+      <div><h2 id="registration-form-title">{{ 'LOGIN.FORM.BUTTONS.REGISTER' | translate }}</h2><p>{{ 'REGISTER.INTRO' | translate }}</p></div>
+    </div>
+    <form id="registerForm" name="registerForm" [formGroup]="formGroup" (ngSubmit)="onSubmit()" [attr.aria-busy]="submitting">
+      <div class="registration-field">
+        <label for="email">{{ 'REGISTER.FORM.INPUT.EMAIL.LABEL' | translate }}</label>
+        <input id="email" name="email" formControlName="email" type="email" autocomplete="email" pInputText [fluid]="true" aria-describedby="email-help email-error" [invalid]="form['email'].touched && form['email'].invalid" />
+        <small id="email-help">{{ 'REGISTER.FORM.INPUT.EMAIL.HELP' | translate: { hotelName } }}</small>
+        <small id="email-error" class="field-error" aria-live="polite">
+          @if (form['email'].touched && form['email'].invalid) {
+            {{ 'REGISTER.FORM.INPUT.EMAIL.ERRORS.PATTERN' | translate }}
+          }
+        </small>
       </div>
-      <div class="field text-lg" [translate]="'REGISTER.FORM.WELCOME'" [translateParams]="{ hotelName: 'Kubbo'}"></div>
-      <div class="field">
-        <p-button type="submit" [label]="'REGISTER.FORM.BUTTONS.REGISTER' | translate" styleClass="habbo-button primary uppercase w-full"></p-button>
+      <div class="registration-field">
+        <label for="password">{{ 'REGISTER.FORM.INPUT.PASSWORD.LABEL' | translate }}</label>
+        <div class="password-control">
+          <input pInputPassword id="password" name="password" formControlName="password" autocomplete="new-password" [fluid]="true" [(mask)]="passwordMasked" aria-describedby="password-help password-error" [invalid]="form['password'].touched && form['password'].invalid" />
+          <button type="button" class="password-toggle" (click)="passwordMasked = !passwordMasked" [attr.aria-label]="(passwordMasked ? 'REGISTER.PASSWORD.SHOW' : 'REGISTER.PASSWORD.HIDE') | translate" [attr.aria-pressed]="!passwordMasked" aria-controls="password"><i [class]="passwordMasked ? 'pi pi-eye' : 'pi pi-eye-slash'" aria-hidden="true"></i></button>
+        </div>
+        <div class="password-strength" [attr.data-strength]="passwordStrength.level">
+          <p-progressbar [value]="passwordStrength.percent" [showValue]="false" [color]="passwordStrength.color" [style]="{ height: '0.375rem' }" [attr.aria-label]="'REGISTER.PASSWORD.STRENGTH' | translate"></p-progressbar>
+          <small aria-live="polite">{{ 'REGISTER.PASSWORD.' + passwordStrength.level | translate }}</small>
+        </div>
+        <small id="password-help">{{ 'REGISTER.FORM.INPUT.PASSWORD.HELP' | translate }}</small>
+        <small id="password-error" class="field-error" aria-live="polite">
+          @if (form['password'].touched && form['password'].invalid) {
+            {{ 'REGISTER.FORM.INPUT.PASSWORD.HELP' | translate }}
+          }
+        </small>
       </div>
-      <div class="field">
-        <small [translate]="'REGISTER.FORM.INGAME_PURCHASES'"></small>
+      <div class="registration-field">
+        <label for="passwordConfirm">{{ 'REGISTER.FORM.INPUT.PASSWORD.CONFIRM' | translate }}</label>
+        <div class="password-control">
+          <input pInputPassword id="passwordConfirm" name="passwordConfirm" formControlName="passwordConfirm" autocomplete="new-password" [fluid]="true" [(mask)]="confirmationMasked" aria-describedby="confirmation-error" [invalid]="form['passwordConfirm'].touched && form['passwordConfirm'].invalid" />
+          <button type="button" class="password-toggle" (click)="confirmationMasked = !confirmationMasked" [attr.aria-label]="(confirmationMasked ? 'REGISTER.PASSWORD.SHOW_CONFIRM' : 'REGISTER.PASSWORD.HIDE_CONFIRM') | translate" [attr.aria-pressed]="!confirmationMasked" aria-controls="passwordConfirm"><i [class]="confirmationMasked ? 'pi pi-eye' : 'pi pi-eye-slash'" aria-hidden="true"></i></button>
+        </div>
+        <small id="confirmation-error" class="field-error" aria-live="polite">
+          @if (form['passwordConfirm'].touched && form['passwordConfirm'].invalid) {
+            {{ 'REGISTER.FORM.INPUT.PASSWORD.ERRORS.NOT_SAME' | translate }}
+          }
+        </small>
       </div>
+      <div class="registration-consent">
+        <p-checkbox name="tos" formControlName="tos" [binary]="true" [value]="true" inputId="tos"></p-checkbox>
+        <label for="tos">{{ 'REGISTER.FORM.INPUT.TOS.LABEL' | translate }}</label>
+      </div>
+      <nav class="registration-legal" [attr.aria-label]="'LEGAL.NAVIGATION' | translate">
+        <a routerLink="/terms" target="_blank" rel="noopener">{{ 'FOOTER.TOS' | translate }}</a>
+        <a routerLink="/privacy" target="_blank" rel="noopener">{{ 'FOOTER.PRIVACY' | translate }}</a>
+        <a routerLink="/cookies" target="_blank" rel="noopener">{{ 'FOOTER.COOKIE' | translate }}</a>
+      </nav>
+      @if (form['tos'].touched && form['tos'].invalid) {
+        <small class="field-error" role="alert">{{ 'ERROR.INPUT.REQUIRED' | translate }}</small>
+      }
+      <p-button type="submit" [loading]="submitting" [disabled]="submitting" [label]="'REGISTER.FORM.BUTTONS.REGISTER' | translate" class="registration-submit" styleClass="habbo-button primary w-full"></p-button>
+      <small class="registration-purchases">{{ 'REGISTER.FORM.INGAME_PURCHASES' | translate }}</small>
     </form>
-  </div>
+    }
+  </section>
 </div>

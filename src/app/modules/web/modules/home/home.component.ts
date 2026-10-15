@@ -1,26 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
-import { Account } from 'src/app/modules/core/models/account/account.model';
-import { AccountService } from 'src/app/modules/shared/services/account.service';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
-export class HomeComponent implements OnInit {
-
-  public account : Account;
-
-  constructor(
-    private readonly accountService : AccountService
-  ) { }
-
-  ngOnInit() {
-    this.accountService.accountObservable.subscribe({
-      next: (account : Account) => {
-        this.account = account;
-      }
-    })
-  }
+export class HomeComponent {
+  public readonly hotelName = environment.app.hotelName;
 }

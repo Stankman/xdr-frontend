@@ -1,0 +1,29 @@
+:host { display: block; }
+.legal-page { padding-block: 2.5rem; }
+.legal-heading {
+    margin-bottom: 2rem;
+    > span { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin: 0.75rem 0; }
+    p { max-width: 42rem; margin: 0; }
+}
+.legal-layout { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 2rem; align-items: start; }
+nav {
+    display: grid; gap: 0.5rem;
+    a { padding: 0.75rem 1rem; border-radius: 0.75rem; text-decoration: none; color: var(--web-text-normal); border: 1px solid transparent; }
+    a:hover, .active { background: var(--web-card-background); border-color: var(--web-input-border-color); }
+    .active { font-weight: 700; }
+}
+article { background: var(--web-card-background); padding: clamp(1.25rem, 3vw, 2.5rem); border: 1px solid var(--web-input-border-color); border-radius: 1rem; }
+.legal-draft {
+    display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; border: 1px solid #547c98; border-radius: 0.75rem; margin-bottom: 2rem;
+    i { margin-top: 0.3rem; }
+    p { margin: 0.25rem 0 0; font-size: 0.875rem; }
+}
+section {
+    margin-bottom: 2rem;
+    h2 { display: flex; gap: 0.75rem; align-items: baseline; font-size: 1.125rem; }
+    h2 span { color: var(--web-text-normal); font-size: 0.875rem; }
+    p { margin: 0; overflow-wrap: anywhere; }
+}
+.legal-back { color: var(--web-text-normal); font-weight: 500; }
+@media (max-width: 48rem) { .legal-layout { grid-template-columns: 1fr; gap: 1rem; } nav { grid-template-columns: repeat(3, minmax(0, 1fr)); a { padding: 0.75rem 0.5rem; font-size: 0.8125rem; } } }

@@ -1,0 +1,81 @@
+:host { display: block; }
+
+.signin-shell { display: grid; grid-template-columns: 19rem minmax(0, 1fr); min-height: 30rem; }
+
+.signin-art {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1.75rem;
+  background-color: #102b40;
+  color: #fff;
+}
+:host-context(body.light) .signin-art {
+  background:
+    radial-gradient(ellipse at 85% 30%, rgb(56 189 248 / 42%), transparent 65%),
+    linear-gradient(135deg, #075985, #2563eb);
+}
+:host-context(body.light) .signin-eyebrow { color: #fff; }
+.signin-art::before {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgb(16 43 64 / 25%), rgb(16 43 64 / 45%)), url('/assets/resources/images/habbo_bg_register.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: '';
+  opacity: .35;
+  pointer-events: none;
+}
+.signin-art-copy { position: relative; z-index: 1; }
+.signin-eyebrow { color: #a8dcff; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.signin-art .signin-art-title { color: #fff; margin: .6rem 0 0; font-size: 1.65rem; font-weight: 700; line-height: 1.15; letter-spacing: -.02em; }
+.signin-art-frank { position: absolute; left: -2.75rem; bottom: -2.75rem; filter: drop-shadow(0 .5rem .75rem #0006); max-width: none; image-rendering: pixelated; animation: xdr-float 4s ease-in-out infinite; }
+
+.signin-panel { display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem 2rem 1.75rem; }
+.signin-heading {
+  h2 { margin: 0; font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em; }
+  p { margin: .35rem 0 0; font-size: .9rem; opacity: .75; }
+}
+
+.signin-form { display: grid; gap: 1.1rem; }
+.signin-field { display: grid; gap: .4rem; label { font-size: .85rem; font-weight: 600; } }
+.signin-label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.signin-link { padding: 0; border: 0; background: none; color: #2a9cde; font: inherit; font-size: .78rem; font-weight: 600; cursor: pointer; }
+.signin-link:hover { text-decoration: underline; }
+.signin-link:focus-visible, .signin-footer a:focus-visible { outline: 2px solid var(--web-input-border-color-focus); outline-offset: 2px; border-radius: .25rem; }
+
+.signin-control {
+  position: relative;
+  > i { position: absolute; top: 50%; left: .9rem; z-index: 1; transform: translateY(-50%); font-size: .9rem; opacity: .55; pointer-events: none; }
+  ::ng-deep .p-password { display: flex; width: 100%; }
+  ::ng-deep input { width: 100%; height: 2.85rem; padding-left: 2.6rem; border-radius: .7rem; }
+}
+
+:host ::ng-deep .signin-submit { width: 100%; min-height: 3rem; margin-top: .4rem; font-weight: 700; letter-spacing: .03em; }
+
+.signin-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem .6rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--web-card-divider-border);
+  font-size: .85rem;
+  a { display: inline-flex; align-items: center; gap: .4rem; color: #00a14e; font-weight: 700; text-decoration: none; i { font-size: .75rem; transition: transform .15s; } }
+  a:hover i { transform: translateX(3px); }
+}
+
+@media (max-width: 47.99rem) {
+  .signin-shell { grid-template-columns: 1fr; min-height: 0; }
+  .signin-art { height: 8.5rem; padding: 1.5rem 1.25rem; }
+  .signin-art-copy { max-width: 64%; }
+  .signin-art-title { font-size: 1.3rem; }
+  .signin-art-frank { display: none; }
+  .signin-panel { padding: 1.5rem 1.25rem 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signin-art-frank, .signin-footer a i { animation: none; transition: none; }
+}

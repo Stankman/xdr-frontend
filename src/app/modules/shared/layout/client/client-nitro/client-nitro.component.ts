@@ -1,59 +1,55 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { EMPTY, catchError, distinctUntilChanged, exhaustMap, filter, finalize } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 import { ClientService } from 'src/app/modules/client/services/client.service';
 import { client } from 'src/environments/environment';
 
 @Component({
   selector: 'xdr-client-nitro',
   templateUrl: './client-nitro.component.html',
-  styleUrls: ['./client-nitro.component.scss']
+  styleUrls: ['./client-nitro.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false
 })
 export class ClientNitroComponent implements OnInit {
-  private nitroLoading : boolean;
-  private nitroLoaded : boolean;
-  private iframe : HTMLIFrameElement;
-  
+  public source: SafeResourceUrl | null = null;
+  public loading = false;
+  public failed = false;
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(
-    private readonly clientService : ClientService,
-    private readonly elementRef : ElementRef
-  ) {
-    this.nitroLoading = false;
-    this.nitroLoaded = false;
-  }
+    private readonly clientService: ClientService,
+    private readonly sanitizer: DomSanitizer,
+    public readonly translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
-    this.clientService.clientOpenedObservable.subscribe({
-      next: (opened : boolean) => {
-        if(opened) {
-          if(this.clientService.sso && !this.nitroLoaded ) {
-
-          } else {
-            this.nitroLoading = true;
-      
-            this.clientService.ticket().subscribe({
-              next: (sso : string) => {
-                this.initNitro();    
-              }
-            });
-          }
-        }
-      }
+    this.clientService.clientOpenedObservable.pipe(
+      distinctUntilChanged(),
+      filter(opened => opened && !this.source),
+      exhaustMap(() => {
+        this.loading = true;
+        this.failed = false;
+        return this.clientService.ticket().pipe(
+          catchError(() => {
+            this.failed = true;
+            return EMPTY;
+          }),
+          finalize(() => this.loading = false)
+        );
+      }),
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(ticket => {
+      const url = new URL(client.nitro.source);
+      url.searchParams.set('sso', ticket);
+      this.source = this.sanitizer.bypassSecurityTrustResourceUrl(url.toString());
     });
   }
 
-  private initNitro(): void {
-    this.initIFrame();
-
-    this.nitroLoaded = true;
-    this.nitroLoading = false;
-  }
-
-  private initIFrame(): void {
-    if(!this.iframe) {
-      this.iframe = document.createElement('iframe');
-      this.iframe.src = `${ client.nitro.source }?sso=${this.clientService.sso}`;
-      this.iframe.height = '100%';
-      this.iframe.width = '100%';
-      this.elementRef.nativeElement.appendChild(this.iframe);
-    }
+  public retry(): void {
+    this.clientService.clientOpened = false;
+    this.clientService.clientOpened = true;
   }
 }

@@ -1,0 +1,12 @@
+:host { display: block; padding-block: 1.5rem; }
+.verify-card { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; max-width: 32rem; margin: 2rem auto; padding: clamp(1.25rem, 3vw, 2rem); text-align: center; background: var(--web-card-background); border: 1px solid var(--web-input-border-color); border-radius: 1.5rem; box-shadow: 0 1rem 3rem #0001;
+    h1 { font-size: 1.5rem; margin: 0.25rem 0 0; }
+    p { margin: 0; }
+}
+.verify-icon { display: grid; place-items: center; width: 3rem; height: 3rem; background: #163d58; color: #b9e4ff; border-radius: 0.75rem; font-size: 1.25rem;
+    &.success { color: var(--p-green-400); }
+    &.failed { color: var(--p-red-400); }
+}
+.verify-resend { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; margin-top: 0.75rem; text-align: left; label { font-weight: 500; } }
+.field-error { color: var(--p-red-500); &:empty { display: none; } }
+.verify-link { color: var(--web-text-normal); text-underline-offset: 3px; margin-top: 0.5rem; }

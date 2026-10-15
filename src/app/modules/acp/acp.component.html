@@ -1,3 +1,55 @@
-<p>
-  acp works!
-</p>
+<div class="acp-shell">
+  <xdr-acp-sidebar [items]="navigationItems"></xdr-acp-sidebar>
+  @if (section | async; as currentSection) {
+    <xdr-acp-sub-sidebar [title]="currentSection.label" [path]="currentSection.path"
+      [group]="currentSection.group" [open]="submenuOpen"
+      [items]="currentSection.children ?? [{path: '', label: currentSection.label}]">
+    </xdr-acp-sub-sidebar>
+  }
+  <main class="acp-main">
+    @if (section | async; as currentSection) {
+      @if (context | async; as page) {
+      <header class="acp-topbar">
+        <button #submenuToggle type="button" class="acp-icon-button acp-submenu-toggle"
+          [attr.aria-label]="'ACP.SUBMENU' | translate" [attr.aria-expanded]="submenuOpen"
+          aria-controls="acp-submenu" (click)="toggleSubmenu()">
+          <i class="pi pi-bars" aria-hidden="true"></i>
+        </button>
+        <nav class="acp-breadcrumb" [attr.aria-label]="'ACP.BREADCRUMBS' | translate">
+          <a routerLink="/acp/dashboard">ACP</a>
+          <span aria-hidden="true">/</span>
+          <a [routerLink]="['/acp', currentSection.path]">{{ currentSection.label }}</a>
+          @if (page.label) {
+            <span aria-hidden="true">/</span>
+            <strong>{{ page.label | translate }}</strong>
+          }
+          @if (page.detail) {
+            <span aria-hidden="true">/</span><span>#{{ page.id }}</span>
+          }
+        </nav>
+      </header>
+      <div class="acp-content">
+        <section class="acp-demo-notice" [class.is-demo]="demo.enabled()"
+          [attr.aria-label]="'ACP.DEMO.TITLE' | translate">
+          <div>
+            <strong>{{ (demo.enabled() ? 'ACP.DEMO.ACTIVE' : 'ACP.DEMO.TITLE') | translate }}</strong>
+            <p>{{ (demo.enabled() ? 'ACP.DEMO.WARNING' : 'ACP.DEMO.HELP') | translate }}</p>
+          </div>
+          <button type="button" class="acp-action-link" [attr.aria-pressed]="demo.enabled()" (click)="demo.toggle()">
+            {{ (demo.enabled() ? 'ACP.DEMO.DISABLE' : 'ACP.DEMO.ENABLE') | translate }}
+          </button>
+        </section>
+        <section class="acp-page-heading">
+          <div>
+            <p class="acp-eyebrow">{{ ('ACP.' + currentSection.group) | translate }}</p>
+            <h1>{{ (page.label || currentSection.label) | translate }}
+              @if (page.detail) { <span>#{{ page.id }}</span> }
+            </h1>
+          </div>
+        </section>
+        <router-outlet></router-outlet>
+      </div>
+      }
+    }
+  </main>
+</div>

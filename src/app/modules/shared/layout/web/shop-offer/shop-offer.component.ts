@@ -1,13 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { Offer } from 'src/app/modules/core/models/shop/offer.model';
-import { ShopOfferDetailsComponent } from '../shop-offer-details/shop-offer-details.component';
 
 @Component({
-  selector: 'xdr-shop-offer',
-  templateUrl: './shop-offer.component.html',
-  styleUrls: ['./shop-offer.component.scss'],
-  providers: [DialogService]
+    selector: 'xdr-shop-offer',
+    templateUrl: './shop-offer.component.html',
+    styleUrls: ['./shop-offer.component.scss'],
+    providers: [DialogService],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ShopOfferComponent {
   private _offer: Offer;
@@ -25,7 +26,8 @@ export class ShopOfferComponent {
     return this._offer;
   }
 
-  public showDetails() : void {
+  public async showDetails() : Promise<void> {
+    const { ShopOfferDetailsComponent } = await import('../shop-offer-details/shop-offer-details.component');
     const ref = this.dialogService.open(ShopOfferDetailsComponent, {
       header: 'Details', //TODO translate
       width: '70%',

@@ -15,7 +15,7 @@ export class AuthenticatedGuard {
 
     public canActivate() : boolean {
         if(this.accountService.token) {
-            this.router.navigateByUrl('/me');
+            this.router.navigateByUrl(this.accountService.account?.activeAvatar ? '/me' : '/articles');
             return false;
         }
 

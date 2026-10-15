@@ -1,23 +1,69 @@
-<div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
-    <div class="col-12 lg:col-8 p-2">
-        <p-tabView styleClass="team-tabview">
-            <p-tabPanel header="Staff">
-                <div class="grid">
-                    <div class="col p-2">
-                        <ng-container *ngIf="category.children?.length > 0 else noChildren">
-                            <ng-container *ngFor="let role of category.children">
-                                <xdr-rank-card></xdr-rank-card>
-                            </ng-container>
-                        </ng-container>
-                        <ng-template #noChildren>
-                            <xdr-empty-block></xdr-empty-block>
-                        </ng-template>
-                    </div>
-                </div>
-            </p-tabPanel>
-        </p-tabView>
+<div class="web-container flex flex-wrap sm:flex-col md:flex-row py-2">
+  <div class="w-full lg:w-2/3 py-2 lg:pr-2">
+    <div class="staff-hero anim-rise">
+      <span class="staff-hero-eyebrow">{{ 'TEAM.EYEBROW' | translate: { hotelName } }}</span>
+      <h1 class="staff-hero-title">{{ 'TEAM.OUR_TEAM' | translate }}</h1>
+      <p class="staff-hero-subtitle">{{ 'TEAM.SUBTITLE' | translate: { hotelName } }}</p>
     </div>
-    <div class="col-12 lg:col-4 p-2">
-        <xdr-info-block [title]="'TEAM.WHAT_IS.TITLE' | translate: { hotelName: 'Kubbo' }" [body]="'TEAM.WHAT_IS.BODY' | translate: { hotelName: 'Kubbo' }"></xdr-info-block>
+
+    @if (loading) {
+      <div class="staff-grid" aria-busy="true">
+        @for (placeholder of [0, 1, 2]; track placeholder) {
+          <div class="staff-member is-skeleton"></div>
+        }
+      </div>
+    } @else if (failed) {
+      <div class="staff-state anim-rise">
+        <img class="image-pixelated" src="/assets/resources/images/frank_nosignal.gif" alt="">
+        <p>{{ 'TEAM.ERROR' | translate }}</p>
+        <p-button [label]="'TEAM.RETRY' | translate" icon="pi pi-refresh" severity="secondary" (onClick)="load()"></p-button>
+      </div>
+    } @else if (groups.length === 0) {
+      <div class="staff-state anim-rise"><xdr-empty-block></xdr-empty-block></div>
+    } @else {
+      @for (group of groups; track group.name; let g = $index) {
+        <section class="staff-group anim-rise" [style.--anim-order]="g + 1" [attr.data-tier]="g < 4 ? g : 3">
+          <header class="staff-group-header">
+            <h2 class="staff-group-title">{{ group.displayName }}</h2>
+            <span class="staff-group-count">
+              <i class="pi pi-users"></i> {{ group.members.length }}
+              @if (onlineCount(group) > 0) {
+                <span class="staff-group-online">&middot; {{ onlineCount(group) }} {{ 'TEAM.ONLINE' | translate }}</span>
+              }
+            </span>
+          </header>
+          @if (group.members.length > 0) {
+            <div class="staff-grid">
+              @for (member of group.members; track member.username; let m = $index) {
+                <article class="staff-member anim-rise" [class.is-online]="member.online" [style.--anim-order]="g + m + 2">
+                  <div class="staff-member-stage">
+                    <span class="staff-member-status">
+                      <span class="staff-member-dot"></span>
+                      {{ (member.online ? 'TEAM.ONLINE' : 'TEAM.OFFLINE') | translate }}
+                    </span>
+                    <span class="staff-member-tile" aria-hidden="true"></span>
+                    <img class="staff-member-avatar" [src]="figure(member)" [alt]="member.username" loading="lazy">
+                    <img class="staff-member-avatar is-wave" [src]="figure(member, true)" alt="" aria-hidden="true" loading="lazy">
+                  </div>
+                  <div class="staff-member-body">
+                    <div class="staff-member-name" [title]="member.username">{{ member.username }}</div>
+                    @if (member.motto) {
+                      <div class="staff-member-bubble" [title]="member.motto"><span>{{ member.motto }}</span></div>
+                    }
+                  </div>
+                </article>
+              }
+            </div>
+          } @else {
+            <p class="staff-group-empty">{{ 'TEAM.EMPTY_USERS' | translate }}</p>
+          }
+        </section>
+      }
+    }
+  </div>
+  <div class="w-full lg:w-1/3 py-2 lg:pl-2">
+    <div class="anim-rise" style="--anim-order: 2">
+      <xdr-info-block [title]="'TEAM.WHAT_IS.TITLE' | translate: { hotelName }" [body]="'TEAM.WHAT_IS.BODY' | translate: { hotelName }"></xdr-info-block>
     </div>
   </div>
+</div>

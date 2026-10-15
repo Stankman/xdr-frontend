@@ -1,24 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { AccountService } from '../../../services/account.service';
 import { MessageService } from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
-import { ApiError } from 'src/app/modules/core/models/api/api-error.model';
-import { Subscription } from 'rxjs';
+import { finalize, switchMap } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'xdr-signin-dialog',
-  templateUrl: './signin-dialog.component.html',
-  styleUrls: ['./signin-dialog.component.css'],
-  providers: [
-    DialogService
-  ]
+    selector: 'xdr-signin-dialog',
+    templateUrl: './signin-dialog.component.html',
+    styleUrls: ['./signin-dialog.component.scss'],
+    providers: [
+        DialogService
+    ],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class SignInDialogComponent implements OnInit {
   public formGroup : FormGroup;
+  public submitting = false;
+  public readonly hotelName = environment.app.hotelName;
 
   constructor(
     private readonly ref: DynamicDialogRef,
@@ -32,40 +37,44 @@ export class SignInDialogComponent implements OnInit {
 
   ngOnInit() : void {
     this.formGroup = this.formBuilder.group({
-      identification: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
 
   onSubmit() : void {
+    if (this.submitting) return;
     if(this.formGroup.invalid) {
-      this.form['identification'].markAsDirty();
+      this.form['email'].markAsDirty();
       this.form['password'].markAsDirty();
-      this.messageService.add({severity:'error', summary: 'Oops!', detail: this.translateService.instant('ERROR.INPUT.REQUIRED')});
+      this.messageService.add({severity:'error', summary: this.translateService.instant('ERROR.INPUT.REQUIRED')});
       return;
     }
 
-    const subscription : Subscription = this.authService.signIn(
-      this.form['identification'].value,
+    this.submitting = true;
+    this.authService.signIn(
+      this.form['email'].value,
       this.form['password'].value
+    ).pipe(
+      switchMap(token => this.accountService.getAccountByJWT(token)),
+      finalize(() => this.submitting = false)
     ).subscribe({
-      next: (JWT : string) => {
-        const userSubscription : Subscription = this.accountService.getAccountByJWT(JWT).subscribe({
-          next: (res) => {
-            this.router.navigateByUrl('/me');
-            this.messageService.add({severity:'success', summary: 'Welcome Back!', detail: this.translateService.instant('SUCCESS.LOGIN')});
+      next: () => {
+            this.router.navigateByUrl(this.accountService.account?.activeAvatar ? '/me' : '/articles');
+            this.messageService.add({severity:'success', summary: this.translateService.instant('ME.WELCOME'), detail: this.translateService.instant('SUCCESS.LOGIN')});
             this.ref.close();
-          }
-        });
       },
-      error: (exception : ApiError) => {
-          this.form['identification'].markAsPristine();
-          this.form['password'].markAsPristine();
-          this.messageService.add({severity:'error', summary: 'Oops!', detail: this.translateService.instant('ERROR.LOGIN')});
+      error: (error: unknown) => {
+          this.accountService.clearSession();
+          const unverified = error instanceof HttpErrorResponse && error.status === 403;
+          this.messageService.add({severity:'error', summary: this.translateService.instant(unverified ? 'ERROR.EMAIL_NOT_VERIFIED' : 'ERROR.LOGIN')});
           return;
-      },
-      complete: () => subscription.unsubscribe()
+      }
     });
+  }
+
+  close() : void {
+    this.ref.close();
   }
 
   openPasswordDialog() {

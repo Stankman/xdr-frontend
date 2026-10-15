@@ -1,33 +1,45 @@
-<div id="header-container" @bounceInDown @bounceOutUp>
-  <p-menubar styleClass="web-menubar px-8">
-    <ng-template pTemplate="start">
-      <a pRipple routerLink=""><img src="/assets/resources/images/habbo_logo_sm.png" alt="hotel-logo"/></a>
+<div id="header-container" class="entrance-header site-header">
+  <div class="web-container">
+  <p-menubar class="web-menubar">
+    <ng-template #start>
+      <a pRipple routerLink="" class="hotel-logo-link"><img src="/assets/resources/images/habbo_logo_sm.png" [alt]="hotelName"/></a>
     </ng-template>
-    <ng-template pTemplate="end">
-      <ng-container *ngIf="isLogged else guestButtons">
+    <ng-template #end>
+      @if (isLogged) {
         <!-- <p-button styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase" [label]="'HEADER.UPPER_MENU.ACP' | translate"></p-button> -->
-        <p-button (onClick)="signOut()" styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase" [label]="'HEADER.UPPER_MENU.LOGOUT' | translate"></p-button>
-      </ng-container>
-      <ng-template #guestButtons>
-        <p-button (onClick)="show()" [label]="'HEADER.SIGNIN.LABEL' | translate" styleClass="habbo-button p-button-text p-button-sm mx-1 uppercase"></p-button>
-        <p-button routerLink="/registration" [label]="'HEADER.SIGNUP.LABEL' | translate" styleClass="habbo-button p-button-sm p-button-raised mx-1 uppercase"></p-button>
-      </ng-template>
+        <p-button (onClick)="signOut()" styleClass="habbo-button p-button-text p-button-sm uppercase" [label]="'HEADER.UPPER_MENU.LOGOUT' | translate"></p-button>
+      } @else {
+        <p-button (onClick)="show()" [label]="'HEADER.SIGNIN.LABEL' | translate" styleClass="habbo-button p-button-text p-button-sm uppercase"></p-button>
+        <p-button routerLink="/registration" [label]="'HEADER.SIGNUP.LABEL' | translate" styleClass="habbo-button web-green-button p-button-sm p-button-raised uppercase"></p-button>
+      }
     </ng-template>
   </p-menubar>
-  <p-menubar styleClass="web-menubar px-8" [model]="mainMenuItems">
-    <ng-template pTemplate="end">
+  <p-menubar class="web-menubar" [model]="mainMenuItems">
+    <ng-template #end>
 
-      <div class="flex align-items-center">
-        <p-toggleButton styleClass="theme-button mx-1" [(ngModel)]="isDark" (onChange)="onThemeChange($event)" [offIcon]="'pi pi-sun'" [onIcon]="'pi pi-moon'"></p-toggleButton>
-        <p-dropdown styleClass="language-dropdown mx-1" [(ngModel)]="currentLanguage" (onChange)="onLocaleChange($event)" [options]="['es', 'en']" dropdownIcon="">
-          <ng-template pTemplate="selectedItem">
-            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + currentLanguage.toLowerCase()"/>
+      <div class="flex items-center gap-2">
+        @if (account?.permissions?.includes('cms.acp.access')) {
+          <a routerLink="/acp" class="p-button habbo-button web-acp-button p-button-sm p-button-raised uppercase">
+            {{ 'HEADER.UPPER_MENU.ACP' | translate }}
+          </a>
+        }
+        <p-togglebutton class="theme-button" onLabel="" offLabel="" [ariaLabel]="'COMMON.THEME' | translate" [(ngModel)]="isDark" (onChange)="onThemeChange($event)" [offIcon]="'pi pi-sun'" [onIcon]="'pi pi-moon'"></p-togglebutton>
+        <p-select class="language-dropdown" panelStyleClass="header-language-panel" [ariaLabel]="'COMMON.LANGUAGE' | translate" [(ngModel)]="currentLanguage" (onChange)="onLocaleChange($event)" [options]="['es', 'en']">
+          <ng-template #selectedItem>
+            <span class="language-option">
+              <span [class]="'flag flag-' + currentLanguage" aria-hidden="true"></span>
+              <span>{{ currentLanguage === 'es' ? 'Español' : 'English' }}</span>
+            </span>
           </ng-template>
-          <ng-template let-language pTemplate="item">
-            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + language.toLowerCase()"/>
+          <ng-template let-language #item>
+            <span class="language-option">
+              <span [class]="'flag flag-' + language" aria-hidden="true"></span>
+              <span>{{ language === 'es' ? 'Español' : 'English' }}</span>
+            </span>
           </ng-template>
-        </p-dropdown>
+        </p-select>
       </div>
     </ng-template>
   </p-menubar>
+  </div>
 </div>

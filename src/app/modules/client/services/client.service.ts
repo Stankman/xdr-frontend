@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../shared/services/api.service';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import { Api } from '../../core/models/api/api.model';
 
 @Injectable({
     providedIn: 'root'
@@ -23,9 +22,12 @@ export class ClientService {
      * @return Observable<string>
      */
     public ticket() : Observable<string> {
-        return this.apiService.get('account/ticket')
+        return this.apiService.get<string>('account/ticket')
         .pipe(
-            map((response : Api) => {
+            map((response) => {
+                if (typeof response.data !== 'string' || !response.data.trim()) {
+                    throw new Error('The client ticket response is invalid.');
+                }
                 this.sso = response.data;
                 return this.sso;
             })

@@ -16,12 +16,20 @@ export class UnauthenticatedGuard {
     ) {}
 
     public canActivate() : boolean {
-        if(!this.accountService.token) {
-            this.router.navigateByUrl('/'); //TODO RELOAD TOP MENU ITEMS
+        if(!this.accountService.token || !this.accountService.account) {
+            this.router.navigateByUrl('/');
             this.messageService.add({ 
                 severity: 'error', 
                 summary: this.translateService.instant('ERROR.UNAUTHENTICATED.SUMMARY'), 
                 detail: this.translateService.instant('ERROR.UNAUTHENTICATED.DETAIL')
+            });
+            return false;
+        }
+        if (!this.accountService.account.activeAvatar) {
+            this.router.navigateByUrl('/articles');
+            this.messageService.add({
+                severity: 'warn',
+                summary: this.translateService.instant('ERROR.AVATAR_REQUIRED')
             });
             return false;
         }

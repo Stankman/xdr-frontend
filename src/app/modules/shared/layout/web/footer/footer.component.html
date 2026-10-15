@@ -1,44 +1,40 @@
-<p-card styleClass="border-noround">
-  <div class="grid grid-nogutter justify-content-between px-8">
-    <div class="col-12 md:col-4 text-center lg:text-left">
-      <img src="/assets/resources/images/habbo_logo.png" alt="hotel-logo">
-      <p class="text-center md:text-left text-sm" [translate]="'FOOTER.DESCRIPTION'"></p>
+<footer class="hotel-footer">
+  <div class="footer-inner web-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a routerLink="/" [attr.aria-label]="hotelName"><img src="/assets/resources/images/habbo_logo_sm.png" [alt]="hotelName"></a>
+        <p>{{ 'FOOTER.DESCRIPTION' | translate }}</p>
+      </div>
+      <nav [attr.aria-label]="'FOOTER.QUICKLINKS' | translate">
+        <h2>{{ 'FOOTER.QUICKLINKS' | translate }}</h2>
+        <a routerLink="/community">{{ 'FOOTER.COMMUNITY' | translate }}</a>
+        <a routerLink="/articles">{{ 'FOOTER.LASTEST_NEWS' | translate }}</a>
+        @if (isLogged) {
+          <a routerLink="/team">{{ 'FOOTER.OUR_TEAM' | translate }}</a>
+        } @else {
+          <a routerLink="/registration">{{ 'HEADER.SIGNUP.LABEL' | translate }}</a>
+        }
+      </nav>
+      <nav [attr.aria-label]="'FOOTER.INFORMATION' | translate">
+        <h2>{{ 'FOOTER.INFORMATION' | translate }}</h2>
+        <a routerLink="/terms">{{ 'FOOTER.TOS' | translate }}</a>
+        <a routerLink="/privacy">{{ 'FOOTER.PRIVACY' | translate }}</a>
+        <a routerLink="/cookies">{{ 'FOOTER.COOKIE' | translate }}</a>
+      </nav>
+      <div class="footer-platform">
+        <h2>{{ 'FOOTER.POWERED' | translate }}</h2>
+        <div class="platform-badges">
+          <span><img src="/assets/resources/images/xdr_icon_logo_32.png" alt="">XdrCMS</span>
+          <a href="https://git.krews.org/nitro" target="_blank" rel="noopener noreferrer">
+            <img [src]="'/assets/resources/images/nitro_icon_' + themeName + '_logo_32.png'" alt="">Nitro
+            <i class="pi pi-external-link" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="col-4 md:col-3 sm:text-center lg:text-left">
-      <div class="font-bold text-lg mb-2" [translate]="'FOOTER.QUICKLINKS'"></div>
-      <ul class="list-none m-0 p-0">
-          <li><a class="no-underline">Community</a></li>
-          <li><a class="no-underline" >News</a></li>
-          <li><a class="no-underline" >Our Team</a></li>
-      </ul>
-    </div>
-    <div class="col-4 md:col-3 sm:text-center lg:text-left">
-      <div class="font-bold text-lg mb-2" [translate]="'FOOTER.INFORMATION'"></div>
-      <ul class="list-none m-0 p-0">
-          <li><a class="no-underline cursor-pointer" >What's Kubbo?</a></li>
-          <li><a class="no-underline cursor-pointer">Terms of Service</a></li>
-          <li><a class="no-underline cursor-pointer" >Privacy Policy</a></li>
-          <li><a class="no-underline cursor-pointer" >Cookie Policy</a></li>
-      </ul>
-    </div>
-    <div class="col-4 md:col-2 text-right">
-      <div class="font-bold text-lg mb-2" [translate]="'FOOTER.POWERED'"></div>
-      <ul class="flex justify-content-end list-none m-0 p-0">
-          <li class="mx-2">
-              <a target="_blank"><img src="/assets/resources/images/xdr_icon_logo_32.png" alt="xdr-logo"></a>
-          </li>
-          <li class="mx-2">
-              <a href="https://git.krews.org/nitro" target="_blank">
-                <img [src]="'/assets/resources/images/nitro_icon_' + themeName + '_logo_32.png'" alt="nitro-logo">
-              </a>
-          </li>
-      </ul>
-    </div>
-  </div>
-  <div class="grid grid-nogutter">
-    <div class="col">
-      <p class="text-center text-xs" [innerHTML]="'FOOTER.COPYRIGHT' | translate: { hotelName: 'Kubbo' }">
-      </p>
+    <div class="footer-bottom">
+      <span>© {{ year }} {{ hotelName }} · XdrCMS</span>
+      <p>{{ 'FOOTER.DISCLAIMER' | translate: { hotelName } }}</p>
     </div>
   </div>
-</p-card>
+</footer>

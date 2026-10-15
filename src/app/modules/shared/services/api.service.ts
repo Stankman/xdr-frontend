@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { ApiPagination } from "../../core/models/api/api-pagination.model";
 import { Api } from "../../core/models/api/api.model";
 import { HttpLoaderService } from "./http-loader.service";
 import { environment } from "src/environments/environment";
@@ -24,9 +23,9 @@ export class ApiService {
      * @param loader
      * @return Observable<API>
     */
-    public post(url : string, body : any = {}, options = {}, loader : boolean = true): Observable<Api> {
+    public post<T = unknown>(url : string, body : any = {}, options = {}, loader : boolean = true): Observable<Api<T>> {
         this.isLoadable(url, loader);
-        return this.http.post<Api>(this.url(url), body, options);
+        return this.http.post<Api<T>>(this.url(url), body, options);
     }
 
     /**
@@ -36,9 +35,9 @@ export class ApiService {
      * @param loader
      * @return Observable<API>
     */
-    public get(url: string, options: {} = {}, loader: boolean = true): Observable<Api | ApiPagination> {
+    public get<T = unknown>(url: string, options: {} = {}, loader: boolean = true): Observable<Api<T>> {
         this.isLoadable(url, loader);
-        return this.http.get<Api>(this.url(url),options);
+        return this.http.get<Api<T>>(this.url(url),options);
     }
 
     /**
@@ -49,9 +48,9 @@ export class ApiService {
      * @param loader
      * @return Observable<API>
     */
-    public put(url: string, body: any = {}, options: {} = {}, loader: boolean = true): Observable<Api> {
+    public put<T = unknown>(url: string, body: any = {}, options: {} = {}, loader: boolean = true): Observable<Api<T>> {
         this.isLoadable(url, loader);
-        return this.http.put<Api>(this.url(url),body,options);
+        return this.http.put<Api<T>>(this.url(url),body,options);
     }
 
     /**
@@ -61,9 +60,9 @@ export class ApiService {
      * @param loader
      * @return Observable<API>
     */
-    public delete(url: string, options: {} = {}, loader: boolean = true): Observable<Api> {
+    public delete<T = unknown>(url: string, options: {} = {}, loader: boolean = true): Observable<Api<T>> {
         this.isLoadable(url, loader);
-        return this.http.delete<Api>(this.url(url),options);
+        return this.http.delete<Api<T>>(this.url(url),options);
     }
 
     /**

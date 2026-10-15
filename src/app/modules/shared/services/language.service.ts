@@ -19,18 +19,34 @@ export class LanguageService {
   {
     if(!localStorage.getItem("xdr-lang"))
     {
-      localStorage.setItem('xdr-lang', navigator.language);
+      localStorage.setItem('xdr-lang', this.normalize(navigator.language));
     }
 
-    this.currentLangSubject = new BehaviorSubject<string>(localStorage.getItem('xdr-lang')!);
+    this.currentLangSubject = new BehaviorSubject<string>(this.normalize(localStorage.getItem('xdr-lang')!));
     this.currentLanguage = this.currentLangSubject.asObservable();
+    localStorage.setItem('xdr-lang', this.language);
+    document.documentElement.lang = this.language;
+    this.updateDateFns();
   }
 
   set language(lang: string) {
+    lang = this.normalize(lang);
     this.currentLangSubject.next(lang);
     this.translateService.use(lang);
     localStorage.setItem('xdr-lang', lang);
     this.updateDateFns();
+    document.documentElement.lang = lang;
+  }
+
+  private normalize(lang: string): string {
+    const language = lang.toLowerCase().split(/[-_]/)[0];
+    return language === 'en' || language === 'es' ? language : 'es';
+  }
+
+  public load(): Observable<unknown> {
+    this.translateService.addLangs(['es', 'en']);
+    this.translateService.setDefaultLang('en');
+    return this.translateService.use(this.language);
   }
 
   get language(): string {

@@ -2,8 +2,6 @@ import { Injectable } from "@angular/core";
 import { ApiService } from "./api.service";
 import { Observable, map } from "rxjs";
 import { OfferPagination } from "../../core/models/shop/offer-pagination.model";
-import { HttpParams } from "@angular/common/http";
-import { Api } from "../../core/models/api/api.model";
 import { Payment } from "../../core/models/shop/payment.model";
 
 @Injectable({ providedIn: 'root'})
@@ -18,20 +16,20 @@ export class ShopService {
             limit
         };
 
-        return this.apiService.get(`shop/offers/all`, { params: params }).pipe(
-            map((resp: Api) => resp.data)
+        return this.apiService.get<OfferPagination>(`shop/offers/all`, { params: params }).pipe(
+            map((resp) => resp.data)
         );
     }
 
     public makePayment(payment : Payment) : Observable<Payment> {
-        return this.apiService.post(`shop/purchase`, payment).pipe(
-            map((resp: Api) => resp.data)
+        return this.apiService.post<Payment>(`shop/purchase`, payment).pipe(
+            map((resp) => resp.data)
         );
     }
 
-    public updatePaymentStatus(paymentStatus : any) : Observable<Payment> {
-        return this.apiService.put(`shop/purchase`, paymentStatus).pipe(
-            map((resp: Api) => resp.data)
+    public updatePaymentStatus(paymentStatus : { orderId: string; status: string }) : Observable<Payment> {
+        return this.apiService.put<Payment>(`shop/purchase`, paymentStatus).pipe(
+            map((resp) => resp.data)
         );
     }
 }

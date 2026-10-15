@@ -11,24 +11,32 @@ body.dark {
     --web-input-border-color-focus: #616874;
 
     --web-body-background: #1a1c1e;
+    --web-body-texture: url('/assets/resources/images/bg_texture_1.out.png') repeat;
     --web-text-normal: #ffffff;
 
     --web-header-background: #151618;
     --web-header-text: #ffffff;
     --web-header-menu-hover: #1c1d20;
+    --web-header-menu-active: #253545;
+    --web-header-focus-color: #6bb5e0;
     --web-header-button-background: transparent;
     --web-header-button-border: none;
-    --web-header-button-color: #495057;
+    --web-header-button-color: #ffffff;
     --web-header-button-background-hover: #1c1d20;
     --web-header-button-border-color-hover: #202225;
     --web-header-button-color-hover: #ffffff;
     --web-header-dropdown-trigger-display: none;
     --web-header-dropdown-panel-background: #151618;
+    --web-header-dropdown-panel-border: #39434e;
     --web-header-dropdown-item-background: transparent;
     --web-header-dropdown-item-background-hover: #191a1d;
     --web-header-dropdown-item-selected-background: #1b1c1f;
 
     --web-hero-bg-gradient: linear-gradient(to bottom, #1d6893, #00060a);
+    --web-header-gradient: linear-gradient(180deg, #1a1d22 0%, #15171a 55%, #111316 100%);
+    --web-footer-gradient: linear-gradient(180deg, #151618 0%, #121519 55%, #0c1218 100%);
+    --web-chrome-accent: linear-gradient(90deg, transparent, #1d6893 35%, #2a8bc0 65%, transparent);
+    --web-chrome-shadow: 0 8px 24px -12px rgb(0 0 0 / 70%);
 
     --web-card-background: #151618;
     --web-card-alternate-background: #121314;

@@ -1,0 +1,11 @@
+@if (source) {
+  <iframe class="client-frame" [src]="source" [title]="'CLIENT.TITLE' | translate" allow="fullscreen"></iframe>
+}
+@if (!source) {
+  <div class="flex h-screen items-center justify-center gap-6">
+    <span>{{ (failed ? 'ERROR.RETRY' : 'CLIENT.LOADING') | translate }}</span>
+    @if (failed) {
+      <p-button (onClick)="retry()" [label]="'COMMON.RETRY' | translate"></p-button>
+    }
+  </div>
+}

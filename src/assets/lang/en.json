@@ -1,21 +1,50 @@
-{   
+{
+  "COMMON": {
+    "LOADING": "Loading news...",
+    "RECENT_USERS": "Recent users",
+    "CLOSE": "Close",
+    "RETRY": "Try again",
+    "THEME": "Switch color theme",
+    "LANGUAGE": "Language"
+  },
+  "PAYMENT": {
+    "PROCESSING": "We are preparing your order.",
+    "SUCCESS": "Your purchase was confirmed.",
+    "CANCELLED": "Purchase cancelled.",
+    "ERROR": "Payment could not be confirmed. Check your payment history before trying again."
+  },
   "META": {
     "DESCRIPTION": "Join millions in the planet&apos;s most popular virtual world for teens. Create your avatar, meet new friends, role play, and build amazing spaces."
   },
-
   "GUEST": {
     "WELCOME": {
       "TITLE": "Ready to play?",
       "DESCRIPTION": "<p>Creating an account will enable all of our available web & server feautures!</p> <p>Comment, create content, and have the most fun with everyone.</p>",
       "JOIN": "Join now, it's free"
     }
-  }, 
-  
+  },
   "LOGIN": {
+    "LANDING": {
+      "EYEBROW": "Welcome to {{ hotelName }}",
+      "TITLE": "Your world. Your friends. Your story.",
+      "DESCRIPTION": "Join {{ hotelName }}, create your avatar and discover a world of rooms, conversations and new adventures.",
+      "NOTE": "Creating your account is free.",
+      "ART_LABEL": "A world to discover",
+      "FEATURES_LABEL": "Discover the hotel",
+      "AVATAR_TITLE": "Be yourself",
+      "AVATAR_BODY": "Give your unique avatar your own style.",
+      "FRIENDS_TITLE": "Find your people",
+      "FRIENDS_BODY": "Meet friends and share good moments.",
+      "ROOMS_TITLE": "Create your space",
+      "ROOMS_BODY": "Explore rooms and let your imagination run free.",
+      "ALL_NEWS": "View news"
+    },
     "TITLE": "Virtual World, Avatar Chat, and Pixel Art",
     "MESSAGE": "<p><b>Create your Avatar.</b><br /><b>Today.</b><br />Welcome to the biggest retro community on the net. Join now and have fun with 1 million players.<br /><br />Begin you journey.</p>",
     "FORM": {
       "TITLE": "Sign In",
+      "SUBTITLE": "Good to see you again! Sign in to continue your story.",
+      "ART_TITLE": "Your hotel is waiting for you.",
       "INPUT": {
         "IDENTIFICATION": {
           "LABEL": "E-mail",
@@ -35,8 +64,20 @@
       }
     }
   },
-  
   "REGISTER": {
+    "INTRO": "Your next adventure starts here.",
+    "PASSWORD": {
+      "STRENGTH": "Password strength",
+      "PROMPT": "Enter a password to check its strength.",
+      "WEAK": "Weak",
+      "MEDIUM": "Medium",
+      "STRONG": "Strong",
+      "VERY_STRONG": "Very strong",
+      "SHOW": "Show password",
+      "HIDE": "Hide password",
+      "SHOW_CONFIRM": "Show repeated password",
+      "HIDE_CONFIRM": "Hide repeated password"
+    },
     "TITLE": "Registration",
     "DESCRIPTION": "Join the fun by registering today!",
     "FORM": {
@@ -75,14 +116,45 @@
       "WELCOME": "Welcome to {{ hotelName }}! Have fun and stay safe!",
       "INGAME_PURCHASES": "Includes optional in-game purchases.",
       "BUTTONS": {
-        "REGISTER": "Done! Let's make an avatar!"
+        "REGISTER": "Create my account"
       }
+    },
+    "VERIFY": {
+      "TITLE": "Check your email",
+      "SENT": "We sent a verification link to",
+      "NEXT": "Open the link to activate your account, then sign in with the Sign In button.",
+      "NOT_RECEIVED": "Didn't get it? Check your spam folder or send it again.",
+      "RESEND": "Resend verification email",
+      "CHANGE_EMAIL": "Use a different email",
+      "RESENT": "If that account still needs verification, a new link is on its way.",
+      "RESEND_FAILED": "We couldn't resend the verification email. Please try again."
     }
   },
-    
+  "VERIFY_EMAIL": {
+    "VERIFYING": "Verifying your email…",
+    "VERIFIED": {
+      "TITLE": "Email verified!",
+      "BODY": "Your account is active. Use the Sign In button to enter the hotel."
+    },
+    "FAILED": {
+      "TITLE": "This link didn't work",
+      "BODY": "The verification link is invalid, expired or was already used. Enter your email to get a new one."
+    },
+    "RESENT": "If that account still needs verification, a new link is on its way.",
+    "HOME": "Back to home"
+  },
   "ME": {
     "TITLE": "Home",
     "WELCOME": "Welcome back",
+    "DASHBOARD": {
+      "INTRO": "Your next story starts in the hotel.",
+      "ALL_NEWS": "All news",
+      "EXPLORE": "More to explore",
+      "COMMUNITY": "The community",
+      "COMMUNITY_DESCRIPTION": "See what's happening around the hotel.",
+      "SHOP": "Hotel shop",
+      "SHOP_DESCRIPTION": "Find something to make your own."
+    },
     "HERO": {
       "WELCOME": "Hey, <strong>{{ username }}</strong>!",
       "LAST_VISIT": "Your last visit was {{ last_login }}.",
@@ -112,13 +184,11 @@
       "NOT_FOUND": "{{ username }} could not be found!"
     }
   },
-
   "DUPLICATE": {
     "TITLE": "Another session has been initiated",
     "CONTENT": "Please reconnect your session to keep playing.",
     "RECONNECT": "Reconnect"
   },
-
   "SIDEBAR": {
     "INFORMATION": {
       "TITLE": ""
@@ -130,11 +200,9 @@
       "TITLE": "Settings"
     }
   },
-    
   "COMMUNITY": {
     "TITLE": "Community"
   },
-
   "SETTINGS": {
     "HEY": "Hey {{username}}!",
     "CAPTION": "Do you want to change your account settings?",
@@ -167,18 +235,22 @@
       }
     }
   },
-  
   "TEAM": {
     "TITLE": "Staff",
     "EMPTY_CATEGORY": "No ranks available in this category",
     "EMPTY_USERS": "No staff available with this rank",
     "OUR_TEAM": "Our Team",
+    "EYEBROW": "Meet the team",
+    "SUBTITLE": "The people who keep {{ hotelName }} safe, fun and running every day.",
+    "ONLINE": "Online",
+    "OFFLINE": "Offline",
+    "ERROR": "We couldn't load the staff team right now.",
+    "RETRY": "Try again",
     "WHAT_IS": {
       "TITLE": "Who are the {{ hotelName }} Staff?",
       "BODY": "Staff are carefully selected, vetted and fully trained members of {{ hotelName }} Staff Team. They can send warnings to misbehaving users, kick them out of rooms or even ban them from {{ hotelName }} Hotel."
     }
   },
-  
   "SHOP": {
     "TITLE": "Bobba Shop",
     "EMPTY_OFFERS": "No Offers available at the moment",
@@ -187,32 +259,49 @@
       "BODY": "All legitimate ways to buy credits are shown either here or in the in-game."
     }
   },
-  
   "CLIENT": {
+    "TITLE": "Hotel client",
+    "LOADING": "Loading the hotel...",
     "DISCONNECTED": {
       "TITLE": "Oh, Bollocks!",
       "DESCRIPTION": "You've disconnected!",
       "BUTTON": "Reconnect"
     },
-  
     "FLASH": {
       "TITLE": "Oh Bollocks!",
       "DESCRIPTION": "Click <a href=\"https://get.adobe.com/en/flashplayer\" target=\"_blank\">here</a> and then on \"Activate Flash\" as soon as you are prompted to do so . See you soon!"
     },
-  
     "ACTIVE": {
       "DESCRIPTION": "You're already checked in!",
       "BUTTON": "Force login"
     }
   },
-  
   "ARTICLES": {
     "TITLE": "News",
-    "SEARCH_PLACEHOLDER": "Search...",
-    "ARTICLE": {
+    "INTRO": "Discover the latest stories, updates and happenings around the hotel.",
+    "BACK": "Back to news",
+    "SEARCH_LABEL": "Search news",
+    "SEARCH": "Search",
+    "CLEAR_SEARCH": "Clear search",
+    "SEARCH_ERROR": "Enter a single search term of at most 80 characters.",
+    "RESULT_COUNT": "{{ count }} articles",
+    "SEARCH_FOR": "for “{{ search }}”",
+    "NO_MATCHES": "No articles match your search. Try another title or keyword.",
+    "PAGINATION": {
+      "LABEL": "News pages",
+      "PREVIOUS": "Previous page",
+      "NEXT": "Next page",
+      "PAGE": "Page {{ page }}"
     },
+    "SEARCH_PLACEHOLDER": "Search...",
+    "ARTICLE": {},
     "CAROUSEL": {
       "TITLE": "Recent News",
+      "PAUSE": "Pause slideshow",
+      "RESUME": "Resume slideshow",
+      "PREVIOUS": "Previous article",
+      "NEXT": "Next article",
+      "POSITION": "{{ current }} of {{ total }}",
       "READ_MORE": "Read More...",
       "EMPTY": "Oops! There are no articles to show..."
     },
@@ -223,21 +312,17 @@
     },
     "NO_RESULTS": "Oops! There are no articles to show..."
   },
-  
   "FRIENDS": {
     "TITLE": "My Friends",
     "SEE_ALL": "See All",
     "EMPTY": "Oops! No friends found"
   },
-  
   "UOTH": {
     "TITLE": "User of the hotel"
   },
-  
   "LEADERBOARDS": {
     "TITLE": "Leaderboards"
   },
-
   "GUILDS": {
     "TITLE": "Top Groups",
     "MEMBERS": "Members",
@@ -246,17 +331,15 @@
       "DESCRIPTION": "---"
     }
   },
-
   "ROOMS": {
     "TITLE": "Most Active Rooms"
   },
-  
   "HEADER": {
     "SIGNIN": {
-        "LABEL": "Sign In"
+      "LABEL": "Sign In"
     },
     "SIGNUP": {
-        "LABEL": "Join For Free"
+      "LABEL": "Join For Free"
     },
     "UPPER_MENU": {
       "HELP": "Help",
@@ -278,8 +361,93 @@
     "PLAY_NOW": "Play Now",
     "ONLINE": "{{ onlineCount }} online"
   },
-    
+  "LEGAL": {
+    "LABEL": "Legal information",
+    "NAVIGATION": "Legal documents",
+    "INTRO": "Read the terms and information about privacy and storage at {{ hotelName }}.",
+    "DRAFT_TITLE": "Provisional template — review required",
+    "DRAFT_NOTICE": "This content is not a final legal document or legal advice. Before publication, the hotel operator must complete the indicated details, verify actual practices and obtain a review appropriate to their jurisdiction.",
+    "BACK": "Back to home",
+    "TERMS": {
+      "TITLE": "Terms and conditions",
+      "OPERATOR": {
+        "TITLE": "Operator and scope",
+        "BODY": "These terms are a proposal for using {{ hotelName }}. To complete: the operator's legal name, address, country, contact details and effective date. Adapt them to applicable law and the features actually available."
+      },
+      "ACCOUNT": {
+        "TITLE": "Account and access",
+        "BODY": "Use accurate details and protect your credentials. Do not share passwords or access other people's accounts. To define: minimum age, any guardian consent requirements and the account recovery or closure procedure."
+      },
+      "CONDUCT": {
+        "TITLE": "Conduct and content",
+        "BODY": "Respect other users. Do not publish threats, harassment, unlawful content or other people's personal information. Do not use the service for fraud or unauthorized access. To complete: community rules, reporting channels and handling of user-generated content."
+      },
+      "PURCHASES": {
+        "TITLE": "Purchases and virtual goods",
+        "BODY": "Review the price, currency and description before purchasing. To complete: seller identity, taxes, delivery, withdrawal rights, refunds and support. Mandatory consumer rights cannot be excluded through this template."
+      },
+      "MODERATION": {
+        "TITLE": "Moderation and availability",
+        "BODY": "{{ hotelName }} may require maintenance and moderation measures. To define: reasons and duration of restrictions, notices, appeals and support contacts. This template does not establish an availability guarantee or waive statutory rights."
+      },
+      "CHANGES": {
+        "TITLE": "Changes and enquiries",
+        "BODY": "To define: how changes will be communicated, when they take effect and how to contact the operator. Retain the current version and explain the conditions before requesting acceptance."
+      }
+    },
+    "PRIVACY": {
+      "TITLE": "Privacy policy",
+      "CONTROLLER": {
+        "TITLE": "Data controller",
+        "BODY": "To complete: identity and contact details of the controller for {{ hotelName }}, address, jurisdiction and privacy contact. This template does not yet identify a legal controller."
+      },
+      "DATA": {
+        "TITLE": "Data used",
+        "BODY": "The interface requests email and password for registration and credentials for sign-in. It displays account and avatar data and stores session information in the browser. To inventory: data received by the backend, IP addresses, logs, messages and purchase data."
+      },
+      "PURPOSES": {
+        "TITLE": "Purposes and legal bases",
+        "BODY": "Visible features include account access, preferences, the hotel client and purchase coordination. The operator must document the purposes and legal bases of each actual processing activity. This page does not assume consent is appropriate for every activity."
+      },
+      "PROVIDERS": {
+        "TITLE": "External services and recipients",
+        "BODY": "The app loads Ubuntu from Google Fonts, avatar images from the configured service, and may load PayPal when opening a purchase and Nitro when entering the hotel. To verify: active providers, shared data, agreements, locations and safeguards for international transfers."
+      },
+      "RETENTION": {
+        "TITLE": "Retention and security",
+        "BODY": "To establish: retention periods, account deletion, backups and backend security measures. Signing out removes local account and token data on this device; it does not demonstrate deletion of server data."
+      },
+      "RIGHTS": {
+        "TITLE": "Rights and contact",
+        "BODY": "Available rights depend on applicable law. To complete: contact and procedure for access, correction, deletion and other requests, identity verification, deadlines and the relevant authority. This template does not yet offer an operational contact channel."
+      }
+    },
+    "COOKIES": {
+      "TITLE": "Cookie policy",
+      "SCOPE": {
+        "TITLE": "Cookies and local storage",
+        "BODY": "Cookies and localStorage are different technologies. This interface uses localStorage for sessions and preferences; this review does not establish the absence of server, Nitro or third-party cookies. The operator must audit the deployed site."
+      },
+      "STORAGE": {
+        "TITLE": "Interface storage",
+        "BODY": "xdr-token and xdr-refresh-token store the website access and refresh tokens; xdr-account stores account/avatar data. xdr-lang stores language and xdr-theme the theme. localStorage has no configured automatic expiry. Sign-out removes the tokens and account; language and theme remain until cleared or changed."
+      },
+      "THIRD_PARTIES": {
+        "TITLE": "External service cookies",
+        "BODY": "PayPal, Nitro, image and font services or other deployment services may have their own practices. To inventory: name, provider, purpose, category and duration of each active cookie or technology. This page does not claim all are necessary or that a consent system already exists."
+      },
+      "CHOICES": {
+        "TITLE": "Browser choices and consent",
+        "BODY": "You can clear cookies and storage in browser settings; this may sign you out and reset preferences. The operator must implement consent and withdrawal controls where required and avoid loading non-essential technologies before appropriate authorization. This page does not install or replace those controls."
+      },
+      "CONTACT": {
+        "TITLE": "Updates and contact",
+        "BODY": "To complete: operator contact, review date and a verified inventory of the {{ hotelName }} deployment. Review this policy when adding analytics, advertising or new providers."
+      }
+    }
+  },
   "FOOTER": {
+    "DISCLAIMER": "{{ hotelName }} is an independent project, not affiliated with or endorsed by Sulake Oy.",
     "DESCRIPTION": "Join millions in the planet's most popular virtual world for teens. Create your avatar, meet new friends, role play, and build amazing spaces.",
     "QUICKLINKS": "Quick Links",
     "COMMUNITY": "Community",
@@ -293,7 +461,6 @@
     "POWERED": "Powered By",
     "COPYRIGHT": "© 2020-2023 XdrCMS. <div class=\"font-bold uppercase inline\">{{ hotelName }}</div> is NOT a registered trademark of Sulake Oy. All rights reserved."
   },
-
   "PAPERS": {
     "TITLE": "General Information about {{ hotelName }}",
     "TOS": {
@@ -306,26 +473,117 @@
       "TITLE": "Cookie Policy"
     }
   },
-    
   "ADBLOCK_DIALOG": {
     "TITLE": "Adblock Detected",
     "CONTENT": "Please disable adblock in order to play {{ hotelName }} Hotel"
   },
-
   "NOT_FOUND": {
     "TITLE": "Error 404",
     "DESCRIPTION": "Page not Found",
     "BUTTON": "Go Back"
   },
-  
   "ACP": {
-    "SIDE_MENU": {
+    "DEMO": {
+      "TITLE": "Demo records",
+      "HELP": "Preview fictional Players, Rooms and Catalog records. No backend data is changed.",
+      "ACTIVE": "DEMO MODE — fictional records",
+      "WARNING": "Sample data only in Players, Rooms and Catalog. Other sections remain pending. Editing and saving are disabled. Reloading turns demo mode off.",
+      "ENABLE": "Show demo records",
+      "DISABLE": "Hide demo records"
     },
-
+    "GENERAL": "General",
+    "HOTEL": "Hotel",
+    "ADMIN": "Web and administration",
+    "NAVIGATION": "ACP navigation",
+    "SUBMENU": "Section submenus",
+    "BREADCRUMBS": "Breadcrumbs",
+    "RETURN_WEB": "Return to website",
+    "WORKSPACE_NOTE": "Administrative workspace. Data and operations are not connected yet.",
+    "HOTEL_GROUPS": "Hotel groups",
+    "WEB_GROUPS": "Web groups",
+    "WEB_SETTINGS": "Web settings",
+    "HOTEL_SETTINGS": "Hotel settings",
+    "STATE": {
+      "pending": "Pending integration",
+      "pendingHelp": "This view has no connected data source yet. No records or totals are available.",
+      "definition": "Pending definition",
+      "definitionHelp": "Fields or operations must be agreed before this feature can be enabled.",
+      "loading": "Loading...",
+      "error": "Data could not be loaded.",
+      "empty": "There are no records.",
+      "noResults": "No search results.",
+      "notFound": "Record not found."
+    },
+    "SEARCH": "Search",
+    "SEARCH_PENDING": "Search will be available once data is connected.",
+    "COLUMNS_PENDING": "Table columns have not been defined yet.",
+    "ACTIONS": "Actions",
+    "VIEW_DETAILS": "View details",
+    "BACK_LIST": "Back to list",
+    "RECORD_DATA": "Record information",
+    "UNAVAILABLE": "Not available",
+    "FORM_PENDING": "Fields and backend integration are pending. Changes cannot be saved.",
+    "SAVE": "Save",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "REVOKE": "Revoke ban",
+    "BAN_PLAYER": "Ban player",
+    "PLAYER_CONTEXT": "Player selected for this flow",
+    "PLAYER_UNVERIFIED": "The player's identity and ban eligibility have not been verified.",
+    "ID": "ID",
+    "NAME": "Name",
+    "AVATAR_NAME": "Avatar name",
+    "RANK": "Rank",
+    "CREATED_AT": "Created at",
+    "ACCOUNT": "Associated account",
+    "ROOM_COUNT": "Room count",
+    "BADGE_COUNT": "Badge count",
+    "CHATLOGS": "Chatlogs",
+    "PLAYER_DETAILS": "Player details",
+    "OWNER": "Owner",
+    "PRIVACY": "Privacy",
+    "RATING": "Rating",
+    "RATERS": "Players who rated this room",
+    "VISITOR_LOGS": "Visitor logs",
+    "ROOM_WORDFILTER": "Room wordfilter",
+    "RIGHTS": "Users with rights",
+    "MUTED_USERS": "Muted users",
+    "ROOM_BANS": "Users banned from this room",
+    "EVENT_HISTORY": "Event history",
+    "ROOM_DETAILS": "Room details",
+    "LOGIC": "Logic",
+    "CHILD_PAGES": "Child pages",
+    "OFFERS": "Offers",
+    "ASSOCIATED_OFFER": "Associated offer",
+    "ALL_RECORD_DATA": "Full record data",
+    "ADD_CURRENCY": "Add currency",
+    "CURRENCY_DETAILS": "Currency details",
+    "ADD_FILTER": "Add filter",
+    "FILTER_DETAILS": "Filter details",
+    "TICKETS": "Moderation tickets",
+    "TICKET_DETAILS": "Ticket details",
+    "CREATE_BAN": "Create ban",
+    "BAN_DETAILS": "Ban details",
+    "ACCOUNT_DETAILS": "Account details",
+    "RANK_GROUP": "Rank or group",
+    "AVATARS": "Associated avatars",
+    "SESSIONS": "Sessions",
+    "MEMBER_COUNT": "Member count",
+    "GROUP_PERMISSIONS": "Group permissions",
+    "INHERITED_GROUPS": "Inherited groups",
+    "OVERVIEW": "Community overview",
+    "TOTAL_PLAYERS": "Total players",
+    "TOTAL_ACCOUNTS": "Total accounts",
+    "ONLINE_PLAYERS": "Players online",
+    "ACTIVE_REPORTS": "Active moderation reports",
+    "RECENT_ACTIVITY": "Recent activity",
+    "ACTIVITY_DESCRIPTION": "New registrations and reports, in chronological order.",
+    "QUICK_ACCESS": "Quick access",
+    "OPEN_SECTION": "Open section",
+    "SIDE_MENU": {},
     "DASHBOARD": {
       "TITLE": "Dashboard"
     },
-    
     "ARTICLES": {
       "TITLE": "Articles",
       "DIALOG": {
@@ -356,7 +614,6 @@
         "EDIT": "Couldn't edit this article."
       }
     },
-    
     "BADGES": {
       "TITLE": "Badges",
       "LABELS": {
@@ -370,11 +627,9 @@
         "CODE": "Badge Code is already registered."
       }
     },
-    
     "WEB_CONFIGURATION": {
       "TITLE": "Web Configuration"
     },
-    
     "ROLES": {
       "TITLE": "Roles",
       "DIALOG": "Manage Role",
@@ -389,17 +644,16 @@
         "TOGGLE": "Permission \"{{ permission_id }}\" toggled on role \"{{ role_id }}\" succesfully."
       }
     },
-    
     "RANKS": {
       "TITLE": "Ranks",
       "DIALOG": "Manage Rank",
       "LABELS": {
+        "1": "1: Always",
+        "2": "2: Only if owner or has room rights",
         "RANK_NAME": "Rank Name",
         "BADGE": "Badge",
         "PREFIX": "Prefix",
         "PREFIX_COLOR": "Prefix Color",
-        "1": "1: Always",
-        "2": "2: Only if owner or has room rights",
         "NOTE": "Not all commands/permissions have the '2 Option', may lead to errors."
       },
       "SUCCESS": {
@@ -411,16 +665,13 @@
         "EDIT": "Couldn't edit this rank."
       }
     },
-    
     "NITRO_TEXTS": {
       "TITLE": "Nitro Texts",
-      "LABELS": {
-      },
+      "LABELS": {},
       "SUCCESS": {
         "UPDATED": "Nitro Texts updated successfully."
       }
     },
-      
     "USERS": {
       "TITLE": "Users",
       "DIALOG": "Manage User",
@@ -432,7 +683,6 @@
         "RANK": "{{ username }}'s rank has been updated."
       }
     },
-    
     "SHOP": {
       "TITLE": "Shop",
       "DIALOG": "Manage Offer",
@@ -453,7 +703,6 @@
       }
     }
   },
-
   "OVERLAY": {
     "ALERT": {
       "HOTEL": {
@@ -461,7 +710,7 @@
         "CONTENT": "{{ message }}"
       },
       "EVENT": {
-        "HEADER":"New Event!",
+        "HEADER": "New Event!",
         "CONTENT": "<div class=\"text-2xl\">Hey <div class=\"username inline text-pink-500 font-bold\">{{ extraData }}</div></div>{{ username }} has invited you to assist to one of our BIG events, c'mon you may obtain several gifts.<br />{{ message }}"
       },
       "ROOM_FORWARD": "Go to room <i class=\"pi pi-angle-double-right\">"
@@ -483,12 +732,10 @@
       }
     }
   },
-  
   "MANNEQUIN": {
     "NAME": "No {{ hotelUser }} found",
     "MOTTO": "---"
   },
-  
   "CURRENCY": {
     "CREDIT": "Credit",
     "DUCKET": "Ducket",
@@ -498,7 +745,6 @@
     "STAR": "Star",
     "CLOUD": "Cloud"
   },
-
   "GENERIC": {
     "ACTIONS": "Actions",
     "ADD_NEW": "Add New",
@@ -520,17 +766,22 @@
     "SEARCH": "Search",
     "UPDATED_AT": "Updated At"
   },
-  
   "SUCCESS": {
     "LOGIN": "You signed in successfully!",
     "REGISTER": "Let's have some fun!",
     "LOGOUT": "See you again soon!",
     "KEY_VALUE": "\"{{ key }}\" changed to \"{{ value }}\" succesfully"
   },
-    
   "ERROR": {
+    "REQUEST": "Request failed",
+    "RETRY": "Something went wrong. Please try again.",
+    "SESSION": "Your session could not be restored. Please sign in again.",
+    "LOGOUT_LOCAL": "You are signed out on this device, but server logout could not be confirmed.",
     "UNKNOWN": "An unknown error has occured.",
     "LOGIN": "Invalid Credentials. Try Again.",
+    "EMAIL_NOT_VERIFIED": "Verify your email before signing in. Check your inbox for the verification link.",
+    "EMAIL_TAKEN": "An account with that email already exists.",
+    "AVATAR_REQUIRED": "This website account does not have a linked game avatar yet.",
     "REGISTERED": "Username or E-Mail is already taken.",
     "MAX_LENGTH_USERNAME": "Username must be maximum 12 characters.",
     "MIN_LENGTH_USERNAME": "Username must be minimum 3 characters.",
@@ -554,7 +805,6 @@
     },
     "DUPLICATED_TITLE": "Article with given title already exists. Please choose another title."
   },
-
   "PRIME_NG": {
     "startsWith": "Starts with",
     "contains": "Contains",
@@ -586,11 +836,61 @@
     "choose": "Choose",
     "upload": "Upload",
     "cancel": "Cancel",
-    "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-    "dayNamesMin": ["Su","Mo","Tu","We","Th","Fr","Sa"],
-    "monthNames": ["January","February","March","April","May","June","July","August","September","October","November","December"],
-    "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "dayNames": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "dayNamesShort": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "dayNamesMin": [
+      "Su",
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa"
+    ],
+    "monthNames": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "monthNamesShort": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
     "dateFormat": "mm/dd/yy",
     "firstDayOfWeek": 0,
     "today": "Today",
@@ -601,5 +901,13 @@
     "passwordPrompt": "Enter a password",
     "emptyMessage": "No results found",
     "emptyFilterMessage": "No results found"
+  },
+  "ALERTS": {
+    "TITLE": {
+      "SUCCESS": "Great news!",
+      "INFO": "Hotel notice",
+      "WARN": "Heads up!",
+      "ERROR": "Oops!"
+    }
   }
 }

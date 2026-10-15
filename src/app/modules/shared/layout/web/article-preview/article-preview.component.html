@@ -1,15 +1,17 @@
-<a [routerLink]="articleURL" class="no-underline cursor-pointer">
-    <div class="article shadow-2" [style.background-image]="'url(' + article.image + ')'">
-        <div class="article-information">
-            <div class="article-title text-xl text-overflow-ellipsis">
-                {{ article.title }}
-            </div>
-            <div class="article-date text-xs">
-                {{ articleDate | dfnsFormatDistanceToNow: { addSuffix: true } }}
-            </div>
-            <div class="article-summary text-sm text-overflow-ellipsis">
-                {{ article.description }}
-            </div>
-        </div>
+<a [routerLink]="articleURL" class="article-card">
+  <div class="article-picture" aria-hidden="true">
+    @if (article.thumbnail || article.image) {
+      <img [src]="article.thumbnail || article.image" alt="" loading="lazy" (error)="imageFailed = true" [hidden]="imageFailed" />
+    }
+    @if (imageFailed || !(article.thumbnail || article.image)) { <i class="pi pi-image"></i> }
+  </div>
+  <div class="article-copy">
+    <div class="article-meta">
+      @if (article.createdAt) { <span>{{ article.createdAt | date:'mediumDate':undefined:language.getCurrentCulture() }}</span> }
+      @if (article.author) { <span>{{ article.author.username }}</span> }
     </div>
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.description }}</p>
+    <span class="article-read">{{ 'ARTICLES.CAROUSEL.READ_MORE' | translate }}<i class="pi pi-arrow-right" aria-hidden="true"></i></span>
+  </div>
 </a>

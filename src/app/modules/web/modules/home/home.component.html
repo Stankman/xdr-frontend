@@ -1,22 +1,48 @@
-<div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
-    <div class="col-12 lg:col-3 p-2 flex flex-column row-gap-3">
-        <xdr-summary></xdr-summary>
-        <p-card header="Active Rooms">
-            Coming soon!
-        </p-card>
-        <p-card header="Best Groups">
-            Coming soon!
-        </p-card>
+<main class="me-page web-container py-8 lg:py-10">
+  <header class="page-heading anim-rise mb-8">
+    <h1 class="eyebrow">{{ hotelName }} <span aria-hidden="true">/</span> {{ 'ME.TITLE' | translate }}</h1>
+    <p class="page-intro">{{ 'ME.DASHBOARD.INTRO' | translate }}</p>
+  </header>
+
+  <div class="me-layout grid items-start gap-8 lg:grid-cols-[19rem_minmax(0,1fr)]">
+    <div class="min-w-0 anim-rise" style="--anim-order: 1">
+      <xdr-summary></xdr-summary>
     </div>
-    <div class="col-12 lg:col-6 p-2 flex flex-column row-gap-3">
-        <xdr-articles-carousel></xdr-articles-carousel>
-        <p-card header="Pinned Articles">
-            Coming soon!
-        </p-card>
+
+    <div class="min-w-0">
+      <section class="anim-rise" style="--anim-order: 2" aria-labelledby="hotel-news-title">
+        <header class="section-heading mb-4 flex flex-wrap items-center justify-between gap-3">
+          <h2 id="hotel-news-title">{{ 'ARTICLES.CAROUSEL.TITLE' | translate }}</h2>
+          <a class="text-link" routerLink="/articles">
+            {{ 'ME.DASHBOARD.ALL_NEWS' | translate }} <i class="pi pi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </header>
+        <xdr-articles-carousel [imageFirst]="true"></xdr-articles-carousel>
+      </section>
+
+      <section class="explore-section anim-rise mt-8" style="--anim-order: 3" aria-labelledby="explore-title">
+        <header class="section-heading mb-3">
+          <h2 id="explore-title">{{ 'ME.DASHBOARD.EXPLORE' | translate }}</h2>
+        </header>
+        <nav class="explore-links grid sm:grid-cols-2" [attr.aria-labelledby]="'explore-title'">
+          <a routerLink="/community">
+            <span class="habbo-web-icon-4 users" aria-hidden="true"></span>
+            <span class="min-w-0">
+              <strong>{{ 'ME.DASHBOARD.COMMUNITY' | translate }}</strong>
+              <span class="link-description">{{ 'ME.DASHBOARD.COMMUNITY_DESCRIPTION' | translate }}</span>
+            </span>
+            <i class="pi pi-arrow-up-right" aria-hidden="true"></i>
+          </a>
+          <a routerLink="/shop">
+            <span class="habbo-web-icon credit" aria-hidden="true"></span>
+            <span class="min-w-0">
+              <strong>{{ 'ME.DASHBOARD.SHOP' | translate }}</strong>
+              <span class="link-description">{{ 'ME.DASHBOARD.SHOP_DESCRIPTION' | translate }}</span>
+            </span>
+            <i class="pi pi-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </nav>
+      </section>
     </div>
-    <div class="col-12 lg:col-3 p-2 flex flex-column row-gap-3">
-        <p-card header="Events">
-            Coming soon!
-        </p-card>
-    </div>
-</div>
+  </div>
+</main>

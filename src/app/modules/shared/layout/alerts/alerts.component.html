@@ -1,0 +1,21 @@
+<p-toast class="xdr-alerts" position="top-right" [life]="life">
+  <ng-template #headless let-message let-closeFn="closeFn">
+    @let alertTone = tone(message);
+    <div class="habbo-alert" [attr.data-tone]="alertTone" [style.--alert-life.ms]="duration(message)">
+      <span class="habbo-alert-mascot" aria-hidden="true"><img [src]="mascot(alertTone)" alt=""></span>
+      <div class="habbo-alert-text">
+        <span class="habbo-alert-title">
+          <i [class]="icon(alertTone)" aria-hidden="true"></i>
+          {{ 'ALERTS.TITLE.' + alertTone.toUpperCase() | translate }}
+        </span>
+        @if (message?.summary) { <strong>{{ message.summary }}</strong> }
+        @if (message?.detail) { <p>{{ message.detail }}</p> }
+      </div>
+      <button type="button" class="habbo-alert-close" (click)="closeFn($event)"
+        [attr.aria-label]="'COMMON.CLOSE' | translate" [title]="'COMMON.CLOSE' | translate">
+        <i class="pi pi-times" aria-hidden="true"></i>
+      </button>
+      @if (duration(message)) { <span class="habbo-alert-timer" aria-hidden="true"></span> }
+    </div>
+  </ng-template>
+</p-toast>

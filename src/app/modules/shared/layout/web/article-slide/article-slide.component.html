@@ -1,20 +1,17 @@
-<div class="article-item bg-cover relative flex flex-column justify-content-around" [ngStyle]="{ 'background-image': 'url(' + article.image + ')' }">
-    <span class="absolute w-full h-full bg-black-alpha-40"></span>
-    <div class="article-item-content p-3 w-6">
-        <a [routerLink]="articleURL" ngClass="article-title uppercase font-bold text-2xl no-underline">
-            {{ article.title }}
-        </a>
-        <div class="article-information">
-            <div class="article-created-at text-xs flex align-items-center">
-                <span class="habbo-web-icon time mr-1"></span>
-                {{ articleDate | dfnsFormatDistanceToNow: { addSuffix: true } }} - {{ article.author.username }}
-            </div>
-        </div>
-        <div class="article-summary text-sm">
-            {{ article.description }}
-        </div>
+<article class="article-slide" [class.image-first]="imageFirst">
+  <div class="slide-art" aria-hidden="true">
+    @if (article.image) {
+      <img [src]="article.image" alt="" (error)="imageFailed = true" [hidden]="imageFailed" />
+    }
+    @if (imageFailed || !article.image) { <i class="pi pi-image"></i> }
+  </div>
+  <div class="slide-copy">
+    <div class="slide-meta">
+      @if (article.createdAt) { <span>{{ article.createdAt | date:'mediumDate':undefined:language.getCurrentCulture() }}</span> }
+      @if (article.author) { <span>{{ article.author.username }}</span> }
     </div>
-    <div class="article-item-controls p-3 text-right">
-        <p-button [routerLink]="articleURL" [label]="'ARTICLES.CAROUSEL.READ_MORE' | translate" styleClass="habbo-button p-button-primary p-button-raised uppercase"></p-button>
-    </div>
-</div>
+    <h3><a [routerLink]="articleURL">{{ article.title }}</a></h3>
+    <p>{{ article.description }}</p>
+    <a class="slide-read" [class.web-green-button]="!imageFirst" [routerLink]="articleURL">{{ 'ARTICLES.CAROUSEL.READ_MORE' | translate }}<i class="pi pi-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</article>

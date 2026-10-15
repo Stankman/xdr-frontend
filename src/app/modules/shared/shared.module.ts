@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from '@angular/router';
 
 import { ArticlesCarouselComponent } from './layout/web/articles-carousel/articles-carousel.component';
 import { ArticlePreviewComponent } from './layout/web/article-preview/article-preview.component';
@@ -18,7 +19,6 @@ import { SummaryComponent } from './layout/web/summary/summary.component';
 import { ShopOfferComponent } from './layout/web/shop-offer/shop-offer.component';
 import { PurseComponent } from './layout/web/purse/purse.component';
 import { VoucherComponent } from './layout/web/voucher/voucher.component';
-import { ShopOfferDetailsComponent } from './layout/web/shop-offer-details/shop-offer-details.component';
 
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
@@ -26,34 +26,29 @@ import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DividerModule } from 'primeng/divider';
-import { DropdownModule } from 'primeng/dropdown';
+import { SelectModule } from 'primeng/select';
 import { DynamicDialogModule } from "primeng/dynamicdialog";
-import { EditorModule } from 'primeng/editor';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { ScrollerModule } from 'primeng/scroller';
 import { SkeletonModule } from 'primeng/skeleton';
-import { TabViewModule } from 'primeng/tabview';
+import { TabsModule } from 'primeng/tabs';
 import { ToastModule } from 'primeng/toast';
 import { ToggleButtonModule } from 'primeng/togglebutton';
-import { VirtualScrollerModule } from 'primeng/virtualscroller';
 import { TranslateModule } from "@ngx-translate/core";
 
-import { NgxPayPalModule } from "ngx-paypal";
 import { DateFnsModule } from "ngx-date-fns";
-import { ClientButtonsComponent } from './layout/client/client-buttons/client-buttons.component';
-import { ClientNitroComponent } from './layout/client/client-nitro/client-nitro.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     DateFnsModule,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forChild(),
-    NgxPayPalModule,
 
     AvatarModule,
     ButtonModule,
@@ -61,26 +56,22 @@ import { ClientNitroComponent } from './layout/client/client-nitro/client-nitro.
     CarouselModule,
     CheckboxModule,
     DividerModule,
-    DropdownModule,
+    SelectModule,
     DynamicDialogModule,
-    EditorModule,
     InputTextModule,
     MenubarModule,
     PasswordModule,
     RippleModule,
     ScrollerModule,
     SkeletonModule,
-    TabViewModule,
+    TabsModule,
     ToastModule,
-    ToggleButtonModule,
-    VirtualScrollerModule
+    ToggleButtonModule
   ],
   declarations: [
     ArticlesCarouselComponent,
     ArticlePreviewComponent,
     ArticleSlideComponent,
-    ClientButtonsComponent,
-    ClientNitroComponent,
     EmptyBlockComponent,
     FooterComponent,
     HeaderComponent,
@@ -93,15 +84,12 @@ import { ClientNitroComponent } from './layout/client/client-nitro/client-nitro.
     SignInDialogComponent,
     ShopOfferComponent,
     SummaryComponent,
-    VoucherComponent,
-    ShopOfferDetailsComponent
+    VoucherComponent
   ],
   exports: [
     ArticlesCarouselComponent,
     ArticlePreviewComponent,
     ArticleSlideComponent,
-    ClientButtonsComponent,
-    ClientNitroComponent,
     EmptyBlockComponent,
     FooterComponent,
     HeaderComponent,
@@ -121,18 +109,16 @@ import { ClientNitroComponent } from './layout/client/client-nitro/client-nitro.
     CardModule,
     CarouselModule,
     CheckboxModule,
-    DropdownModule,
+    SelectModule,
     DynamicDialogModule,
-    EditorModule,
     InputTextModule,
     MenubarModule,
     PasswordModule,
     RippleModule,
     ScrollerModule,
     SkeletonModule,
-    TabViewModule,
-    ToastModule,
-    VirtualScrollerModule
+    TabsModule,
+    ToastModule
   ]
 })
 export class SharedModule { }

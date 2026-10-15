@@ -1,12 +1,15 @@
-import { NgModule } from "@angular/core";
+import { Component, NgModule, ChangeDetectionStrategy } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { ClientComponent } from "./client.component";
 import { ClientResolver } from './resolvers/client.resolver';
+
+@Component({ template: '', changeDetection: ChangeDetectionStrategy.Eager,
+ standalone: true })
+export class ClientRouteComponent {}
 
 const routes : Routes = [
     {
         path: '',
-        component: ClientComponent,
+        component: ClientRouteComponent,
         resolve: {
             ClientResolver
         }

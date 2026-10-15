@@ -1,0 +1,27 @@
+<main class="legal-page web-container">
+  <header class="legal-heading">
+    <span>{{ hotelName }} · {{ 'LEGAL.LABEL' | translate }}</span>
+    <h1>{{ translationKey + '.TITLE' | translate }}</h1>
+    <p>{{ 'LEGAL.INTRO' | translate: { hotelName } }}</p>
+  </header>
+  <div class="legal-layout">
+    <nav [attr.aria-label]="'LEGAL.NAVIGATION' | translate">
+      <a routerLink="/terms" routerLinkActive="active" ariaCurrentWhenActive="page">{{ 'LEGAL.TERMS.TITLE' | translate }}</a>
+      <a routerLink="/privacy" routerLinkActive="active" ariaCurrentWhenActive="page">{{ 'LEGAL.PRIVACY.TITLE' | translate }}</a>
+      <a routerLink="/cookies" routerLinkActive="active" ariaCurrentWhenActive="page">{{ 'LEGAL.COOKIES.TITLE' | translate }}</a>
+    </nav>
+    <article>
+      <aside class="legal-draft" role="note">
+        <i class="pi pi-info-circle" aria-hidden="true"></i>
+        <div><strong>{{ 'LEGAL.DRAFT_TITLE' | translate }}</strong><p>{{ 'LEGAL.DRAFT_NOTICE' | translate }}</p></div>
+      </aside>
+      @for (section of sections; track section; let index = $index) {
+        <section>
+          <h2><span>{{ index + 1 }}</span>{{ translationKey + '.' + section + '.TITLE' | translate }}</h2>
+          <p>{{ translationKey + '.' + section + '.BODY' | translate: { hotelName } }}</p>
+        </section>
+      }
+      <a class="legal-back" routerLink="/">{{ 'LEGAL.BACK' | translate }} <i class="pi pi-arrow-right" aria-hidden="true"></i></a>
+    </article>
+  </div>
+</main>

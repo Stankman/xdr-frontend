@@ -1,0 +1,12 @@
+@layer theme, base, primeng, components, utilities;
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+@source "./app";
+
+@theme {
+  --font-sans: 'Ubuntu', sans-serif;
+  --breakpoint-sm: 36rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 62rem;
+  --breakpoint-xl: 75rem;
+}

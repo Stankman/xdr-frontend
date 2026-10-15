@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'xdr-info-block',
-  templateUrl: './info-block.component.html',
-  styleUrls: ['./info-block.component.scss']
+    selector: 'xdr-info-block',
+    templateUrl: './info-block.component.html',
+    styleUrls: ['./info-block.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class InfoBlockComponent {
   private _title : string = 'UNDEFINED';

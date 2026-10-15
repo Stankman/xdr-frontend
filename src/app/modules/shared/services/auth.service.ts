@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ApiService } from "./api.service";
-import { Observable, map } from "rxjs";
-import { Api } from "../../core/models/api/api.model";
+import { Observable, finalize, map } from "rxjs";
+import { AuthTokens } from "../../core/models/auth/auth-tokens.model";
 import { AccountService } from "./account.service";
 import { ClientService } from "../../client/services/client.service";
 
@@ -20,31 +20,45 @@ export class AuthService {
      * Authenticates a user provided by his
      * username and password
      *
-     * @param identification
-     * @param password
-     * @return Observable<string>
-    */
-    public signIn(identification : string, password : string) : Observable<string> {
-        return this.apiService
-            .post('auth/signin',{ identification, password })
-            .pipe(
-                map((response : Api) => (this.accountService.token = response.data.access_token))
-            );
-    }
-
-    /**
-     * Creates and authenticates a user
-     *
      * @param email
      * @param password
      * @return Observable<string>
     */
-    public signUp(email : string, password : string) : Observable<string> {
+    public signIn(email : string, password : string) : Observable<string> {
         return this.apiService
-            .post('auth/signup',{ email, password })
+            .post<AuthTokens>('auth/login',{ email, password })
             .pipe(
-                map((response : Api) => (this.accountService.token = response.data.access_token))
+                map((response) => {
+                    if (!response.data?.access_token || !response.data.refresh_token ||
+                        response.data.token_type !== 'Bearer') {
+                        throw new Error('The login response does not contain a valid token pair.');
+                    }
+                    this.accountService.setTokens(response.data);
+                    return response.data.access_token;
+                })
             );
+    }
+
+    /**
+     * Creates an unverified account. The API emails a verification link
+     * and does not start a session, so the user must verify before signing in.
+    */
+    public signUp(email : string, password : string) : Observable<void> {
+        return this.apiService
+            .post<{ message: string }>('auth/register', { email, password })
+            .pipe(map(() => undefined));
+    }
+
+    public resendVerification(email : string) : Observable<void> {
+        return this.apiService
+            .post<{ message: string }>('auth/email-verification/resend', { email })
+            .pipe(map(() => undefined));
+    }
+
+    public confirmEmail(token : string) : Observable<void> {
+        return this.apiService
+            .post<{ message: string }>('auth/email-verification/confirm', { token })
+            .pipe(map(() => undefined));
     }
 
     /**
@@ -52,15 +66,13 @@ export class AuthService {
      * 
      * @return Observable<any> 
     */
-    public signOut() : Observable<any> {
-        return this.apiService.post('auth/signout', {}).pipe(
-            map(() => {
-                localStorage.removeItem('xdr-account');
-                localStorage.removeItem('xdr-token');
-                this.accountService.account = null;
+    public signOut() : Observable<void> {
+        return this.apiService.post<void>('auth/logout', {}).pipe(
+            map(() => undefined),
+            finalize(() => {
+                this.accountService.clearSession();
                 this.clientService.clientOpened = false;
                 this.clientService.sso = null;
-                return;
             })
         );
     }

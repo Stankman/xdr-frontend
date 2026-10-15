@@ -1,17 +1,17 @@
-<p-card (click)="showDetails()" styleClass="shop-offer">
-    <div class="grid">
-        <div class="col-fixed">
+<p-card (click)="showDetails()" class="shop-offer">
+    <div class="flex flex-wrap">
+        <div class="flex-none">
             <div class="shop-offer-icon">
                 <img [src]="offer.image" [alt]="offer.title">
             </div>
         </div>
-        <div class="col flex align-items-center">
+        <div class="min-w-0 flex-1 flex items-center">
             <div class="text-2xl font-bold">
                 {{ offer.title }}
             </div>
         </div>
     </div>
-    <ng-template pTemplate="footer">
+    <ng-template #footer>
         <div class="text-center text-lg font-bold">
             ${{offer.price}} {{ offer.currency }}
         </div>

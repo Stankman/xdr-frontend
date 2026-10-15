@@ -1,5 +1,5 @@
-<ng-container *ngIf="isLogged">
-    <xdr-client [hidden]="!isClient()"></xdr-client>
-</ng-container>
-<router-outlet *ngIf="!isClient()"></router-outlet>
-<p-toast></p-toast>
+@if (isLogged) {
+  <xdr-client [hidden]="!isClient()"></xdr-client>
+}
+<div [hidden]="isClient()"><router-outlet></router-outlet></div>
+<xdr-alerts></xdr-alerts>

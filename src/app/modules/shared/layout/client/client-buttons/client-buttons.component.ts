@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { UrlService } from '../../../services/url.service';
 
 @Component({
-  selector: 'xdr-client-buttons',
-  templateUrl: './client-buttons.component.html',
-  styleUrls: ['./client-buttons.component.scss']
+    selector: 'xdr-client-buttons',
+    templateUrl: './client-buttons.component.html',
+    styleUrls: ['./client-buttons.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class ClientButtonsComponent {
   constructor(

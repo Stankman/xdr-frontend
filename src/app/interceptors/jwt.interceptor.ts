@@ -2,6 +2,7 @@ import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } fro
 import { Injectable } from "@angular/core";
 import { AccountService } from "../modules/shared/services/account.service";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -10,7 +11,7 @@ export class JwtInterceptor implements HttpInterceptor {
     ) {}
 
     intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-        if(this.accountService.token) {
+        if(this.accountService.token && req.url.startsWith(`${environment.app.endpoint}/`) && !req.headers.has('Authorization')) {
             req = req.clone({
                 setHeaders: {
                   Authorization: `Bearer ${this.accountService.token}`,

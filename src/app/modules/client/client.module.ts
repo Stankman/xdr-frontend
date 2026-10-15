@@ -2,18 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientComponent } from './client.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from '../shared/shared.module';
-import { ClientRoutingModule } from './client-routing.module';
+import { ButtonModule } from 'primeng/button';
+import { ClientButtonsComponent } from '../shared/layout/client/client-buttons/client-buttons.component';
+import { ClientNitroComponent } from '../shared/layout/client/client-nitro/client-nitro.component';
 
 @NgModule({
   declarations: [
-    ClientComponent
+    ClientComponent,
+    ClientButtonsComponent,
+    ClientNitroComponent
   ],
   imports: [
     CommonModule,
-    ClientRoutingModule,
     TranslateModule.forChild(),
-    SharedModule
+    ButtonModule
   ],
   exports: [
     ClientComponent

@@ -1,0 +1,33 @@
+<section class="verify-card entrance-bounce" aria-labelledby="verify-title" [attr.aria-busy]="state === 'verifying'">
+  @switch (state) {
+    @case ('verifying') {
+      <span class="verify-icon"><i class="pi pi-spin pi-spinner" aria-hidden="true"></i></span>
+      <h1 id="verify-title">{{ 'VERIFY_EMAIL.VERIFYING' | translate }}</h1>
+    }
+    @case ('verified') {
+      <span class="verify-icon success"><i class="pi pi-check" aria-hidden="true"></i></span>
+      <h1 id="verify-title">{{ 'VERIFY_EMAIL.VERIFIED.TITLE' | translate }}</h1>
+      <p role="status">{{ 'VERIFY_EMAIL.VERIFIED.BODY' | translate }}</p>
+      <a routerLink="/" class="verify-link">{{ 'VERIFY_EMAIL.HOME' | translate }}</a>
+    }
+    @case ('failed') {
+      <span class="verify-icon failed"><i class="pi pi-times" aria-hidden="true"></i></span>
+      <h1 id="verify-title">{{ 'VERIFY_EMAIL.FAILED.TITLE' | translate }}</h1>
+      <p role="alert">{{ 'VERIFY_EMAIL.FAILED.BODY' | translate }}</p>
+      <form class="verify-resend" (ngSubmit)="resend()" [attr.aria-busy]="resending">
+        <label for="verify-email">{{ 'REGISTER.FORM.INPUT.EMAIL.LABEL' | translate }}</label>
+        <input id="verify-email" type="email" autocomplete="email" pInputText [fluid]="true" [formControl]="email" aria-describedby="verify-email-error" [invalid]="email.touched && email.invalid" />
+        <small id="verify-email-error" class="field-error" aria-live="polite">
+          @if (email.touched && email.invalid) {
+            {{ 'REGISTER.FORM.INPUT.EMAIL.ERRORS.PATTERN' | translate }}
+          }
+        </small>
+        <p-button type="submit" [loading]="resending" [disabled]="resending" [label]="'REGISTER.VERIFY.RESEND' | translate" styleClass="habbo-button primary w-full"></p-button>
+        @if (resent) {
+          <small role="status">{{ 'VERIFY_EMAIL.RESENT' | translate }}</small>
+        }
+      </form>
+      <a routerLink="/" class="verify-link">{{ 'VERIFY_EMAIL.HOME' | translate }}</a>
+    }
+  }
+</section>

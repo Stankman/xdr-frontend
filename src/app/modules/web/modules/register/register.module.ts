@@ -5,6 +5,8 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputPasswordModule } from 'primeng/inputpassword';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 @NgModule({
   imports: [
@@ -13,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TranslateModule.forChild(),
     FormsModule,
     ReactiveFormsModule,
+    InputPasswordModule,
+    ProgressBarModule,
     SharedModule
   ],
   declarations: [RegisterComponent]

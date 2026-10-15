@@ -1,147 +1,110 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
+import { ICancelCallbackData, ICreateOrderRequest, IOnApproveCallbackData, IOrderDetails, IPayPalConfig, NgxPayPalModule } from 'ngx-paypal';
+import { firstValueFrom } from 'rxjs';
 import { ShopService } from '../../../services/shop.service';
 import { Offer } from 'src/app/modules/core/models/shop/offer.model';
-import { ICreateOrderRequest, IOrderDetails, IPayPalConfig } from 'ngx-paypal';
-import { Message, MessageService } from 'primeng/api';
-import { Payment } from 'src/app/modules/core/models/shop/payment.model';
 import { environment } from 'src/environments/environment';
-import { AccountService } from '../../../services/account.service';
+
+export interface PaymentActions {
+  order: {
+    get(): Promise<IOrderDetails>;
+    capture(): Promise<IOrderDetails>;
+  };
+}
 
 @Component({
   selector: 'xdr-shop-offer-details',
   templateUrl: './shop-offer-details.component.html',
-  styleUrls: ['./shop-offer-details.component.scss']
+  styleUrls: ['./shop-offer-details.component.scss'],
+  imports: [CommonModule, NgxPayPalModule],
+  changeDetection: ChangeDetectionStrategy.Eager
 })
 export class ShopOfferDetailsComponent implements OnInit {
-  
-  public offer : Offer;
-  public payPalConfig : IPayPalConfig;
+  public offer: Offer;
+  public payPalConfig: IPayPalConfig;
+  private recordedOrder: string | null = null;
+  private processing = false;
 
   constructor(
     private readonly ref: DynamicDialogRef,
     private readonly config: DynamicDialogConfig,
-    private readonly messageService : MessageService,
-    private readonly shopService : ShopService,
-    private readonly accountService : AccountService
+    private readonly messages: MessageService,
+    private readonly shop: ShopService,
+    private readonly translate: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.offer = this.config.data.offer;
-    this.loadPayPalConfig();
-  }
-
-  private loadPayPalConfig(): void {
     this.payPalConfig = {
       clientId: environment.app.PayPal.clientId,
-      createOrderOnClient: (data) => <ICreateOrderRequest> {
+      currency: this.offer.currency,
+      createOrderOnClient: (): ICreateOrderRequest => ({
         intent: 'CAPTURE',
         purchase_units: [{
           reference_id: this.offer.id.toString(),
           amount: {
             currency_code: this.offer.currency,
             value: this.offer.price,
-            breakdown: {
-              item_total: {
-                currency_code: this.offer.currency,
-                value: this.offer.price
-              }
-            }
+            breakdown: { item_total: { currency_code: this.offer.currency, value: this.offer.price } }
           },
-          items: [
-            {
-              name: this.offer.title,
-              quantity: '1',
-              unit_amount: {
-                value: this.offer.price,
-                currency_code: this.offer.currency
-              }
-            }
-          ]
+          items: [{
+            name: this.offer.title, quantity: '1',
+            unit_amount: { value: this.offer.price, currency_code: this.offer.currency }
+          }]
         }]
-      },
-      onApprove: (data, actions) => this.captureOrder(data, actions),
-      onClientAuthorization: (data) => this.authorizedOffer(data),
-      onCancel: (data) => this.cancelOffer(data),
-      onError: (err) => this.failedOffer(err)
+      }),
+      onApprove: (data, actions: PaymentActions) => { void this.captureOrder(data, actions); },
+      onCancel: data => { void this.cancelOffer(data); },
+      onError: () => this.failedOffer()
+    };
+  }
+
+  private async captureOrder(data: IOnApproveCallbackData, actions: PaymentActions): Promise<void> {
+    if (this.processing) return;
+    this.processing = true;
+    try {
+      const order = await actions.order.get();
+      if (!order.id || order.id !== data.orderID || !order.payer?.payer_id) {
+        throw new Error('Invalid PayPal order details.');
+      }
+      await firstValueFrom(this.shop.makePayment({
+        offerId: this.offer.id, orderId: order.id,
+        payerId: order.payer.payer_id, status: order.status
+      }));
+      this.recordedOrder = order.id;
+      this.messages.add({ severity: 'info', summary: this.translate.instant('PAYMENT.PROCESSING') });
+      const captured = await actions.order.capture();
+      if (captured.id !== order.id || captured.status !== 'COMPLETED') {
+        throw new Error('PayPal capture was not completed.');
+      }
+      await firstValueFrom(this.shop.updatePaymentStatus({ orderId: captured.id, status: captured.status }));
+      this.messages.add({ severity: 'success', summary: this.translate.instant('PAYMENT.SUCCESS') });
+      this.ref.close();
+    } catch (error) {
+      this.failedOffer();
+    } finally {
+      this.processing = false;
     }
   }
 
-  private captureOrder(data : any, actions : any): void {
-    actions.order.get().then((details : IOrderDetails) => {
-      const payment : Payment = {
-        offerId: Number.parseInt(details.purchase_units[0].reference_id),
-        orderId: details.id,
-        payerId: details.payer.payer_id,
-        status: details.status
-      };
-
-      this.shopService.makePayment(payment).subscribe({
-        next: () => {
-          const message : Message = {
-            severity: 'warning',
-            summary: 'Processing',
-            detail: 'We are preparing your order'
-          }
-          this.messageService.add(message);
-        }
-      });
-    });
+  private async cancelOffer(data: ICancelCallbackData): Promise<void> {
+    try {
+      if (this.recordedOrder && data.orderID === this.recordedOrder) {
+        await firstValueFrom(this.shop.updatePaymentStatus({ orderId: data.orderID, status: 'CANCELLED' }));
+      }
+      this.messages.add({ severity: 'warn', summary: this.translate.instant('PAYMENT.CANCELLED') });
+      this.ref.close();
+    } catch (error) {
+      this.failedOffer();
+    }
   }
 
-  private authorizedOffer(details): void {
-    const message : Message = {
-      severity: 'success',
-      summary: 'Done!',
-      detail: `${ this.offer.title }' purchased successfully!`
-    };
-
-    const paymentStatus : any = {
-      orderId: details.id,
-      status: details.status
-    };
-
-    this.shopService.updatePaymentStatus(paymentStatus).subscribe({
-      next: () => {
-        this.messageService.add(message);
-      },
-      error: () => {
-        message.severity = 'error';
-        message.summary = 'Error';
-        message.detail = 'Something happened when updating your payment.'
-        this.messageService.add(message);
-      },
-      complete: () => this.ref.close()
-    });
-  }
-
-  private cancelOffer(details : any): void {
-    const message: Message = {
-      severity: 'error',
-      summary: 'Oops!',
-      detail: 'Purchase has been cancelled'
-    };
-
-    const paymentStatus: any = {
-      order_id: details.id,
-      status: details.status
-    };
-
-    this.shopService.updatePaymentStatus(paymentStatus).subscribe({
-      next: () => {
-        this.messageService.add(message);
-      },
-      complete: () => this.ref.close()
-    });
-  }
-
-  private failedOffer(err : any): void {
-    const message: Message = {
-      severity: 'error',
-      summary: 'Oops!',
-      detail: 'An error has occurred during purchase process.'
-    };
-    this.messageService.add(message);
-    this.ref.close(this.offer);
+  private failedOffer(): void {
+    this.messages.add({ severity: 'error', summary: this.translate.instant('PAYMENT.ERROR') });
+    this.ref.close();
   }
 }

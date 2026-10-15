@@ -1,10 +1,51 @@
-<ng-container *ngIf="!loading else skeleton">
-    <p-carousel [value]="dataSource.items" styleClass="articles-carousel border-round overflow-hidden shadow-2" [autoplayInterval]="dataSource.items.length > 1 ? 15000 : 0" [circular]="true" [showNavigators]="false">
-        <ng-template let-article pTemplate="item">
-            <xdr-article-slide [article]="article"></xdr-article-slide>
-        </ng-template>
-    </p-carousel>
-</ng-container>
-<ng-template #skeleton>
-    <p-skeleton styleClass="h-19rem border-round overflow-hidden shadow-2"></p-skeleton>
-</ng-template>
+<div class="news-region" [class.image-first]="imageFirst" [attr.aria-busy]="loading">
+  @if (loading) {
+    <div class="news-skeleton" role="status" [attr.aria-label]="'COMMON.LOADING' | translate">
+      <div class="skeleton-picture"><i class="pi pi-image" aria-hidden="true"></i></div>
+      <div class="skeleton-copy" aria-hidden="true">
+        <p-skeleton width="65%" height="1.5rem"></p-skeleton>
+        <p-skeleton width="40%" height="0.75rem"></p-skeleton>
+        <p-skeleton width="90%" height="0.875rem"></p-skeleton>
+        <p-skeleton width="75%" height="0.875rem"></p-skeleton>
+        <p-skeleton width="8rem" height="2.5rem"></p-skeleton>
+      </div>
+      <span class="sr-only">{{ 'COMMON.LOADING' | translate }}</span>
+    </div>
+  } @else {
+    <div class="news-result entrance-reveal">
+      @if (failed) {
+        <div role="alert" class="news-feedback">
+          <i class="pi pi-exclamation-circle" aria-hidden="true"></i>
+          <p>{{ 'ERROR.RETRY' | translate }}</p>
+          <p-button (onClick)="ngOnInit()" styleClass="web-green-button" [label]="'COMMON.RETRY' | translate"></p-button>
+        </div>
+      } @else if (!dataSource?.items?.length) {
+        <div class="news-feedback"><xdr-empty-block></xdr-empty-block></div>
+      } @else {
+        @if (dataSource.items.length > 1) {
+          <div class="news-controls">
+            <button type="button" (click)="previous($event)" [attr.aria-label]="'ARTICLES.CAROUSEL.PREVIOUS' | translate">
+              <i class="pi pi-chevron-left" aria-hidden="true"></i>
+            </button>
+            <span>{{ 'ARTICLES.CAROUSEL.POSITION' | translate: { current: slideIndex + 1, total: dataSource.items.length } }}</span>
+            <button type="button" (click)="next($event)" [attr.aria-label]="'ARTICLES.CAROUSEL.NEXT' | translate">
+              <i class="pi pi-chevron-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" (click)="togglePause()" [attr.aria-pressed]="paused">
+              <i [class]="paused ? 'pi pi-play' : 'pi pi-pause'" aria-hidden="true"></i>
+              {{ (paused ? 'ARTICLES.CAROUSEL.RESUME' : 'ARTICLES.CAROUSEL.PAUSE') | translate }}
+            </button>
+          </div>
+        }
+        <p-carousel [value]="dataSource.items" class="articles-carousel" [numVisible]="1" [numScroll]="1"
+          [autoplayInterval]="dataSource.items.length > 1 && !paused ? 15000 : 0" [circular]="true"
+          [showNavigators]="false" [showIndicators]="false" (onPage)="slideIndex = $event.page"
+          (focusin)="pause()" (mouseenter)="pause()" (touchstart)="pause()">
+          <ng-template let-article #item>
+            <xdr-article-slide [article]="article" [imageFirst]="imageFirst"></xdr-article-slide>
+          </ng-template>
+        </p-carousel>
+      }
+    </div>
+  }
+</div>

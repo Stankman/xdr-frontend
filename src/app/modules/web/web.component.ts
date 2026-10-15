@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'xdr-web',
-  templateUrl: './web.component.html',
-  styleUrls: ['./web.component.scss']
+    selector: 'xdr-web',
+    templateUrl: './web.component.html',
+    styleUrls: ['./web.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class WebComponent implements OnInit {
   

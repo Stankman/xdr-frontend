@@ -1,54 +1,56 @@
-<p-card styleClass="xdr-card hero recent-users">
-    <ng-template pTemplate="header">
-        <div class="grid grid-nogutter p-4" [@hero]>
-            <div class="col-12">
-                <div id="hero-title" class="text-3xl" [innerHTML]="'ME.HERO.WELCOME' | translate: {'username': account.activeAvatar.username }"></div>
-            </div>
-            <div class="col-12 flex mt-6 flex-column align-items-center justify-content-center">
-                <div id="hero-avatar" class="habbo-mannequin-container head-large">
-                    <div class="avatar-container">
-                        <img [src]="look" [alt]="account.activeAvatar.username">
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 text-center mt-1">
-                <p-button routerLink="/client" styleClass="habbo-button p-button-lg p-button-success" icon="flashy-arrow" [label]="'ME.HERO.PLAY' | translate: { hotelName: 'Habbo' }"></p-button>
-            </div>
+@if (account$ | async; as account) {
+  @if (account.activeAvatar; as avatar) {
+    <section class="profile-panel" aria-labelledby="profile-name">
+      <div class="profile-scene">
+        <div class="profile-identity">
+          <p>{{ 'ME.WELCOME' | translate }}</p>
+          <h2 id="profile-name">{{ avatar.username }}</h2>
         </div>
-    </ng-template>
-    <div class="grid">
-        <div class="col-12">
-            <div class="text-2xl font-bold py-2" [translate]="'ME.HERO.PURSE'"></div>
-            <ul class="wallet m-0 p-0 list-none">
-                <li class="wallet-item flex align-items-center p-2 border-round">
-                    <span class="habbo-web-icon credit mr-1"></span>
-                    {{ account.activeAvatar.credits }} {{ 'CURRENCY.CREDIT' | translate }}
-                </li>
-                <li class="wallet-item flex align-items-center p-2 border-round">
-                    <span class="habbo-web-icon ducket mr-1"></span>
-                    0 {{ 'CURRENCY.DUCKET' | translate }}
-                </li>
-                <li class="wallet-item flex align-items-center p-2 border-round">
-                    <span class="habbo-web-icon-7 vip mr-1"></span>
-                    <ng-container *ngIf="true else joinVIP">
-                        {{ 'ME.HERO.VIP.EXPIRE' | translate }}
-                    </ng-container>
-                    <ng-template #joinVIP>
-                        <a routerLink="/shop" [translate]="'ME.HERO.VIP.JOIN'"></a>
-                    </ng-template>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <ng-template pTemplate="footer">
-        <p-divider styleClass="my-1"></p-divider>
-        <div class="grid grid-nogutter">
-            <div class="col-12">
-                <div class="flex align-items-end">
-                    <span class="habbo-web-icon-4 time mr-1"></span>
-                    <p class="m-0 text-sm">{{ 'ME.HERO.LAST_VISIT' | translate: { 'last_login': lastLogin | dfnsFormatDistanceToNow: { addSuffix: true } } }}</p>
-                </div>
+        <div class="avatar-stage">
+          <div class="habbo-mannequin-container head-large">
+            <div class="avatar-container">
+              <img [src]="getLook(avatar.look)" [alt]="avatar.username">
             </div>
+          </div>
         </div>
-    </ng-template>
-</p-card>
+      </div>
+
+      <div class="profile-body">
+        @if (avatar.motto) {
+          <p class="profile-motto">{{ avatar.motto }}</p>
+        }
+        <a class="hotel-enter web-green-button" routerLink="/client">
+          {{ 'ME.HERO.PLAY' | translate: { hotelName } }}
+          <i class="pi pi-arrow-right" aria-hidden="true"></i>
+        </a>
+
+        <div class="wallet-heading">
+          <h3>{{ 'ME.HERO.PURSE' | translate }}</h3>
+          <a routerLink="/shop" [attr.aria-label]="'ME.DASHBOARD.SHOP' | translate">
+            <i class="pi pi-plus" aria-hidden="true"></i>
+          </a>
+        </div>
+        <ul class="wallet">
+          <li>
+            <span class="flex items-center gap-3">
+              <span class="habbo-web-icon credit" aria-hidden="true"></span>
+              {{ 'CURRENCY.CREDIT' | translate }}
+            </span>
+            <strong>{{ avatar.credits | number }}</strong>
+          </li>
+          <li>
+            <span class="flex items-center gap-3">
+              <span class="habbo-web-icon ducket" aria-hidden="true"></span>
+              {{ 'CURRENCY.DUCKET' | translate }}
+            </span>
+            <strong>0</strong>
+          </li>
+        </ul>
+      </div>
+      <footer class="profile-footer">
+        <span class="habbo-web-icon-4 time" aria-hidden="true"></span>
+        <p>{{ 'ME.HERO.LAST_VISIT' | translate: { last_login: avatar.lastLogin * 1000 | dfnsFormatDistanceToNow: { addSuffix: true } } }}</p>
+      </footer>
+    </section>
+  }
+}

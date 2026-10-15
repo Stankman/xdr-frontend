@@ -2,8 +2,14 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { authenticatedAccess } from "src/app/guards/authenticated.guard";
 import { unauthenticatedAccess } from "src/app/guards/unauthenticated.guard";
+import { WebComponent } from './web.component';
 
 const routes : Routes = [
+    ...(['terms', 'privacy', 'cookies'] as const).map(page => ({
+        path: page,
+        loadComponent: () => import('./modules/legal/legal.component').then(m => m.LegalComponent),
+        data: { legalPage: page }
+    })),
     {
         path: '',
         loadChildren: () => import('./modules/login/login.module').then((m) => m.LoginModule),
@@ -13,6 +19,10 @@ const routes : Routes = [
         path: 'registration',
         loadChildren: () => import('./modules/register/register.module').then((m) => m.RegisterModule),
         canActivate: [authenticatedAccess]
+    },
+    {
+        path: 'verify-email',
+        loadComponent: () => import('./modules/verify-email/verify-email.component').then(m => m.VerifyEmailComponent)
     },
     {
         path: 'me',
@@ -52,7 +62,7 @@ const routes : Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
+    imports: [RouterModule.forChild([{ path: '', component: WebComponent, children: routes }])],
     exports: [RouterModule]
 })
 

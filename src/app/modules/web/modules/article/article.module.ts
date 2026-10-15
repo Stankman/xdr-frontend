@@ -4,6 +4,7 @@ import { ArticleRoutingModule } from './article-routing.module';
 import { ArticleComponent } from './article.component';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    TranslateModule.forChild(),
     ArticleRoutingModule,
     FormsModule,
     SharedModule

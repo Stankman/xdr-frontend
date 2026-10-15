@@ -1,0 +1,35 @@
+<aside class="acp-sidebar" [attr.aria-label]="'ACP.NAVIGATION' | translate">
+  <a class="acp-brand" routerLink="/" [attr.aria-label]="'ACP.RETURN_WEB' | translate">
+    <img class="acp-brand-mark" src="/assets/resources/images/xdr_icon_dark_logo.png" alt="" />
+  </a>
+  <div class="acp-sidebar-divider"></div>
+  <nav class="acp-navigation" [attr.aria-label]="'ACP.NAVIGATION' | translate">
+    @for (group of groups; track group) {
+      <div class="acp-nav-group" role="group" [attr.aria-label]="('ACP.' + group) | translate">
+    @for (item of items; track item.path) {
+      @if (item.group === group) {
+      <a class="acp-nav-button"
+         [routerLink]="['/acp', item.path]"
+         routerLinkActive="active"
+         ariaCurrentWhenActive="page"
+         [attr.aria-label]="item.label"
+         [pTooltip]="item.label"
+         tooltipEvent="both"
+         tooltipPosition="right"
+         tooltipStyleClass="acp-navigation-tooltip"
+         appendTo="body">
+        <i [class]="item.icon" aria-hidden="true"></i>
+      </a>
+      }
+    }
+      </div>
+    }
+  </nav>
+  <div class="acp-sidebar-bottom">
+    <a class="acp-nav-button acp-back-link" routerLink="/" [attr.aria-label]="'ACP.RETURN_WEB' | translate"
+       [pTooltip]="'ACP.RETURN_WEB' | translate" tooltipEvent="both" tooltipPosition="right"
+       tooltipStyleClass="acp-navigation-tooltip" appendTo="body">
+      <i class="pi pi-arrow-left" aria-hidden="true"></i>
+    </a>
+  </div>
+</aside>

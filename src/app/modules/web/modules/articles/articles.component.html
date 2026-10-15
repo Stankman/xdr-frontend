@@ -1,21 +1,85 @@
-<div class="grid grid-nogutter py-2 px-8">
-    <div class="col text-right">
-        <input pInputText placeholder="Search Article..." type="text" />
+<section class="articles-page web-container" aria-labelledby="news-title">
+  <header class="news-header">
+    <div class="anim-rise">
+      <span class="flex items-center gap-2 text-xs font-bold uppercase"><i class="pi pi-megaphone" aria-hidden="true"></i>{{ 'ARTICLES.CAROUSEL.TITLE' | translate }}</span>
+      <h1 #newsTitle id="news-title" tabindex="-1">{{ 'ARTICLES.TITLE' | translate }}</h1>
+      <p>{{ 'ARTICLES.INTRO' | translate }}</p>
     </div>
-</div>
-<div class="grid grid-nogutter py-2 px-8 h-full">
-    <div class="col p-2">
-        <ng-container *ngIf="dataSource.items.length > 0 else noArticles">
-            <p-scroller styleClass="articles-scroller" [items]="dataSource.items" [itemSize]="25" [delay]="250" [appendOnly]="true">
-                <ng-template pTemplate="item" let-article> 
-                    <div class="col-12 lg:col-3">
-                        <xdr-article-preview [article]="article"></xdr-article-preview>
-                    </div>
-                </ng-template>
-            </p-scroller>
-        </ng-container>
-        <ng-template #noArticles>
-            <xdr-empty-block></xdr-empty-block>
-        </ng-template>
-    </div>
-</div>
+    <form class="news-search anim-rise" style="--anim-order: 1" (ngSubmit)="submitSearch()" role="search">
+      <label for="article-search">{{ 'ARTICLES.SEARCH_LABEL' | translate }}</label>
+      <p-inputgroup class="search-controls">
+        <p-iconfield>
+          <p-inputicon class="pi pi-search" aria-hidden="true"></p-inputicon>
+          <input #searchInput id="article-search" name="search" pInputText type="search" autocomplete="off" [(ngModel)]="search"
+            (ngModelChange)="onSearchInput()" maxlength="80"
+            [placeholder]="'ARTICLES.SEARCH_PLACEHOLDER' | translate"
+            [attr.aria-invalid]="invalidSearch" [attr.aria-describedby]="invalidSearch ? 'search-error' : null" />
+          <p-inputicon>
+            @if (search || appliedSearch) {
+              <button type="button" class="clear-search" (click)="clearSearch()"
+                [attr.aria-label]="'ARTICLES.CLEAR_SEARCH' | translate" [title]="'ARTICLES.CLEAR_SEARCH' | translate">
+                <i class="pi pi-times" aria-hidden="true"></i>
+              </button>
+            }
+          </p-inputicon>
+        </p-iconfield>
+        <p-inputgroup-addon>
+          <p-button type="submit" styleClass="habbo-button web-green-button search-submit" [label]="'ARTICLES.SEARCH' | translate"></p-button>
+        </p-inputgroup-addon>
+      </p-inputgroup>
+    </form>
+  </header>
+  <div class="news-status" role="status" aria-live="polite">
+    @if (loading) {
+      {{ 'COMMON.LOADING' | translate }}
+    } @else if (dataSource && !failed && !invalidSearch) {
+      {{ 'ARTICLES.RESULT_COUNT' | translate: { count: dataSource.meta.totalItems } }}
+      @if (appliedSearch) { <span class="ml-2">{{ 'ARTICLES.SEARCH_FOR' | translate: { search: appliedSearch } }}</span> }
+    }
+  </div>
+  <div [attr.aria-busy]="loading">
+    @if (invalidSearch) {
+      <div id="search-error" class="news-feedback" role="alert">{{ 'ARTICLES.SEARCH_ERROR' | translate }}</div>
+    } @else if (loading) {
+      <div class="articles-grid" aria-hidden="true">
+        @for (item of [1, 2, 3, 4, 5, 6]; track item) {
+          <div class="article-skeleton">
+            <p-skeleton width="100%" height="11rem"></p-skeleton>
+            <div class="p-5 grid gap-4"><p-skeleton width="80%" height="1.5rem"></p-skeleton><p-skeleton width="100%" height="3rem"></p-skeleton></div>
+          </div>
+        }
+      </div>
+    } @else if (failed) {
+      <div class="news-feedback anim-rise" role="alert">
+        <i class="pi pi-exclamation-circle" aria-hidden="true"></i>
+        <p>{{ 'ERROR.RETRY' | translate }}</p>
+        <p-button (onClick)="retry()" styleClass="web-green-button" [label]="'COMMON.RETRY' | translate"></p-button>
+      </div>
+    } @else if (dataSource) {
+      @if (dataSource.items.length) {
+        <div class="articles-grid">
+          @for (article of dataSource.items; track article.id; let index = $index) {
+            <xdr-article-preview class="anim-rise news-card" [style.--anim-order]="index + 2" [article]="article"></xdr-article-preview>
+          }
+        </div>
+      } @else {
+        <div class="news-feedback anim-rise">
+          <i class="pi pi-inbox" aria-hidden="true"></i>
+          <p>{{ (appliedSearch ? 'ARTICLES.NO_MATCHES' : 'ARTICLES.NO_RESULTS') | translate }}</p>
+        </div>
+      }
+    }
+  </div>
+  @if (dataSource && dataSource.meta.totalPages > 1 && !invalidSearch && !failed) {
+    <nav class="news-pagination" [attr.aria-label]="'ARTICLES.PAGINATION.LABEL' | translate">
+      <button type="button" (click)="changePage(page - 1)" [disabled]="loading || page === 1"
+        [attr.aria-label]="'ARTICLES.PAGINATION.PREVIOUS' | translate"><i class="pi pi-chevron-left" aria-hidden="true"></i></button>
+      @for (number of pageNumbers; track number) {
+        <button type="button" (click)="changePage(number)" [disabled]="loading" [attr.aria-current]="page === number ? 'page' : null"
+          [attr.aria-label]="'ARTICLES.PAGINATION.PAGE' | translate: { page: number }">{{ number }}</button>
+      }
+      <button type="button" (click)="changePage(page + 1)" [disabled]="loading || page === dataSource.meta.totalPages"
+        [attr.aria-label]="'ARTICLES.PAGINATION.NEXT' | translate"><i class="pi pi-chevron-right" aria-hidden="true"></i></button>
+    </nav>
+  }
+</section>

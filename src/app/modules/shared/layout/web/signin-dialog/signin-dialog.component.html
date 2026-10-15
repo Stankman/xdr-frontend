@@ -1,40 +1,48 @@
-<p-card styleClass="xdr-card bg-transparent shadow-none relative z-1">
-  <ng-template pTemplate="header">
-    <div class="text-5xl font-bold pb-2">Sign In</div>
-  </ng-template>
-  <form [formGroup]="formGroup" (submit)="onSubmit()">
-    <div class="formgrid grid">
-      <div class="field col flex flex-column">
-        <label htmlFor="identification" [translate]="'LOGIN.FORM.INPUT.IDENTIFICATION.LABEL'"></label>
-        <input id="identification" name="identification" formControlName="identification" type="text" pInputText  />
-      </div>
+<div class="signin-shell">
+  <aside class="signin-art" aria-hidden="true">
+    <div class="signin-art-copy">
+      <span class="signin-eyebrow">{{ 'LOGIN.LANDING.EYEBROW' | translate: { hotelName } }}</span>
+      <p class="signin-art-title">{{ 'LOGIN.FORM.ART_TITLE' | translate }}</p>
     </div>
-    <div class="formgrid grid">
-        <div class="field col flex flex-column">
-            <label htmlFor="password" [translate]="'LOGIN.FORM.INPUT.PASSWORD.LABEL'"></label>
-            <p-password id="password" inputStyleClass="w-full" styleClass="w-full" name="password" autocomplete="current-password" formControlName="password" [feedback]="false" [toggleMask]="true"></p-password>
-            <small id="password-help" class="text-right font-bold text-blue-500 cursor-pointer"><a (click)="openPasswordDialog()">Forgot password?</a></small>
-          </div>
-    </div>
-    <div class="formgrid grid">
-      <div class="field col">
-        <p-button type="submit" styleClass="habbo-button" [label]="'LOGIN.FORM.BUTTONS.LOGIN' | translate"></p-button>
+    <img class="signin-art-frank" src="/assets/resources/images/frank_6.gif" alt="">
+  </aside>
+
+  <section class="signin-panel" aria-labelledby="signin-title">
+    <header class="signin-heading">
+      <h2 id="signin-title">{{ 'LOGIN.FORM.TITLE' | translate }}</h2>
+      <p>{{ 'LOGIN.FORM.SUBTITLE' | translate }}</p>
+    </header>
+
+    <form class="signin-form" [formGroup]="formGroup" (ngSubmit)="onSubmit()" novalidate>
+      <div class="signin-field">
+        <label for="email">{{ 'LOGIN.FORM.INPUT.IDENTIFICATION.LABEL' | translate }}</label>
+        <div class="signin-control">
+          <i class="pi pi-envelope" aria-hidden="true"></i>
+          <input id="email" name="email" autocomplete="email" formControlName="email" type="email" pInputText />
+        </div>
       </div>
-      <div class="field col text-right">
-        <p-button icon="pi pi-facebook" styleClass="habbo-button p-button-secondary p-button-rounded p-button-text" ></p-button>
+
+      <div class="signin-field">
+        <div class="signin-label-row">
+          <label for="signin-password">{{ 'LOGIN.FORM.INPUT.PASSWORD.LABEL' | translate }}</label>
+          <button type="button" class="signin-link" (click)="openPasswordDialog()">{{ 'LOGIN.FORM.FORGOT' | translate }}</button>
+        </div>
+        <div class="signin-control">
+          <i class="pi pi-lock" aria-hidden="true"></i>
+          <p-password inputId="signin-password" inputStyleClass="w-full" class="w-full" name="password" autocomplete="current-password" formControlName="password" [feedback]="false" [toggleMask]="true"></p-password>
+        </div>
       </div>
-    </div>
-  </form>
-  <p-divider></p-divider>
-  <div id="signup-container">
-    <div class="text-sm" [translate]="'LOGIN.FORM.NO_ACCOUNT'"></div>
-    <a class="font-bold text-lg cursor-pointer" [translate]="'LOGIN.FORM.BUTTONS.REGISTER'"></a>
-  </div>
-</p-card>
-<div class="custom-shape-divider-bottom-1682453872 z-0">
-  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-  </svg>
+
+      <p-button type="submit" [loading]="submitting" [disabled]="submitting" styleClass="habbo-button web-green-button signin-submit"
+        [label]="'LOGIN.FORM.BUTTONS.LOGIN' | translate" icon="pi pi-arrow-right" iconPos="right"></p-button>
+    </form>
+
+    <footer class="signin-footer">
+      <span>{{ 'LOGIN.FORM.NO_ACCOUNT' | translate }}</span>
+      <a routerLink="/registration" (click)="close()">
+        {{ 'LOGIN.FORM.BUTTONS.REGISTER' | translate }}
+        <i class="pi pi-arrow-right" aria-hidden="true"></i>
+      </a>
+    </footer>
+  </section>
 </div>

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Router } from "@angular/router";
-import { Observable, catchError } from "rxjs";
+import { EMPTY, Observable, catchError } from "rxjs";
 import { Article } from "src/app/modules/core/models/article/article.model";
 import { ArticleService } from "src/app/modules/shared/services/article.service";
 
@@ -11,8 +11,11 @@ export class ArticleResolver {
         private readonly router: Router
     ) {}
 
-    resolve(route : ActivatedRouteSnapshot) : Observable<Article | boolean> {
-        return this.articleService.getArticle(route.params['slug'].split('-')[0])
-        .pipe(catchError((err) => this.router.navigateByUrl('/404')));
+    resolve(route : ActivatedRouteSnapshot) : Observable<Article> {
+        return this.articleService.getArticle(Number(route.params['slug'].split('-')[0]))
+        .pipe(catchError(() => {
+            this.router.navigateByUrl('/not-found');
+            return EMPTY;
+        }));
     }
 }

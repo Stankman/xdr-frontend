@@ -1,0 +1,31 @@
+<section class="acp-stats-grid" [attr.aria-label]="'ACP.OVERVIEW' | translate">
+  @for (stat of stats; track stat.label) {
+    <article class="acp-stat-card">
+      <div class="acp-stat-icon" [class]="stat.color"><i [class]="stat.icon" aria-hidden="true"></i></div>
+      <span class="acp-stat-label">{{ stat.label | translate }}</span>
+      <strong class="acp-stat-value" [attr.aria-label]="'ACP.UNAVAILABLE' | translate">&mdash;</strong>
+      <span class="acp-stat-note">{{ 'ACP.STATE.pending' | translate }}</span>
+    </article>
+  }
+</section>
+<section class="acp-dashboard-grid">
+  <article class="acp-panel acp-activity-panel">
+    <div class="acp-panel-heading"><div>
+      <h2>{{ 'ACP.RECENT_ACTIVITY' | translate }}</h2>
+      <p>{{ 'ACP.ACTIVITY_DESCRIPTION' | translate }}</p>
+    </div></div>
+    <xdr-acp-state />
+  </article>
+  <article class="acp-panel acp-quick-panel">
+    <div class="acp-panel-heading"><h2>{{ 'ACP.QUICK_ACCESS' | translate }}</h2></div>
+    <div class="acp-quick-links">
+      @for (link of links; track link.path) {
+        <a [routerLink]="['/acp', link.path]">
+          <span class="acp-quick-icon"><i [class]="link.icon" aria-hidden="true"></i></span>
+          <span><strong>{{ link.label }}</strong><small>{{ 'ACP.OPEN_SECTION' | translate }}</small></span>
+          <i class="pi pi-angle-right" aria-hidden="true"></i>
+        </a>
+      }
+    </div>
+  </article>
+</section>

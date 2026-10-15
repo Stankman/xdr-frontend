@@ -1,0 +1,509 @@
+{
+  "ACP": {
+    "DEMO": {
+      "TITLE": "Registros de prueba",
+      "HELP": "Consulta registros ficticios de Players, Rooms y Catalog. No se modifican datos del backend.",
+      "ACTIVE": "MODO DEMO — registros ficticios",
+      "WARNING": "Datos de ejemplo solo en Players, Rooms y Catalog. Las demás secciones siguen pendientes. Editar y guardar están deshabilitados. Recargar desactiva el modo demo.",
+      "ENABLE": "Mostrar registros de prueba",
+      "DISABLE": "Ocultar registros de prueba"
+    },
+    "GENERAL": "General",
+    "HOTEL": "Hotel",
+    "ADMIN": "Web y administración",
+    "NAVIGATION": "Navegación del ACP",
+    "SUBMENU": "Submenús de la sección",
+    "BREADCRUMBS": "Ruta de navegación",
+    "RETURN_WEB": "Volver a la web",
+    "WORKSPACE_NOTE": "Área de administración. Los datos y las operaciones aún no están conectados.",
+    "HOTEL_GROUPS": "Grupos del hotel",
+    "WEB_GROUPS": "Grupos de la web",
+    "WEB_SETTINGS": "Settings de la web",
+    "HOTEL_SETTINGS": "Settings del hotel",
+    "STATE": {
+      "pending": "Pendiente de integración",
+      "pendingHelp": "Esta vista aún no tiene una fuente de datos conectada. No hay registros ni totales disponibles.",
+      "definition": "Pendiente de definición",
+      "definitionHelp": "Es necesario acordar los campos o las operaciones antes de habilitar esta función.",
+      "loading": "Cargando...",
+      "error": "No se pudieron cargar los datos.",
+      "empty": "No hay registros.",
+      "noResults": "Búsqueda sin resultados.",
+      "notFound": "Registro no encontrado."
+    },
+    "SEARCH": "Buscar",
+    "SEARCH_PENDING": "La búsqueda estará disponible cuando se conecten los datos.",
+    "COLUMNS_PENDING": "Las columnas de esta tabla aún no están definidas.",
+    "ACTIONS": "Acciones",
+    "VIEW_DETAILS": "Ver detalles",
+    "BACK_LIST": "Volver a la lista",
+    "RECORD_DATA": "Información del registro",
+    "UNAVAILABLE": "No disponible",
+    "FORM_PENDING": "Los campos y la integración con el backend están pendientes. No se pueden guardar cambios.",
+    "SAVE": "Guardar",
+    "EDIT": "Editar",
+    "DELETE": "Eliminar",
+    "REVOKE": "Revocar baneo",
+    "BAN_PLAYER": "Banear player",
+    "PLAYER_CONTEXT": "Player seleccionado para este flujo",
+    "PLAYER_UNVERIFIED": "La identidad del player y la posibilidad de banearlo aún no se han verificado.",
+    "ID": "ID",
+    "NAME": "Nombre",
+    "AVATAR_NAME": "Nombre del avatar",
+    "RANK": "Rango",
+    "CREATED_AT": "Fecha de creación",
+    "ACCOUNT": "Cuenta asociada",
+    "ROOM_COUNT": "Cantidad de rooms",
+    "BADGE_COUNT": "Cantidad de placas",
+    "CHATLOGS": "Chatlogs",
+    "PLAYER_DETAILS": "Detalles del player",
+    "OWNER": "Dueño",
+    "PRIVACY": "Privacidad",
+    "RATING": "Rating",
+    "RATERS": "Players que calificaron la sala",
+    "VISITOR_LOGS": "Visitor logs",
+    "ROOM_WORDFILTER": "Wordfilter de la sala",
+    "RIGHTS": "Usuarios con rights",
+    "MUTED_USERS": "Usuarios muteados",
+    "ROOM_BANS": "Usuarios baneados en esta sala",
+    "EVENT_HISTORY": "Historial de eventos",
+    "ROOM_DETAILS": "Detalles de la room",
+    "LOGIC": "Lógica",
+    "CHILD_PAGES": "Páginas hijas",
+    "OFFERS": "Offers",
+    "ASSOCIATED_OFFER": "Offer asociado",
+    "ALL_RECORD_DATA": "Datos completos del registro",
+    "ADD_CURRENCY": "Agregar moneda",
+    "CURRENCY_DETAILS": "Detalles de la moneda",
+    "ADD_FILTER": "Agregar filtro",
+    "FILTER_DETAILS": "Detalles del filtro",
+    "TICKETS": "Tickets de moderación",
+    "TICKET_DETAILS": "Detalles del ticket",
+    "CREATE_BAN": "Crear baneo",
+    "BAN_DETAILS": "Detalles del baneo",
+    "ACCOUNT_DETAILS": "Detalles de la cuenta",
+    "RANK_GROUP": "Rango o grupo",
+    "AVATARS": "Avatares asociados",
+    "SESSIONS": "Sesiones",
+    "MEMBER_COUNT": "Cantidad de miembros",
+    "GROUP_PERMISSIONS": "Permisos del grupo",
+    "INHERITED_GROUPS": "Grupos heredados",
+    "OVERVIEW": "Resumen de la comunidad",
+    "TOTAL_PLAYERS": "Total de players",
+    "TOTAL_ACCOUNTS": "Total de cuentas",
+    "ONLINE_PLAYERS": "Players conectados",
+    "ACTIVE_REPORTS": "Reportes activos de moderación",
+    "RECENT_ACTIVITY": "Actividad reciente",
+    "ACTIVITY_DESCRIPTION": "Nuevos registros y reportes en orden cronológico.",
+    "QUICK_ACCESS": "Acceso rápido",
+    "OPEN_SECTION": "Abrir sección"
+  },
+  "COMMON": {
+    "LOADING": "Cargando noticias...",
+    "RECENT_USERS": "Usuarios recientes",
+    "CLOSE": "Cerrar",
+    "RETRY": "Intentar de nuevo",
+    "THEME": "Cambiar tema de color",
+    "LANGUAGE": "Idioma"
+  },
+  "CLIENT": {
+    "TITLE": "Cliente del hotel",
+    "LOADING": "Cargando el hotel..."
+  },
+  "PAYMENT": {
+    "PROCESSING": "Estamos preparando tu pedido.",
+    "SUCCESS": "Tu compra ha sido confirmada.",
+    "CANCELLED": "Compra cancelada.",
+    "ERROR": "No se pudo confirmar el pago. Revisa tu historial antes de volver a intentarlo."
+  },
+  "META": {
+    "DESCRIPTION": "Crea tu avatar, conoce amigos y construye espacios en nuestro mundo virtual."
+  },
+  "GUEST": {
+    "WELCOME": {
+      "TITLE": "¿Listo para jugar?",
+      "DESCRIPTION": "<p>Crea una cuenta para disfrutar de las funciones del hotel.</p>",
+      "JOIN": "Regístrate gratis"
+    }
+  },
+  "LOGIN": {
+    "LANDING": {
+      "EYEBROW": "Bienvenido a {{ hotelName }}",
+      "TITLE": "Tu mundo. Tus amigos. Tu historia.",
+      "DESCRIPTION": "Entra en {{ hotelName }}, crea tu avatar y descubre un mundo de habitaciones, conversaciones y nuevas aventuras.",
+      "NOTE": "Crear tu cuenta es gratis.",
+      "ART_LABEL": "Un mundo por descubrir",
+      "FEATURES_LABEL": "Descubre el hotel",
+      "AVATAR_TITLE": "Sé quien quieras",
+      "AVATAR_BODY": "Dale tu estilo a un avatar único.",
+      "FRIENDS_TITLE": "Encuentra tu gente",
+      "FRIENDS_BODY": "Conoce amigos y comparte buenos momentos.",
+      "ROOMS_TITLE": "Crea tu espacio",
+      "ROOMS_BODY": "Explora habitaciones y deja volar tu imaginación.",
+      "ALL_NEWS": "Ver noticias"
+    },
+    "TITLE": "Mundo virtual, avatares y arte en píxeles",
+    "MESSAGE": "<p><b>Crea tu avatar.</b><br /><b>Hoy.</b><br />Conoce nuestra comunidad, haz amigos y diviértete.<br /><br />Comienza tu aventura.</p>",
+    "FORM": {
+      "TITLE": "Iniciar sesión",
+      "SUBTITLE": "¡Qué bueno verte de nuevo! Inicia sesión para continuar tu historia.",
+      "ART_TITLE": "Tu hotel te está esperando.",
+      "INPUT": {
+        "IDENTIFICATION": {
+          "LABEL": "Correo electrónico",
+          "PLACEHOLDER": ""
+        },
+        "PASSWORD": {
+          "LABEL": "Contraseña",
+          "PLACEHOLDER": ""
+        },
+        "EMPTY": "Este campo es obligatorio"
+      },
+      "FORGOT": "¿Olvidaste tu contraseña?",
+      "NO_ACCOUNT": "¿Todavía no tienes una cuenta?",
+      "BUTTONS": {
+        "LOGIN": "Conectar",
+        "REGISTER": "Crear una cuenta"
+      }
+    }
+  },
+  "REGISTER": {
+    "INTRO": "Tu próxima aventura empieza aquí.",
+    "PASSWORD": {
+      "STRENGTH": "Seguridad de la contraseña",
+      "PROMPT": "Introduce una contraseña para comprobar su seguridad.",
+      "WEAK": "Débil",
+      "MEDIUM": "Media",
+      "STRONG": "Fuerte",
+      "VERY_STRONG": "Muy fuerte",
+      "SHOW": "Mostrar contraseña",
+      "HIDE": "Ocultar contraseña",
+      "SHOW_CONFIRM": "Mostrar contraseña repetida",
+      "HIDE_CONFIRM": "Ocultar contraseña repetida"
+    },
+    "TITLE": "Registro",
+    "DESCRIPTION": "Regístrate y únete a la diversión.",
+    "FORM": {
+      "TITLE": "¡Únete gratis!",
+      "INPUT": {
+        "USERNAME": {
+          "LABEL": "Nombre de usuario",
+          "PLACEHOLDER": "",
+          "ERRORS": {
+            "EMPTY": "Introduce un nombre de usuario."
+          }
+        },
+        "EMAIL": {
+          "LABEL": "Correo electrónico",
+          "PLACEHOLDER": "",
+          "HELP": "Utilizarás este correo para iniciar sesión en {{ hotelName }}. Usa una dirección válida.",
+          "ERRORS": {
+            "EMPTY": "Introduce tu correo electrónico.",
+            "PATTERN": "Introduce un correo electrónico válido."
+          }
+        },
+        "PASSWORD": {
+          "LABEL": "Contraseña",
+          "CONFIRM": "Repetir contraseña",
+          "PLACEHOLDER": "",
+          "HELP": "Usa al menos 6 caracteres, una letra y un número o carácter especial.",
+          "ERRORS": {
+            "EMPTY": "Introduce una contraseña.",
+            "NOT_SAME": "Las contraseñas no coinciden."
+          }
+        },
+        "TOS": {
+          "LABEL": "Acepto los términos de servicio y las políticas de privacidad y cookies."
+        }
+      },
+      "WELCOME": "¡Bienvenido a {{ hotelName }}! Diviértete y mantente seguro.",
+      "INGAME_PURCHASES": "Incluye compras opcionales dentro del juego.",
+      "BUTTONS": {
+        "REGISTER": "Crear mi cuenta"
+      }
+    },
+    "VERIFY": {
+      "TITLE": "Revisa tu correo",
+      "SENT": "Enviamos un enlace de verificación a",
+      "NEXT": "Abre el enlace para activar tu cuenta y luego inicia sesión con el botón Iniciar sesión.",
+      "NOT_RECEIVED": "¿No lo recibiste? Revisa la carpeta de spam o envíalo de nuevo.",
+      "RESEND": "Reenviar correo de verificación",
+      "CHANGE_EMAIL": "Usar otro correo",
+      "RESENT": "Si esa cuenta aún necesita verificación, te enviamos un nuevo enlace.",
+      "RESEND_FAILED": "No se pudo reenviar el correo de verificación. Inténtalo de nuevo."
+    }
+  },
+  "VERIFY_EMAIL": {
+    "VERIFYING": "Verificando tu correo…",
+    "VERIFIED": {
+      "TITLE": "¡Correo verificado!",
+      "BODY": "Tu cuenta está activa. Usa el botón Iniciar sesión para entrar al hotel."
+    },
+    "FAILED": {
+      "TITLE": "Este enlace no funcionó",
+      "BODY": "El enlace de verificación no es válido, caducó o ya se usó. Introduce tu correo para recibir uno nuevo."
+    },
+    "RESENT": "Si esa cuenta aún necesita verificación, te enviamos un nuevo enlace.",
+    "HOME": "Volver al inicio"
+  },
+  "ME": {
+    "TITLE": "Inicio",
+    "WELCOME": "Bienvenido de nuevo",
+    "DASHBOARD": {
+      "INTRO": "Tu próxima historia empieza en el hotel.",
+      "ALL_NEWS": "Todas las noticias",
+      "EXPLORE": "Más por descubrir",
+      "COMMUNITY": "La comunidad",
+      "COMMUNITY_DESCRIPTION": "Descubre qué pasa en el hotel.",
+      "SHOP": "Tienda del hotel",
+      "SHOP_DESCRIPTION": "Encuentra algo que vaya contigo."
+    },
+    "HERO": {
+      "WELCOME": "¡Hola, <strong>{{ username }}</strong>!",
+      "LAST_VISIT": "Tu última visita fue {{ last_login }}.",
+      "MOTTO": "Misión: <strong>{{ motto }}</strong>",
+      "PLAY": "¡Jugar a {{ hotelName }}!",
+      "COUNTER": "{{ online }} usuarios conectados",
+      "PURSE": "Mi monedero",
+      "VIP": {
+        "EXPIRE": "Caduca en {{ remaining }}",
+        "JOIN": "Hazte VIP"
+      }
+    },
+    "SLIDER": {
+      "ARTICLES": {
+        "TITLE": "Sin resultados",
+        "DESCRIPTION": "No hay noticias disponibles.",
+        "READ_MORE": "Leer más..."
+      }
+    }
+  },
+  "TEAM": {
+    "TITLE": "Staff",
+    "EMPTY_CATEGORY": "No hay rangos disponibles en esta categoría",
+    "EMPTY_USERS": "No hay staff con este rango",
+    "OUR_TEAM": "Nuestro equipo",
+    "EYEBROW": "Conoce al equipo",
+    "SUBTITLE": "Las personas que mantienen {{ hotelName }} seguro, divertido y funcionando cada día.",
+    "ONLINE": "En línea",
+    "OFFLINE": "Desconectado",
+    "ERROR": "No pudimos cargar el equipo en este momento.",
+    "RETRY": "Reintentar",
+    "WHAT_IS": {
+      "TITLE": "El equipo de {{ hotelName }}",
+      "BODY": "Nuestro equipo ayuda a mantener una comunidad segura y divertida."
+    }
+  },
+  "SHOP": {
+    "INFO": {
+      "TITLE": "Tienda del hotel",
+      "BODY": "Consulta las ofertas y sus detalles antes de realizar una compra."
+    }
+  },
+  "ARTICLES": {
+    "TITLE": "Noticias",
+    "INTRO": "Descubre las últimas historias, novedades y actividades del hotel.",
+    "BACK": "Volver a noticias",
+    "SEARCH_LABEL": "Buscar noticias",
+    "SEARCH": "Buscar",
+    "CLEAR_SEARCH": "Borrar búsqueda",
+    "SEARCH_ERROR": "Introduce un único término de búsqueda de hasta 80 caracteres.",
+    "RESULT_COUNT": "{{ count }} noticias",
+    "SEARCH_FOR": "para «{{ search }}»",
+    "NO_MATCHES": "No hay noticias que coincidan con tu búsqueda. Prueba con otro título o palabra.",
+    "PAGINATION": {
+      "LABEL": "Páginas de noticias",
+      "PREVIOUS": "Página anterior",
+      "NEXT": "Página siguiente",
+      "PAGE": "Página {{ page }}"
+    },
+    "SEARCH_PLACEHOLDER": "Buscar...",
+    "CAROUSEL": {
+      "TITLE": "Noticias recientes",
+      "PAUSE": "Pausar presentación",
+      "RESUME": "Reanudar presentación",
+      "PREVIOUS": "Noticia anterior",
+      "NEXT": "Noticia siguiente",
+      "POSITION": "{{ current }} de {{ total }}",
+      "READ_MORE": "Leer más...",
+      "EMPTY": "No hay noticias disponibles."
+    },
+    "NO_RESULTS": "No hay noticias disponibles."
+  },
+  "NOT_FOUND": {
+    "TITLE": "Error 404",
+    "DESCRIPTION": "Página no encontrada",
+    "BUTTON": "Volver"
+  },
+  "HEADER": {
+    "SIGNIN": {
+      "LABEL": "Iniciar sesión"
+    },
+    "SIGNUP": {
+      "LABEL": "Regístrate gratis"
+    },
+    "UPPER_MENU": {
+      "HELP": "Ayuda",
+      "ACP": "ACP",
+      "LOGOUT": "Cerrar sesión"
+    },
+    "MENU": {
+      "HOME": "Inicio",
+      "COMMUNITY": "Comunidad",
+      "NEWS": "Noticias",
+      "TEAM": "Nuestro equipo",
+      "SHOP": "Tienda",
+      "HOF": "Salón de la fama",
+      "SAFETY": "Seguridad",
+      "HELP": "Ayuda",
+      "ACP": "ACP",
+      "LOGOUT": "Cerrar sesión"
+    },
+    "PLAY_NOW": "Jugar ahora",
+    "ONLINE": "{{ onlineCount }} conectados"
+  },
+  "LEGAL": {
+    "LABEL": "Información legal",
+    "NAVIGATION": "Documentos legales",
+    "INTRO": "Consulta las condiciones y la información sobre privacidad y almacenamiento de {{ hotelName }}.",
+    "DRAFT_TITLE": "Plantilla provisional — pendiente de revisión",
+    "DRAFT_NOTICE": "Este contenido no es un documento legal definitivo ni asesoramiento jurídico. Antes de publicarlo, el responsable del hotel debe completar los datos indicados, comprobar las prácticas reales y obtener una revisión adecuada a su jurisdicción.",
+    "BACK": "Volver al inicio",
+    "TERMS": {
+      "TITLE": "Términos y condiciones",
+      "OPERATOR": {
+        "TITLE": "Responsable y alcance",
+        "BODY": "Estos términos son una propuesta para el uso de {{ hotelName }}. Pendiente de completar: nombre legal del operador, domicilio, país, contacto y fecha de entrada en vigor. Deben adaptarse a la legislación aplicable y a las funciones realmente disponibles."
+      },
+      "ACCOUNT": {
+        "TITLE": "Cuenta y acceso",
+        "BODY": "Utiliza datos correctos y protege tus credenciales. No compartas contraseñas ni accedas a cuentas ajenas. Pendiente de definir: edad mínima, requisitos de consentimiento de representantes legales y procedimiento de recuperación o cierre de cuenta."
+      },
+      "CONDUCT": {
+        "TITLE": "Convivencia y contenido",
+        "BODY": "Respeta a otros usuarios. No publiques amenazas, acoso, contenido ilícito ni datos personales de terceros. No utilices el servicio para fraudes o accesos no autorizados. Pendiente de completar: normas de comunidad, canales de denuncia y tratamiento del contenido generado por usuarios."
+      },
+      "PURCHASES": {
+        "TITLE": "Compras y bienes virtuales",
+        "BODY": "Revisa el precio, la moneda y la descripción antes de comprar. Pendiente de completar: entidad que vende, impuestos, entrega, derechos de desistimiento, reembolsos y soporte. Los derechos obligatorios del consumidor no pueden excluirse mediante esta plantilla."
+      },
+      "MODERATION": {
+        "TITLE": "Moderación y disponibilidad",
+        "BODY": "{{ hotelName }} puede requerir mantenimiento y medidas de moderación. Pendiente de definir: motivos y duración de restricciones, avisos, revisión de sanciones y contacto de soporte. No se establece aquí una garantía de disponibilidad ni una renuncia a derechos legales."
+      },
+      "CHANGES": {
+        "TITLE": "Cambios y consultas",
+        "BODY": "Pendiente de definir: cómo se notificarán cambios, cuándo se aplicarán y cómo contactar al operador. Conserva la versión vigente y explica las condiciones antes de solicitar su aceptación."
+      }
+    },
+    "PRIVACY": {
+      "TITLE": "Política de privacidad",
+      "CONTROLLER": {
+        "TITLE": "Responsable del tratamiento",
+        "BODY": "Pendiente de completar: identidad y contacto del responsable de {{ hotelName }}, domicilio, jurisdicción y contacto de privacidad. Esta plantilla no identifica todavía a un responsable legal."
+      },
+      "DATA": {
+        "TITLE": "Datos utilizados",
+        "BODY": "La interfaz solicita correo electrónico y contraseña para el registro y credenciales para iniciar sesión. Muestra datos de cuenta y avatar y guarda información de sesión en el navegador. Pendiente de inventariar: datos recibidos por el backend, direcciones IP, registros, mensajes y datos de compras."
+      },
+      "PURPOSES": {
+        "TITLE": "Finalidades y bases jurídicas",
+        "BODY": "Las funciones visibles incluyen acceso a la cuenta, preferencias, cliente del hotel y coordinación de compras. El operador debe documentar las finalidades y bases jurídicas de cada tratamiento real. Esta página no presume que el consentimiento sea la base adecuada para todos los casos."
+      },
+      "PROVIDERS": {
+        "TITLE": "Servicios externos y destinatarios",
+        "BODY": "La aplicación carga Ubuntu desde Google Fonts, imágenes de avatares desde el servicio configurado y puede cargar PayPal al abrir una compra y Nitro al entrar al hotel. Pendiente de verificar: proveedores activos, datos compartidos, acuerdos, ubicaciones y garantías para transferencias internacionales."
+      },
+      "RETENTION": {
+        "TITLE": "Conservación y seguridad",
+        "BODY": "Pendiente de establecer: plazos de conservación, eliminación de cuentas, copias de seguridad y medidas de seguridad del backend. Cerrar sesión elimina los datos locales de cuenta y token en este dispositivo; no demuestra la eliminación de datos del servidor."
+      },
+      "RIGHTS": {
+        "TITLE": "Derechos y contacto",
+        "BODY": "Los derechos disponibles dependen de la legislación aplicable. Pendiente de completar: contacto y procedimiento para solicitudes de acceso, rectificación, eliminación y otros derechos, verificación de identidad, plazos y autoridad competente. No se ofrece todavía un canal operativo en esta plantilla."
+      }
+    },
+    "COOKIES": {
+      "TITLE": "Política de cookies",
+      "SCOPE": {
+        "TITLE": "Cookies y almacenamiento local",
+        "BODY": "Las cookies y localStorage son tecnologías distintas. El código de esta interfaz utiliza localStorage para sesión y preferencias; esta revisión no demuestra la ausencia de cookies del servidor, del cliente Nitro o de terceros. El operador debe auditar el sitio desplegado."
+      },
+      "STORAGE": {
+        "TITLE": "Almacenamiento de la interfaz",
+        "BODY": "xdr-token y xdr-refresh-token guardan los tokens de acceso y renovación; xdr-account guarda datos de cuenta/avatar. xdr-lang guarda el idioma y xdr-theme el tema. localStorage no tiene una caducidad automática configurada. El cierre de sesión elimina los tokens y la cuenta; idioma y tema permanecen hasta borrarlos o modificarlos."
+      },
+      "THIRD_PARTIES": {
+        "TITLE": "Cookies de servicios externos",
+        "BODY": "PayPal, el cliente Nitro, los servicios de imágenes y fuentes u otros servicios del despliegue pueden tener prácticas propias. Pendiente de inventariar: nombre, proveedor, finalidad, categoría y duración de cada cookie o tecnología activa. No se afirma que todas sean necesarias ni que exista ya un sistema de consentimiento."
+      },
+      "CHOICES": {
+        "TITLE": "Opciones del navegador y consentimiento",
+        "BODY": "Puedes borrar cookies y almacenamiento desde la configuración del navegador; esto puede cerrar tu sesión y restablecer preferencias. El operador debe implementar controles de consentimiento y retirada cuando sean exigibles, evitando cargar tecnologías no esenciales antes de la autorización correspondiente. Esta página no instala ni sustituye dichos controles."
+      },
+      "CONTACT": {
+        "TITLE": "Actualización y contacto",
+        "BODY": "Pendiente de completar: contacto del operador, fecha de revisión y un inventario comprobado del despliegue de {{ hotelName }}. Revisa esta política al añadir analítica, publicidad o nuevos proveedores."
+      }
+    }
+  },
+  "FOOTER": {
+    "DISCLAIMER": "{{ hotelName }} es un proyecto independiente, no afiliado ni respaldado por Sulake Oy.",
+    "DESCRIPTION": "Crea tu avatar, conoce amigos y construye espacios en nuestro mundo virtual.",
+    "QUICKLINKS": "Enlaces rápidos",
+    "COMMUNITY": "Comunidad",
+    "LASTEST_NEWS": "Últimas noticias",
+    "OUR_TEAM": "Nuestro equipo",
+    "INFORMATION": "Información",
+    "WHATIS": "¿Qué es {{ hotelName }}?",
+    "TOS": "Términos de servicio",
+    "PRIVACY": "Política de privacidad",
+    "COOKIE": "Política de cookies",
+    "POWERED": "Desarrollado con",
+    "COPYRIGHT": "© XdrCMS. {{ hotelName }} no es una marca registrada de Sulake Oy."
+  },
+  "CURRENCY": {
+    "CREDIT": "Créditos",
+    "DUCKET": "Duckets",
+    "DIAMOND": "Diamantes",
+    "SHELL": "Conchas",
+    "PEANUT": "Cacahuetes",
+    "STAR": "Estrellas",
+    "CLOUD": "Nubes"
+  },
+  "SUCCESS": {
+    "LOGIN": "Has iniciado sesión.",
+    "REGISTER": "¡Bienvenido al hotel!",
+    "LOGOUT": "¡Hasta pronto!"
+  },
+  "ERROR": {
+    "REQUEST": "La solicitud falló",
+    "RETRY": "Ha ocurrido un error. Inténtalo de nuevo.",
+    "SESSION": "No se pudo recuperar tu sesión. Vuelve a iniciar sesión.",
+    "LOGOUT_LOCAL": "Has cerrado sesión en este dispositivo, pero no se pudo confirmar el cierre en el servidor.",
+    "UNKNOWN": "Ha ocurrido un error inesperado.",
+    "LOGIN": "No se pudo iniciar sesión. Comprueba tus datos e inténtalo de nuevo.",
+    "EMAIL_NOT_VERIFIED": "Verifica tu correo antes de iniciar sesión. Busca el enlace de verificación en tu bandeja de entrada.",
+    "EMAIL_TAKEN": "Ya existe una cuenta con ese correo.",
+    "AVATAR_REQUIRED": "Esta cuenta web aún no tiene un avatar del hotel vinculado.",
+    "REGISTER": "No se pudo crear tu cuenta.",
+    "EXPIRED": "Tu sesión ha caducado. Vuelve a iniciar sesión.",
+    "LOGOUT": "No se pudo cerrar la sesión.",
+    "UNAUTHENTICATED": {
+      "SUMMARY": "Acceso denegado",
+      "DETAIL": "Debes iniciar sesión para acceder a esta página."
+    },
+    "INPUT": {
+      "REQUIRED": "Completa correctamente los campos obligatorios.",
+      "RECAPTCHA": "Verifica que no eres un robot."
+    }
+  },
+  "ALERTS": {
+    "TITLE": {
+      "SUCCESS": "¡Buenas noticias!",
+      "INFO": "Aviso del hotel",
+      "WARN": "¡Atención!",
+      "ERROR": "¡Ups!"
+    }
+  }
+}

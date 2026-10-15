@@ -1,23 +1,13 @@
-import { trigger, transition, useAnimation } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
-import { fadeIn } from 'ng-animate';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'xdr-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  animations: [
-    trigger('fadeIn', [transition('* => *', useAnimation(fadeIn, {
-      params: {
-        timing: 1.5
-      }
-    }))])
-  ]
+    selector: 'xdr-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
-export class LoginComponent implements OnInit {
-  constructor(
-  ) {}
-
-  ngOnInit(): void {
-  }
+export class LoginComponent {
+  public readonly hotelName = environment.app.hotelName;
 }

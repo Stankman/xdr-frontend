@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Avatar } from 'src/app/modules/core/models/avatar/avatar.model';
 import { LookGestures } from 'src/app/modules/core/models/look/look-gestures.model';
 import { LookSizes } from 'src/app/modules/core/models/look/look-sizes.model';
@@ -7,9 +7,11 @@ import { LanguageService } from '../../../services/language.service';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'xdr-rank-member',
-  templateUrl: './rank-member.component.html',
-  styleUrls: ['./rank-member.component.scss']
+    selector: 'xdr-rank-member',
+    templateUrl: './rank-member.component.html',
+    styleUrls: ['./rank-member.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class RankMemberComponent implements OnInit {
   private _member: Avatar = new Avatar;

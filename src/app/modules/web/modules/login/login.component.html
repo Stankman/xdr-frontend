@@ -1,17 +1,46 @@
-<p-card styleClass="border-noround login-landing">
-    <div id="login-landing-content" class="px-8">
-      <div @fadeIn class="sm:w-12 md:w-6 lg:w-3 text-xl text-white" [innerHTML]="'LOGIN.MESSAGE' | translate"></div>
-      <p-button @fadeIn routerLink="/registration" label="Join Now" styleClass="habbo-button p-button-success p-button-lg p-button-raised p-button-rounded uppercase sm:w-12 md:w-6 lg:w-3"></p-button>
+<div class="landing-page web-container">
+  <section class="landing-hero" aria-labelledby="landing-title">
+    <div class="landing-copy entrance-bounce">
+      <span class="landing-eyebrow">{{ 'LOGIN.LANDING.EYEBROW' | translate: { hotelName } }}</span>
+      <h1 id="landing-title">{{ 'LOGIN.LANDING.TITLE' | translate }}</h1>
+      <p class="landing-description">{{ 'LOGIN.LANDING.DESCRIPTION' | translate: { hotelName } }}</p>
+      <a routerLink="/registration" class="landing-cta web-green-button">
+        {{ 'HEADER.SIGNUP.LABEL' | translate }}
+        <i class="pi pi-arrow-right" aria-hidden="true"></i>
+      </a>
+      <p class="landing-note"><i class="pi pi-check-circle" aria-hidden="true"></i>{{ 'LOGIN.LANDING.NOTE' | translate }}</p>
     </div>
-</p-card>
-<div class="grid grid-nogutter sm:flex-column md:flex-row py-2 px-8">
-  <div class="col-12 lg:col-3 p-2">
-    <xdr-recent-users></xdr-recent-users>
-  </div>
-  <div class="col-12 lg:col-6 p-2">
-    <xdr-articles-carousel></xdr-articles-carousel>
-  </div>
-  <div class="col-12 lg:col-3 p-2">
-    <xdr-recent-users></xdr-recent-users>
-  </div>
+    <div class="landing-art entrance-bounce entrance-delay-1" aria-hidden="true">
+      <img src="/assets/resources/images/hotel_landing_1.png" alt="" fetchpriority="high">
+      <span class="landing-art-label"><i class="pi pi-sparkles"></i>{{ 'LOGIN.LANDING.ART_LABEL' | translate }}</span>
+    </div>
+  </section>
+
+  <section class="landing-features" [attr.aria-label]="'LOGIN.LANDING.FEATURES_LABEL' | translate">
+    <article class="landing-feature entrance-bounce entrance-delay-1">
+      <span class="feature-icon"><i class="pi pi-user" aria-hidden="true"></i></span>
+      <div><h2>{{ 'LOGIN.LANDING.AVATAR_TITLE' | translate }}</h2><p>{{ 'LOGIN.LANDING.AVATAR_BODY' | translate }}</p></div>
+    </article>
+    <article class="landing-feature entrance-bounce entrance-delay-2">
+      <span class="feature-icon"><i class="pi pi-comments" aria-hidden="true"></i></span>
+      <div><h2>{{ 'LOGIN.LANDING.FRIENDS_TITLE' | translate }}</h2><p>{{ 'LOGIN.LANDING.FRIENDS_BODY' | translate }}</p></div>
+    </article>
+    <article class="landing-feature entrance-bounce entrance-delay-3">
+      <span class="feature-icon"><i class="pi pi-home" aria-hidden="true"></i></span>
+      <div><h2>{{ 'LOGIN.LANDING.ROOMS_TITLE' | translate }}</h2><p>{{ 'LOGIN.LANDING.ROOMS_BODY' | translate }}</p></div>
+    </article>
+  </section>
+
+  <section class="landing-community entrance-reveal" aria-labelledby="landing-news-title">
+    <div class="landing-news">
+      <div class="landing-section-heading">
+        <div><span class="landing-section-kicker">{{ hotelName }}</span><h2 id="landing-news-title">{{ 'ARTICLES.CAROUSEL.TITLE' | translate }}</h2></div>
+        <a routerLink="/articles">{{ 'LOGIN.LANDING.ALL_NEWS' | translate }}<i class="pi pi-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <xdr-articles-carousel></xdr-articles-carousel>
+    </div>
+    <aside class="landing-members">
+      <xdr-recent-users></xdr-recent-users>
+    </aside>
+  </section>
 </div>
